@@ -75,6 +75,7 @@ module.exports = grammar({
       $.address,
       $.set,
       $.the,
+      $.register,
     ),
 
     _defs: $ => choice(
@@ -174,6 +175,22 @@ module.exports = grammar({
       'the',
       field("type", $.type),
       field("expr", $._expr),
+    ),
+
+    register: $ => seq(
+      'register',
+      field('name', $.identifier),
+      choice(
+        seq(
+          field('type', choice($.type, $._short_helper)),
+          field('value_name', $._expr),
+        ),
+        seq(
+          '(',
+          field('fn', $.interface_fn),
+          ')'
+        ),
+      ),
     ),
 
     type: $ => choice(

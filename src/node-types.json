@@ -104,6 +104,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "set",
             "named": true
           },
@@ -297,6 +301,10 @@
           },
           {
             "type": "ref",
+            "named": true
+          },
+          {
+            "type": "register",
             "named": true
           },
           {
@@ -530,6 +538,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "set",
             "named": true
           },
@@ -700,6 +712,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "set",
             "named": true
           },
@@ -864,6 +880,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "set",
             "named": true
           },
@@ -1015,6 +1035,10 @@
           },
           {
             "type": "ref",
+            "named": true
+          },
+          {
+            "type": "register",
             "named": true
           },
           {
@@ -1182,6 +1206,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "set",
             "named": true
           },
@@ -1346,6 +1374,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "set",
             "named": true
           },
@@ -1487,6 +1519,10 @@
           },
           {
             "type": "ref",
+            "named": true
+          },
+          {
+            "type": "register",
             "named": true
           },
           {
@@ -1644,6 +1680,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "set",
             "named": true
           },
@@ -1782,6 +1822,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "set",
             "named": true
           },
@@ -1917,6 +1961,10 @@
           },
           {
             "type": "ref",
+            "named": true
+          },
+          {
+            "type": "register",
             "named": true
           },
           {
@@ -2106,6 +2154,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "set",
             "named": true
           },
@@ -2257,6 +2309,10 @@
           },
           {
             "type": "ref",
+            "named": true
+          },
+          {
+            "type": "register",
             "named": true
           },
           {
@@ -2543,6 +2599,204 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
+            "type": "set",
+            "named": true
+          },
+          {
+            "type": "short_copy",
+            "named": true
+          },
+          {
+            "type": "short_fn_ref",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          },
+          {
+            "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "str_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          },
+          {
+            "type": "the",
+            "named": true
+          },
+          {
+            "type": "while",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "register",
+    "named": true,
+    "fields": {
+      "fn": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "interface_fn",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "short_copy",
+            "named": true
+          },
+          {
+            "type": "short_fn_ref",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          },
+          {
+            "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
+      },
+      "value_name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "address",
+            "named": true
+          },
+          {
+            "type": "array_expression",
+            "named": true
+          },
+          {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "do",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "fn",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "line_comment",
+            "named": true
+          },
+          {
+            "type": "map_expression",
+            "named": true
+          },
+          {
+            "type": "pattern_literal",
+            "named": true
+          },
+          {
+            "type": "ref",
+            "named": true
+          },
+          {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "set",
             "named": true
           },
@@ -2684,6 +2938,10 @@
           },
           {
             "type": "ref",
+            "named": true
+          },
+          {
+            "type": "register",
             "named": true
           },
           {
@@ -2833,6 +3091,10 @@
           "named": true
         },
         {
+          "type": "register",
+          "named": true
+        },
+        {
           "type": "set",
           "named": true
         },
@@ -2965,6 +3227,10 @@
         },
         {
           "type": "ref",
+          "named": true
+        },
+        {
+          "type": "register",
           "named": true
         },
         {
@@ -3103,6 +3369,10 @@
           "named": true
         },
         {
+          "type": "register",
+          "named": true
+        },
+        {
           "type": "set",
           "named": true
         },
@@ -3238,6 +3508,10 @@
           "named": true
         },
         {
+          "type": "register",
+          "named": true
+        },
+        {
           "type": "set",
           "named": true
         },
@@ -3370,6 +3644,10 @@
         },
         {
           "type": "ref",
+          "named": true
+        },
+        {
+          "type": "register",
           "named": true
         },
         {
@@ -3543,6 +3821,10 @@
           },
           {
             "type": "ref",
+            "named": true
+          },
+          {
+            "type": "register",
             "named": true
           },
           {
@@ -3750,6 +4032,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "set",
             "named": true
           },
@@ -3885,6 +4171,10 @@
           },
           {
             "type": "ref",
+            "named": true
+          },
+          {
+            "type": "register",
             "named": true
           },
           {
@@ -4049,6 +4339,10 @@
   },
   {
     "type": "ref",
+    "named": false
+  },
+  {
+    "type": "register",
     "named": false
   },
   {

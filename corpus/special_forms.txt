@@ -292,3 +292,31 @@ The
         (identifier)
         (identifier)))
     expr: (identifier)))
+
+
+============================================
+Register
+============================================
+
+(register MIN Int "CARP_INT_MIN")
+
+(register + (λ [Int Int] Int))
+
+---
+
+(source_file
+  (register
+    name: (identifier)
+    type: (type
+      (identifier))
+    value_name: (str_literal))
+  (register
+    name: (identifier)
+    fn: (interface_fn
+      typed_params: (typed_parameters
+        (type
+          (identifier))
+        (type
+          (identifier)))
+      return_type: (type
+        (identifier)))))
