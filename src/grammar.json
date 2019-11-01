@@ -135,6 +135,10 @@
         {
           "type": "SYMBOL",
           "name": "ref"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "address"
         }
       ]
     },
@@ -458,6 +462,23 @@
               "value": "ref"
             }
           ]
+        },
+        {
+          "type": "FIELD",
+          "name": "expr",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expr"
+          }
+        }
+      ]
+    },
+    "address": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "address"
         },
         {
           "type": "FIELD",

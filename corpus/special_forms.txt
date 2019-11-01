@@ -224,3 +224,14 @@ Ref
       name: (identifier))
     argument: (ref
       expr: (identifier))))
+
+============================================
+Address
+============================================
+(address a)
+
+---
+
+(source_file
+  (address
+    expr: (identifier)))

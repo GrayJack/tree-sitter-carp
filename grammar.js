@@ -49,6 +49,7 @@ module.exports = grammar({
       $.if,
       $.while,
       $.ref,
+      $.address,
     ),
 
     _literals: $ => choice(
@@ -122,6 +123,11 @@ module.exports = grammar({
 
     ref: $ => seq(
       choice('ref'),
+      field('expr', $._expr),
+    ),
+
+    address: $ => seq(
+      'address',
       field('expr', $._expr),
     ),
 
