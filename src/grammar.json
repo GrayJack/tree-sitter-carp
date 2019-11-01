@@ -123,6 +123,10 @@
         {
           "type": "SYMBOL",
           "name": "while"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ref"
         }
       ]
     },
@@ -415,6 +419,28 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "ref": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "ref"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "expr",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expr"
+          }
         }
       ]
     },

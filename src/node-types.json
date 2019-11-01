@@ -132,6 +132,10 @@
             "named": true
           },
           {
+            "type": "ref",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -285,6 +289,10 @@
             "named": true
           },
           {
+            "type": "ref",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -374,6 +382,10 @@
           },
           {
             "type": "pattern_literal",
+            "named": true
+          },
+          {
+            "type": "ref",
             "named": true
           },
           {
@@ -489,6 +501,10 @@
             "named": true
           },
           {
+            "type": "ref",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -578,6 +594,10 @@
           },
           {
             "type": "pattern_literal",
+            "named": true
+          },
+          {
+            "type": "ref",
             "named": true
           },
           {
@@ -683,6 +703,10 @@
             "named": true
           },
           {
+            "type": "ref",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -769,6 +793,10 @@
             "named": true
           },
           {
+            "type": "ref",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -852,6 +880,10 @@
           },
           {
             "type": "pattern_literal",
+            "named": true
+          },
+          {
+            "type": "ref",
             "named": true
           },
           {
@@ -944,6 +976,10 @@
           },
           {
             "type": "pattern_literal",
+            "named": true
+          },
+          {
+            "type": "ref",
             "named": true
           },
           {
@@ -1046,6 +1082,10 @@
           },
           {
             "type": "pattern_literal",
+            "named": true
+          },
+          {
+            "type": "ref",
             "named": true
           },
           {
@@ -1196,6 +1236,102 @@
     }
   },
   {
+    "type": "ref",
+    "named": true,
+    "fields": {
+      "expr": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "array_expression",
+            "named": true
+          },
+          {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "do",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "fn",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "line_comment",
+            "named": true
+          },
+          {
+            "type": "map_expression",
+            "named": true
+          },
+          {
+            "type": "pattern_literal",
+            "named": true
+          },
+          {
+            "type": "ref",
+            "named": true
+          },
+          {
+            "type": "str_literal",
+            "named": true
+          },
+          {
+            "type": "while",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "source_file",
     "named": true,
     "fields": {},
@@ -1265,6 +1401,10 @@
         },
         {
           "type": "pattern_literal",
+          "named": true
+        },
+        {
+          "type": "ref",
           "named": true
         },
         {
@@ -1374,6 +1514,10 @@
             "named": true
           },
           {
+            "type": "ref",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -1457,6 +1601,10 @@
           },
           {
             "type": "pattern_literal",
+            "named": true
+          },
+          {
+            "type": "ref",
             "named": true
           },
           {
@@ -1549,6 +1697,10 @@
   },
   {
     "type": "let",
+    "named": false
+  },
+  {
+    "type": "ref",
     "named": false
   },
   {
