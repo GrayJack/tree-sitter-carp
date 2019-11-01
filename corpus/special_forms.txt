@@ -288,6 +288,7 @@ The
     expr: (identifier))
   (the
     type: (type
-      (identifier)
-      (identifier))
+      (complex_type
+        (identifier)
+        (identifier)))
     expr: (identifier)))

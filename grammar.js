@@ -54,6 +54,7 @@ module.exports = grammar({
       $.line_comment,
       $.identifier,
       $._s_forms,
+      $._defs,
       $.call_expression,
       $._short_helper,
       // literals
@@ -72,6 +73,10 @@ module.exports = grammar({
       $.address,
       $.set,
       $.the,
+    ),
+
+    _defs: $ => choice(
+      $.definterface,
     ),
 
     _literals: $ => choice(
@@ -168,10 +173,10 @@ module.exports = grammar({
     type: $ => choice(
       alias(choice(...core_types), $.identifier),
       $.identifier,
-      $._complex_type,
+      $.complex_type,
     ),
 
-    _complex_type: $ => seq(
+    complex_type: $ => seq(
       '(',
       repeat(choice(
         alias(choice(...core_types), $.identifier),
@@ -193,6 +198,20 @@ module.exports = grammar({
       $.short_fn_ref,
     )),
 
+    definterface: $ => seq(
+      'definterface',
+      field('name', $.identifier),
+      '(',
+      field('fn', $.interface_fn),
+      ')'
+    ),
+
+    interface_fn: $ => seq(
+      choice('Fn', 'λ'),
+      field('typed_params', $.typed_parameters),
+      field('return_type', choice($._short_helper, $.type)),
+    ),
+
     short_ref: $ => seq('&', $._expr),
 
     short_copy: $ => seq('@', $._expr),
@@ -202,6 +221,12 @@ module.exports = grammar({
     parameters: $ => seq(
       '[',
       repeat($.identifier),
+      ']'
+    ),
+
+    typed_parameters: $ => seq(
+      '[',
+      repeat(choice($.type, $._short_helper)),
       ']'
     ),
 

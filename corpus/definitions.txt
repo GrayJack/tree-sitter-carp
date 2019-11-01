@@ -139,3 +139,49 @@ Def with Map
       value: (float_literal)
       key: (integer_literal)
       value: (float_literal))))
+
+============================================
+Definterface
+============================================
+
+(definterface = (λ [a a] Bool))
+
+(definterface add-ref (Fn [&a &a] a))
+
+(definterface frexp (λ [a (Ref Int)] a))
+
+---
+
+(source_file
+  (definterface
+    name: (identifier )
+    fn: (interface_fn
+      typed_params: (typed_parameters
+        (type
+          (identifier ))
+        (type
+          (identifier )))
+      return_type: (type
+        (identifier ))))
+  (definterface
+    name: (identifier )
+    fn: (interface_fn
+      typed_params: (typed_parameters
+        (short_ref
+          (identifier ))
+        (short_ref 
+          (identifier )))
+      return_type: (type
+        (identifier ))))
+  (definterface
+    name: (identifier )
+    fn: (interface_fn
+      typed_params: (typed_parameters
+        (type
+          (identifier ))
+        (type
+          (complex_type
+            (identifier )
+            (identifier ))))
+      return_type: (type
+        (identifier )))))

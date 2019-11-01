@@ -89,6 +89,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "_defs"
+        },
+        {
+          "type": "SYMBOL",
           "name": "call_expression"
         },
         {
@@ -147,6 +151,15 @@
         {
           "type": "SYMBOL",
           "name": "the"
+        }
+      ]
+    },
+    "_defs": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "definterface"
         }
       ]
     },
@@ -635,11 +648,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_complex_type"
+          "name": "complex_type"
         }
       ]
     },
-    "_complex_type": {
+    "complex_type": {
       "type": "SEQ",
       "members": [
         {
@@ -834,6 +847,82 @@
         ]
       }
     },
+    "definterface": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "definterface"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "FIELD",
+          "name": "fn",
+          "content": {
+            "type": "SYMBOL",
+            "name": "interface_fn"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "interface_fn": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "Fn"
+            },
+            {
+              "type": "STRING",
+              "value": "λ"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "typed_params",
+          "content": {
+            "type": "SYMBOL",
+            "name": "typed_parameters"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "return_type",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_short_helper"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "type"
+              }
+            ]
+          }
+        }
+      ]
+    },
     "short_ref": {
       "type": "SEQ",
       "members": [
@@ -885,6 +974,35 @@
           "content": {
             "type": "SYMBOL",
             "name": "identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        }
+      ]
+    },
+    "typed_parameters": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "type"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_short_helper"
+              }
+            ]
           }
         },
         {
