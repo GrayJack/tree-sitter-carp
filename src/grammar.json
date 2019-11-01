@@ -143,6 +143,10 @@
         {
           "type": "SYMBOL",
           "name": "set"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "the"
         }
       ]
     },
@@ -516,6 +520,225 @@
             "type": "SYMBOL",
             "name": "_expr"
           }
+        }
+      ]
+    },
+    "the": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "the"
+        },
+        {
+          "type": "FIELD",
+          "name": "type",
+          "content": {
+            "type": "SYMBOL",
+            "name": "type"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "expr",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expr"
+          }
+        }
+      ]
+    },
+    "type": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "Bool"
+              },
+              {
+                "type": "STRING",
+                "value": "Char"
+              },
+              {
+                "type": "STRING",
+                "value": "Int"
+              },
+              {
+                "type": "STRING",
+                "value": "Long"
+              },
+              {
+                "type": "STRING",
+                "value": "Float"
+              },
+              {
+                "type": "STRING",
+                "value": "Double"
+              },
+              {
+                "type": "STRING",
+                "value": "Vector2"
+              },
+              {
+                "type": "STRING",
+                "value": "Vector3"
+              },
+              {
+                "type": "STRING",
+                "value": "VectorN"
+              },
+              {
+                "type": "STRING",
+                "value": "String"
+              },
+              {
+                "type": "STRING",
+                "value": "Pattern"
+              },
+              {
+                "type": "STRING",
+                "value": "Array"
+              },
+              {
+                "type": "STRING",
+                "value": "Map"
+              },
+              {
+                "type": "STRING",
+                "value": "Maybe"
+              },
+              {
+                "type": "STRING",
+                "value": "Result"
+              },
+              {
+                "type": "STRING",
+                "value": "Id"
+              },
+              {
+                "type": "STRING",
+                "value": "Ptr"
+              }
+            ]
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_complex_type"
+        }
+      ]
+    },
+    "_complex_type": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "Bool"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "Char"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "Int"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "Long"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "Float"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "Double"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "Vector2"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "Vector3"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "VectorN"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "String"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "Pattern"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "Array"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "Map"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "Maybe"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "Result"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "Id"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "Ptr"
+                    }
+                  ]
+                },
+                "named": true,
+                "value": "identifier"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
         }
       ]
     },

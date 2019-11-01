@@ -270,3 +270,24 @@ Set!
           name: (identifier))
         argument: (identifier)
         argument: (integer_literal)))))
+
+============================================
+The
+============================================
+
+(the Bool a)
+
+(the (Ref Id) a)
+
+---
+
+(source_file
+  (the
+    type: (type
+      (identifier))
+    expr: (identifier))
+  (the
+    type: (type
+      (identifier)
+      (identifier))
+    expr: (identifier)))

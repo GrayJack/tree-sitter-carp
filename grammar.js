@@ -2,6 +2,26 @@ const PREC = {
   call: 14,
 }
 
+const core_types = [
+  'Bool',
+  'Char',
+  'Int',
+  'Long',
+  'Float',
+  'Double',
+  'Vector2',
+  'Vector3',
+  'VectorN',
+  'String',
+  'Pattern',
+  'Array',
+  'Map',
+  'Maybe',
+  'Result',
+  'Id',
+  'Ptr',
+]
+
 module.exports = grammar({
   name: 'carp',
 
@@ -51,6 +71,7 @@ module.exports = grammar({
       $.ref,
       $.address,
       $.set,
+      $.the,
     ),
 
     _literals: $ => choice(
@@ -136,6 +157,27 @@ module.exports = grammar({
       'set!',
       field('variable', $.identifier),
       field('expr', $._expr),
+    ),
+
+    the: $ => seq(
+      'the',
+      field("type", $.type),
+      field("expr", $._expr),
+    ),
+
+    type: $ => choice(
+      alias(choice(...core_types), $.identifier),
+      $.identifier,
+      $._complex_type,
+    ),
+
+    _complex_type: $ => seq(
+      '(',
+      repeat(choice(
+        alias(choice(...core_types), $.identifier),
+        $.identifier,
+      )),
+      ')',
     ),
 
     call_expression: $ => prec(PREC.call, seq(
