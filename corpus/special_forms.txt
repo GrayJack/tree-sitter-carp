@@ -1,0 +1,84 @@
+============================================
+Fn
+============================================
+
+(fn [a] a)
+
+(fn [a b] (+ a b))
+
+---
+
+(source_file
+  (fn
+    parameters: (parameters
+      (identifier))
+    body: (identifier))
+  (fn
+    parameters: (parameters
+      (identifier)
+      (identifier))
+    body: (call_expression
+      call_name: (call_name
+        name: (identifier))
+      argument: (identifier)
+      argument: (identifier))))
+
+============================================
+Defn
+============================================
+
+(defn void [])
+
+(defn double [x] (* x 2))
+
+---
+
+(source_file
+  (defn
+    name: (identifier)
+    parameters: (parameters))
+  (defn
+    name: (identifier)
+    parameters: (parameters
+      (identifier))
+    body: (call_expression
+      call_name: (call_name
+        name: (identifier))
+      argument: (identifier)
+      argument: (integer_literal))))
+
+============================================
+Let
+============================================
+
+(let [])
+
+(let [a 10])
+
+(let [a 10 b c])
+
+(let [a 10] (double a))
+
+---
+
+(source_file
+  (let
+    pairs: (let_pairs))
+  (let
+    pairs: (let_pairs
+      var: (identifier)
+      expr: (integer_literal)))
+  (let
+    pairs: (let_pairs
+      var: (identifier)
+      expr: (integer_literal)
+      var: (identifier)
+      expr: (identifier)))
+  (let
+    pairs: (let_pairs
+      var: (identifier)
+      expr: (integer_literal))
+    body: (call_expression
+      call_name: (call_name
+        name: (identifier))
+      argument: (identifier))))

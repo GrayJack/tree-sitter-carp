@@ -1,0 +1,25 @@
+============================================
+Call expressions
+============================================
+
+(void)
+
+(double x)
+
+(* 2 10)
+
+---
+
+(source_file
+  (call_expression
+    call_name: (call_name
+      name: (identifier)))
+  (call_expression
+    call_name: (call_name
+      name: (identifier))
+    argument: (identifier))
+  (call_expression
+    call_name: (call_name
+      name: (identifier))
+    argument: (integer_literal)
+    argument: (integer_literal)))

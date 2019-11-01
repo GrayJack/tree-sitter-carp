@@ -1,5 +1,14 @@
+const PREC = {
+  call: 14,
+}
+
 module.exports = grammar({
   name: 'carp',
+
+  // conflicts: $ => [
+  //   // [$.let_pairs, $.array_expression]
+  //   [$._anything, $._anything],
+  // ],
 
   rules: {
     source_file: $ => repeat(choice($.line_comment, $._s_expr)),
@@ -12,20 +21,27 @@ module.exports = grammar({
       ')',
     ),
 
+    _expr: $ => choice(
+      $._literals,
+      $.identifier,
+      $._s_expr,
+    ),
+
     _anything: $ => choice(
       // Core thing
       $._s_expr,
       $.line_comment,
       $.identifier,
-      $.def,
+      $._s_forms,
+      $._functions,
+      $.call_expression,
       // literals
       $._literals,
     ),
 
-    def: $ => seq(
-      'def',
-      field('name', $.identifier),
-      field('value', $._anything),
+    _s_forms: $ => choice(
+      $.def,
+      $.let,
     ),
 
     _literals: $ => choice(
@@ -37,6 +53,69 @@ module.exports = grammar({
       $.bool_literal,
       $.integer_literal,
       $.float_literal,
+    ),
+
+
+    _functions: $ => choice(
+      $.fn,
+      $.defn,
+    ),
+
+    def: $ => seq(
+      'def',
+      field('name', $.identifier),
+      field('value', $._expr),
+    ),
+
+    fn: $ => seq(
+      'fn',
+      field('parameters', $.parameters),
+      optional(field('body', $._expr)),
+    ),
+
+    defn: $ => seq(
+      'defn',
+      field('name', $.identifier),
+      field('parameters', $.parameters),
+      optional(field('body', $._expr)),
+    ),
+
+    let: $ => seq(
+      'let',
+      field('pairs', $.let_pairs),
+      optional(field('body', $._expr))
+    ),
+
+    let_pairs: $ => seq(
+      '[',
+      repeat(seq(
+        field('var', $.identifier),
+        field('expr', $._expr),
+      )),
+      ']'
+    ),
+
+    call_expression: $ => prec(PREC.call, seq(
+      field('call_name', $.call_name),
+      optional(
+        field(
+          'argument',
+          repeat(seq(
+            optional(choice('&', '@', '~')),
+            choice($.identifier, $._literals),
+          ))
+        )),
+    )),
+
+    call_name: $ => prec(PREC.call, seq(
+      optional(seq(field('module', $.identifier), '.')),
+      field('name', $.identifier),
+    )),
+
+    parameters: $ => seq(
+      '[',
+      repeat($.identifier),
+      ']'
     ),
 
     integer_literal: $ => token(seq(
@@ -110,7 +189,7 @@ module.exports = grammar({
       '}'
     ),
 
-    identifier: $ => /[a-zA-Zα-ωΑ-Ωµ_][a-zA-Zα-ωΑ-Ωµ\d_]*/,
+    identifier: $ => /[a-zA-Zα-ωΑ-Ωµ_\+\-\*\/\|%\!\?=\^][a-zA-Zα-ωΑ-Ωµ_\+\-\*\/\|%\!\?=\^\\]*/,
   }
 });
 
