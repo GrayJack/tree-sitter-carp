@@ -176,6 +176,10 @@
         {
           "type": "SYMBOL",
           "name": "defndynamic"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "defmodule"
         }
       ]
     },
@@ -979,6 +983,34 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "defmodule": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "defmodule"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "FIELD",
+            "name": "definition",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expr"
+            }
+          }
         }
       ]
     },

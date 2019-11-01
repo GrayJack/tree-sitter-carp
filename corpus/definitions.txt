@@ -243,3 +243,36 @@ Defndynamic
         call_name: (call_name
           name: (identifier))
         argument: (identifier)))))
+
+============================================
+Defmodule
+============================================
+
+(defmodule Double
+  (def pi 3.141592653589793)
+  (def e 2.718281828459045)
+  (defn approx [x y]
+    (Generics.approx x y)))
+
+---
+
+(source_file
+  (defmodule
+    name: (identifier)
+    definition: (def
+      name: (identifier)
+      value: (float_literal))
+    definition: (def
+      name: (identifier)
+      value: (float_literal))
+    definition: (defn
+      name: (identifier)
+      parameters: (parameters
+        (identifier)
+        (identifier))
+      body: (call_expression
+        call_name: (call_name
+          module: (identifier)
+          name: (identifier))
+        argument: (identifier)
+        argument: (identifier)))))
