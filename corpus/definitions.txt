@@ -169,7 +169,7 @@ Definterface
       typed_params: (typed_parameters
         (short_ref
           (identifier ))
-        (short_ref 
+        (short_ref
           (identifier )))
       return_type: (type
         (identifier ))))
@@ -185,3 +185,45 @@ Definterface
             (identifier ))))
       return_type: (type
         (identifier )))))
+
+============================================
+Defmacro
+============================================
+
+(defmacro doc [name string]
+  (list 'meta-set! name "doc" string))
+
+(defmacro => [:rest forms]
+  (thread-first-internal forms))
+
+---
+
+(source_file
+  (defmacro
+    name: (identifier)
+    parameters: (parameters
+      (identifier)
+      (identifier))
+    body: (call_expression
+      call_name: (call_name
+        name: (identifier))
+      argument: (short_quote
+        (identifier))
+      argument: (identifier)
+      argument: (str_literal)
+      argument: (identifier)))
+  (defmacro
+    name: (identifier)
+    parameters: (parameters
+      (symbol
+        (identifier))
+      (identifier))
+    body: (call_expression
+      call_name: (call_name
+        name: (identifier))
+      argument: (identifier)))
+  (call_expression
+    call_name: (call_name
+      name: (identifier))
+    argument: (symbol
+      (identifier))))

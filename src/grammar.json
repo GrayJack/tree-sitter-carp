@@ -64,6 +64,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "symbol"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_s_expr"
         }
       ]
@@ -82,6 +86,10 @@
         {
           "type": "SYMBOL",
           "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "symbol"
         },
         {
           "type": "SYMBOL",
@@ -160,6 +168,10 @@
         {
           "type": "SYMBOL",
           "name": "definterface"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "defmacro"
         }
       ]
     },
@@ -214,6 +226,10 @@
         {
           "type": "SYMBOL",
           "name": "short_fn_ref"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "short_quote"
         }
       ]
     },
@@ -880,6 +896,47 @@
         }
       ]
     },
+    "defmacro": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "defmacro"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "parameters",
+          "content": {
+            "type": "SYMBOL",
+            "name": "parameters"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "body",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_expr"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
     "interface_fn": {
       "type": "SEQ",
       "members": [
@@ -962,6 +1019,19 @@
         }
       ]
     },
+    "short_quote": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "'"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expr"
+        }
+      ]
+    },
     "parameters": {
       "type": "SEQ",
       "members": [
@@ -972,8 +1042,17 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "SYMBOL",
-            "name": "identifier"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "symbol"
+              }
+            ]
           }
         },
         {
@@ -1319,6 +1398,19 @@
         {
           "type": "STRING",
           "value": "}"
+        }
+      ]
+    },
+    "symbol": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
         }
       ]
     },

@@ -45,6 +45,7 @@ module.exports = grammar({
       $._short_helper,
       $._literals,
       $.identifier,
+      $.symbol,
       $._s_expr,
     ),
 
@@ -53,6 +54,7 @@ module.exports = grammar({
       $._s_expr,
       $.line_comment,
       $.identifier,
+      $.symbol,
       $._s_forms,
       $._defs,
       $.call_expression,
@@ -77,6 +79,7 @@ module.exports = grammar({
 
     _defs: $ => choice(
       $.definterface,
+      $.defmacro,
     ),
 
     _literals: $ => choice(
@@ -94,6 +97,7 @@ module.exports = grammar({
       $.short_ref,
       $.short_copy,
       $.short_fn_ref,
+      $.short_quote,
     ),
 
     def: $ => seq(
@@ -206,6 +210,13 @@ module.exports = grammar({
       ')'
     ),
 
+    defmacro: $ => seq(
+      'defmacro',
+      field('name', $.identifier),
+      field('parameters', $.parameters),
+      optional(field('body', $._expr)),
+    ),
+
     interface_fn: $ => seq(
       choice('Fn', 'λ'),
       field('typed_params', $.typed_parameters),
@@ -218,9 +229,11 @@ module.exports = grammar({
 
     short_fn_ref: $ => seq('~', $._expr),
 
+    short_quote: $ => seq('\'', $._expr),
+
     parameters: $ => seq(
       '[',
-      repeat($.identifier),
+      repeat(choice($.identifier, $.symbol)),
       ']'
     ),
 
@@ -299,6 +312,11 @@ module.exports = grammar({
         )
       ),
       '}'
+    ),
+
+    symbol: $ => seq(
+      ':',
+      $.identifier,
     ),
 
     identifier: $ => /[a-zA-Zα-ωΑ-Ωµ_<%=>\+\-\*\/\|\!\?\^][a-zA-Zα-ωΑ-Ωµ_<%=>\+\-\*\/\|\!\?\^]*/,
