@@ -161,3 +161,33 @@ If
       call_name: (call_name
         name: (identifier))
       argument: (str_literal))))
+
+============================================
+While
+============================================
+
+(while (< a 10))
+
+(while (< a 10)
+  (+= a 1))
+
+---
+
+(source_file
+  (while
+    condition: (call_expression
+      call_name: (call_name
+        name: (identifier))
+      argument: (identifier)
+      argument: (integer_literal)))
+  (while
+    condition: (call_expression
+      call_name: (call_name
+        name: (identifier))
+      argument: (identifier)
+      argument: (integer_literal))
+    body: (call_expression
+      call_name: (call_name
+        name: (identifier))
+      argument: (identifier)
+      argument: (integer_literal))))

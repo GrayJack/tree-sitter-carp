@@ -45,6 +45,7 @@ module.exports = grammar({
       $.let,
       $.do,
       $.if,
+      $.while,
     ),
 
     _literals: $ => choice(
@@ -102,6 +103,12 @@ module.exports = grammar({
       field('condition', $._expr),
       field('then', $._expr),
       field('else', $._expr),
+    ),
+
+    while: $ => seq(
+      'while',
+      field('condition', $._expr),
+      optional(field('body', $._expr)),
     ),
 
     call_expression: $ => prec(PREC.call, seq(
