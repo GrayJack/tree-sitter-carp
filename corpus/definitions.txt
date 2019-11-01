@@ -93,6 +93,8 @@ Def with Array
 
 (def arr [1 2 a])
 
+(def ref-arr &[a b c])
+
 (def arr [[1 2] [3 4]])
 
 ---
@@ -104,6 +106,13 @@ Def with Array
       (integer_literal)
       (integer_literal)
       (identifier)))
+  (def
+    name: (identifier)
+    value: (short_ref
+      (array_expression
+        (identifier)
+        (identifier)
+        (identifier))))
   (def
     name: (identifier)
     value: (array_expression

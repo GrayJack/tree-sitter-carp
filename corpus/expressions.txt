@@ -8,6 +8,8 @@ Call expressions
 
 (* 2 10)
 
+(~f a)
+
 ---
 
 (source_file
@@ -22,4 +24,9 @@ Call expressions
     call_name: (call_name
       name: (identifier))
     argument: (integer_literal)
-    argument: (integer_literal)))
+    argument: (integer_literal))
+  (call_expression
+    call_name: (call_name
+      (short_fn_ref
+        (identifier)))
+    argument: (identifier)))

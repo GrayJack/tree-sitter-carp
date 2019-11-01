@@ -22,6 +22,7 @@ module.exports = grammar({
     ),
 
     _expr: $ => choice(
+      $._short_helper,
       $._literals,
       $.identifier,
       $._s_expr,
@@ -34,6 +35,7 @@ module.exports = grammar({
       $.identifier,
       $._s_forms,
       $.call_expression,
+      $._short_helper,
       // literals
       $._literals,
     ),
@@ -58,6 +60,12 @@ module.exports = grammar({
       $.bool_literal,
       $.integer_literal,
       $.float_literal,
+    ),
+
+    _short_helper: $ => choice(
+      $.short_ref,
+      $.short_copy,
+      $.short_fn_ref,
     ),
 
     def: $ => seq(
@@ -122,10 +130,19 @@ module.exports = grammar({
       optional(field('argument', repeat(seq($._expr)))),
     )),
 
-    call_name: $ => prec(PREC.call, seq(
-      optional(seq(field('module', $.identifier), '.')),
-      field('name', $.identifier),
+    call_name: $ => prec(PREC.call, choice(
+      seq(
+        optional(seq(field('module', $.identifier), '.')),
+        field('name', $.identifier),
+      ),
+      $.short_fn_ref,
     )),
+
+    short_ref: $ => seq('&', $._expr),
+
+    short_copy: $ => seq('@', $._expr),
+
+    short_fn_ref: $ => seq('~', $._expr),
 
     parameters: $ => seq(
       '[',
