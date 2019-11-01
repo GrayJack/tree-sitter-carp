@@ -1,0 +1,88 @@
+============================================
+Def with identifiers
+============================================
+
+(def a b)
+
+---
+
+(source_file
+  (def
+    name: (identifier)
+    value: (identifier)))
+
+============================================
+Def with literals
+============================================
+
+(def a true)
+
+(def a false)
+
+(def a 10)
+
+(def a 10l)
+
+(def a 10f)
+
+(def a 10.0)
+
+(def a 10.0f)
+
+(def a \e)
+
+(def a \\n)
+
+(def a "str")
+
+(def a "\n")
+
+(def a #"pattern")
+
+(def a #"\n")
+
+---
+
+(source_file
+  (def
+    name: (identifier)
+    value: (bool_literal))
+  (def
+    name: (identifier)
+    value: (bool_literal))
+  (def
+    name: (identifier)
+    value: (integer_literal))
+  (def
+    name: (identifier)
+    value: (integer_literal))
+  (def
+    name: (identifier)
+    value: (float_literal))
+  (def
+    name: (identifier)
+    value: (float_literal))
+  (def
+    name: (identifier)
+    value: (float_literal))
+  (def
+    name: (identifier)
+    value: (char_literal))
+  (def
+    name: (identifier)
+    value: (char_literal
+      (escape_sequence)))
+  (def
+    name: (identifier)
+    value: (str_literal))
+  (def
+    name: (identifier)
+    value: (str_literal
+      (escape_sequence)))
+  (def
+    name: (identifier)
+    value: (pattern_literal))
+  (def
+    name: (identifier)
+    value: (pattern_literal
+      (escape_sequence))))

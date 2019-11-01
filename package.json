@@ -1,0 +1,31 @@
+{
+  "name": "tree-sitter-carp",
+  "version": "0.0.0",
+  "description": "Carp grammar for tree-sitter",
+  "main": "index.js",
+  "scripts": {
+    "test": "tree-sitter test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GrayJack/tree-sitter-carp.git"
+  },
+  "keywords": [
+    "carp",
+    "parser",
+    "tree-sitter",
+    "treesitter"
+  ],
+  "author": "Eric Shimizu Karbstein <gr41.j4ck@gmail.com>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/GrayJack/tree-sitter-carp/issues"
+  },
+  "homepage": "https://github.com/GrayJack/tree-sitter-carp#readme",
+  "dependencies": {
+    "nan": "^2.14.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.15.12"
+  }
+}
