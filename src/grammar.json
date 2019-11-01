@@ -139,6 +139,10 @@
         {
           "type": "SYMBOL",
           "name": "address"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "set"
         }
       ]
     },
@@ -479,6 +483,31 @@
         {
           "type": "STRING",
           "value": "address"
+        },
+        {
+          "type": "FIELD",
+          "name": "expr",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expr"
+          }
+        }
+      ]
+    },
+    "set": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "set!"
+        },
+        {
+          "type": "FIELD",
+          "name": "variable",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
         },
         {
           "type": "FIELD",

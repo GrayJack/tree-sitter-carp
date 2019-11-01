@@ -50,6 +50,7 @@ module.exports = grammar({
       $.while,
       $.ref,
       $.address,
+      $.set,
     ),
 
     _literals: $ => choice(
@@ -128,6 +129,12 @@ module.exports = grammar({
 
     address: $ => seq(
       'address',
+      field('expr', $._expr),
+    ),
+
+    set: $ => seq(
+      'set!',
+      field('variable', $.identifier),
       field('expr', $._expr),
     ),
 

@@ -235,3 +235,38 @@ Address
 (source_file
   (address
     expr: (identifier)))
+
+============================================
+Set!
+============================================
+
+(set! a 11)
+
+(set! b (if (< b 10)
+    (- b 1)
+    (+ b 1)))
+
+---
+
+(source_file
+  (set
+    variable: (identifier)
+    expr: (integer_literal))
+  (set
+    variable: (identifier)
+    expr: (if
+      condition: (call_expression
+        call_name: (call_name
+          name: (identifier))
+        argument: (identifier)
+        argument: (integer_literal))
+      then: (call_expression
+        call_name: (call_name
+          name: (identifier))
+        argument: (identifier)
+        argument: (integer_literal))
+      else: (call_expression
+        call_name: (call_name
+          name: (identifier))
+        argument: (identifier)
+        argument: (integer_literal)))))
