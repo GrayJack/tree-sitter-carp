@@ -172,6 +172,10 @@
         {
           "type": "SYMBOL",
           "name": "defmacro"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "defndynamic"
         }
       ]
     },
@@ -902,6 +906,47 @@
         {
           "type": "STRING",
           "value": "defmacro"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "parameters",
+          "content": {
+            "type": "SYMBOL",
+            "name": "parameters"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "body",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_expr"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "defndynamic": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "defndynamic"
         },
         {
           "type": "FIELD",

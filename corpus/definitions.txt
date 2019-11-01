@@ -221,9 +221,25 @@ Defmacro
     body: (call_expression
       call_name: (call_name
         name: (identifier))
-      argument: (identifier)))
-  (call_expression
-    call_name: (call_name
-      name: (identifier))
-    argument: (symbol
-      (identifier))))
+      argument: (identifier))))
+
+============================================
+Defndynamic
+============================================
+
+(defndynamic caar [pair] (car (car pair)))
+
+---
+
+(source_file
+  (defndynamic
+    name: (identifier)
+    parameters: (parameters
+      (identifier))
+    body: (call_expression
+      call_name: (call_name
+        name: (identifier))
+      argument: (call_expression
+        call_name: (call_name
+          name: (identifier))
+        argument: (identifier)))))

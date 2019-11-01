@@ -80,6 +80,7 @@ module.exports = grammar({
     _defs: $ => choice(
       $.definterface,
       $.defmacro,
+      $.defndynamic,
     ),
 
     _literals: $ => choice(
@@ -212,6 +213,13 @@ module.exports = grammar({
 
     defmacro: $ => seq(
       'defmacro',
+      field('name', $.identifier),
+      field('parameters', $.parameters),
+      optional(field('body', $._expr)),
+    ),
+
+    defndynamic: $ => seq(
+      'defndynamic',
       field('name', $.identifier),
       field('parameters', $.parameters),
       optional(field('body', $._expr)),
