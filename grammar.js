@@ -33,15 +33,17 @@ module.exports = grammar({
       $.line_comment,
       $.identifier,
       $._s_forms,
-      $._functions,
       $.call_expression,
       // literals
       $._literals,
     ),
 
     _s_forms: $ => choice(
+      $.fn,
       $.def,
+      $.defn,
       $.let,
+      $.do,
     ),
 
     _literals: $ => choice(
@@ -53,12 +55,6 @@ module.exports = grammar({
       $.bool_literal,
       $.integer_literal,
       $.float_literal,
-    ),
-
-
-    _functions: $ => choice(
-      $.fn,
-      $.defn,
     ),
 
     def: $ => seq(
@@ -95,16 +91,14 @@ module.exports = grammar({
       ']'
     ),
 
+    do: $ => seq(
+      'do',
+      repeat(field('expr', $._expr)),
+    ),
+
     call_expression: $ => prec(PREC.call, seq(
       field('call_name', $.call_name),
-      optional(
-        field(
-          'argument',
-          repeat(seq(
-            optional(choice('&', '@', '~')),
-            choice($.identifier, $._literals),
-          ))
-        )),
+      optional(field('argument', repeat(seq($._expr)))),
     )),
 
     call_name: $ => prec(PREC.call, seq(

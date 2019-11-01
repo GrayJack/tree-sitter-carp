@@ -82,3 +82,40 @@ Let
       call_name: (call_name
         name: (identifier))
       argument: (identifier))))
+
+============================================
+Do
+============================================
+
+(do a)
+
+(do
+    (+ a 10)
+    (do b))
+
+(let [a 10]
+    (do (* a 2)))
+
+---
+
+(source_file
+  (do
+    expr: (identifier))
+  (do
+    expr: (call_expression
+      call_name: (call_name
+        name: (identifier))
+      argument: (identifier)
+      argument: (integer_literal))
+    expr: (do
+      expr: (identifier)))
+  (let
+    pairs: (let_pairs
+      var: (identifier)
+      expr: (integer_literal))
+    body: (do
+      expr: (call_expression
+        call_name: (call_name
+          name: (identifier))
+        argument: (identifier)
+        argument: (integer_literal)))))

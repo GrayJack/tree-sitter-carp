@@ -85,10 +85,6 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_functions"
-        },
-        {
-          "type": "SYMBOL",
           "name": "call_expression"
         },
         {
@@ -102,11 +98,23 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "fn"
+        },
+        {
+          "type": "SYMBOL",
           "name": "def"
         },
         {
           "type": "SYMBOL",
+          "name": "defn"
+        },
+        {
+          "type": "SYMBOL",
           "name": "let"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "do"
         }
       ]
     },
@@ -144,19 +152,6 @@
         {
           "type": "SYMBOL",
           "name": "float_literal"
-        }
-      ]
-    },
-    "_functions": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "fn"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "defn"
         }
       ]
     },
@@ -329,6 +324,26 @@
         }
       ]
     },
+    "do": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "do"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "FIELD",
+            "name": "expr",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expr"
+            }
+          }
+        }
+      ]
+    },
     "call_expression": {
       "type": "PREC",
       "value": 14,
@@ -355,42 +370,8 @@
                     "type": "SEQ",
                     "members": [
                       {
-                        "type": "CHOICE",
-                        "members": [
-                          {
-                            "type": "CHOICE",
-                            "members": [
-                              {
-                                "type": "STRING",
-                                "value": "&"
-                              },
-                              {
-                                "type": "STRING",
-                                "value": "@"
-                              },
-                              {
-                                "type": "STRING",
-                                "value": "~"
-                              }
-                            ]
-                          },
-                          {
-                            "type": "BLANK"
-                          }
-                        ]
-                      },
-                      {
-                        "type": "CHOICE",
-                        "members": [
-                          {
-                            "type": "SYMBOL",
-                            "name": "identifier"
-                          },
-                          {
-                            "type": "SYMBOL",
-                            "name": "_literals"
-                          }
-                        ]
+                        "type": "SYMBOL",
+                        "name": "_expr"
                       }
                     ]
                   }
