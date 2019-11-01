@@ -86,3 +86,47 @@ Def with literals
     name: (identifier)
     value: (pattern_literal
       (escape_sequence))))
+
+============================================
+Def with Array
+============================================
+
+(def arr [1 2 a])
+
+(def arr [[1 2] [3 4]])
+
+---
+
+(source_file
+  (def
+    name: (identifier)
+    value: (array_expression
+      (integer_literal)
+      (integer_literal)
+      (identifier)))
+  (def
+    name: (identifier)
+    value: (array_expression
+      (array_expression
+        (integer_literal)
+        (integer_literal))
+      (array_expression
+        (integer_literal)
+        (integer_literal)))))
+
+============================================
+Def with Map
+============================================
+
+(def m {1 1.0 2 2.2})
+
+---
+
+(source_file
+  (def
+    name: (identifier)
+    value: (map_expression
+      key: (integer_literal)
+      value: (float_literal)
+      key: (integer_literal)
+      value: (float_literal))))

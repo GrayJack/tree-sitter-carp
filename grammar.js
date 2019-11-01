@@ -2,44 +2,55 @@ module.exports = grammar({
   name: 'carp',
 
   rules: {
-    source_file: $ => repeat($._s_expr),
+    source_file: $ => repeat(choice($.line_comment, $._s_expr)),
+
+    line_comment: $ => seq(';', /.*/),
 
     _s_expr: $ => seq(
       '(',
       $._anything,
-      token.immediate(')')
+      ')',
     ),
 
     _anything: $ => choice(
-      $.def
+      // Core thing
+      $._s_expr,
+      $.line_comment,
+      $.identifier,
+      $.def,
+      // literals
+      $._literals,
     ),
 
     def: $ => seq(
       'def',
       field('name', $.identifier),
-      field('value', choice($.identifier, $._literals)),
+      field('value', $._anything),
     ),
 
     _literals: $ => choice(
+      $.array_expression,
+      $.map_expression,
+      $.str_literal,
+      $.char_literal,
+      $.pattern_literal,
+      $.bool_literal,
       $.integer_literal,
       $.float_literal,
-      $.bool_literal,
-      $.str_literal,
-      $.pattern_literal,
-      $.char_literal,
-      $.negative_literal,
     ),
 
-    negative_literal: $ => seq('-', choice($.integer_literal, $.float_literal),),
-
     integer_literal: $ => token(seq(
-      /[0-9][0-9_]*/,
+      optional('-'),
+      /[0-9][0-9]*/,
       optional('l'),
     )),
 
     float_literal: $ => token(seq(
-      /[0-9][0-9_]*/,
-      choice('f', /.[0-9][0-9_]*/, /.[0-9][0-9_]*f/),
+      optional('-'),
+      choice(
+        seq(/[0-9][0-9]*/, 'f'),
+        seq(/[0-9][0-9]*\.[0-9][0-9]*/, optional('f')),
+      ),
     )),
 
     bool_literal: $ => choice('true', 'false'),
@@ -80,6 +91,33 @@ module.exports = grammar({
         )
       )),
 
+    array_expression: $ => seq(
+      '[',
+      repeat(
+        choice($.identifier, $._literals)
+      ),
+      ']'
+    ),
+
+    map_expression: $ => seq(
+      '{',
+      repeat(
+        seq(
+          field('key', choice($.identifier, $._literals)),
+          field('value', choice($.identifier, $._literals)),
+        )
+      ),
+      '}'
+    ),
+
     identifier: $ => /[a-zA-Zα-ωΑ-Ωµ_][a-zA-Zα-ωΑ-Ωµ\d_]*/,
   }
 });
+
+function sepBy1(sep, rule) {
+  return seq(rule, repeat(seq(sep, rule)))
+}
+
+function sepBy(sep, rule) {
+  return optional(sepBy1(sep, rule))
+}
