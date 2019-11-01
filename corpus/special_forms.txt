@@ -119,3 +119,45 @@ Do
           name: (identifier))
         argument: (identifier)
         argument: (integer_literal)))))
+
+============================================
+If
+============================================
+
+(if (< a 10)
+    true
+    false)
+
+(if (= (% a 2) 0)
+    (println* "Is even")
+    (println* "Is odd"))
+
+---
+
+(source_file
+  (if
+    condition: (call_expression
+      call_name: (call_name
+        name: (identifier))
+      argument: (identifier)
+      argument: (integer_literal))
+    then: (bool_literal)
+    else: (bool_literal))
+  (if
+    condition: (call_expression
+      call_name: (call_name
+        name: (identifier))
+      argument: (call_expression
+        call_name: (call_name
+          name: (identifier))
+        argument: (identifier)
+        argument: (integer_literal))
+      argument: (integer_literal))
+    then: (call_expression
+      call_name: (call_name
+        name: (identifier))
+      argument: (str_literal))
+    else: (call_expression
+      call_name: (call_name
+        name: (identifier))
+      argument: (str_literal))))

@@ -44,6 +44,7 @@ module.exports = grammar({
       $.defn,
       $.let,
       $.do,
+      $.if,
     ),
 
     _literals: $ => choice(
@@ -94,6 +95,13 @@ module.exports = grammar({
     do: $ => seq(
       'do',
       repeat(field('expr', $._expr)),
+    ),
+
+    if: $ => seq(
+      'if',
+      field('condition', $._expr),
+      field('then', $._expr),
+      field('else', $._expr),
     ),
 
     call_expression: $ => prec(PREC.call, seq(
@@ -183,7 +191,7 @@ module.exports = grammar({
       '}'
     ),
 
-    identifier: $ => /[a-zA-Zα-ωΑ-Ωµ_\+\-\*\/\|%\!\?=\^][a-zA-Zα-ωΑ-Ωµ_\+\-\*\/\|%\!\?=\^\\]*/,
+    identifier: $ => /[a-zA-Zα-ωΑ-Ωµ_<%=>\+\-\*\/\|\!\?\^][a-zA-Zα-ωΑ-Ωµ_<%=>\+\-\*\/\|\!\?\^]*/,
   }
 });
 

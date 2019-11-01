@@ -115,6 +115,10 @@
         {
           "type": "SYMBOL",
           "name": "do"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "if"
         }
       ]
     },
@@ -340,6 +344,39 @@
               "type": "SYMBOL",
               "name": "_expr"
             }
+          }
+        }
+      ]
+    },
+    "if": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "if"
+        },
+        {
+          "type": "FIELD",
+          "name": "condition",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expr"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "then",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expr"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "else",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expr"
           }
         }
       ]
@@ -760,7 +797,7 @@
     },
     "identifier": {
       "type": "PATTERN",
-      "value": "[a-zA-Zα-ωΑ-Ωµ_\\+\\-\\*\\/\\|%\\!\\?=\\^][a-zA-Zα-ωΑ-Ωµ_\\+\\-\\*\\/\\|%\\!\\?=\\^\\\\]*"
+      "value": "[a-zA-Zα-ωΑ-Ωµ_<%=>\\+\\-\\*\\/\\|\\!\\?\\^][a-zA-Zα-ωΑ-Ωµ_<%=>\\+\\-\\*\\/\\|\\!\\?\\^]*"
     }
   },
   "extras": [
