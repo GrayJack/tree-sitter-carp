@@ -36,7 +36,7 @@ module.exports = grammar({
   name: 'carp',
 
   rules: {
-    source_file: $ => repeat(choice($.line_comment, $._s_expr)),
+    source_file: $ => repeat(choice($.line_comment, $.operators, $.other_str, $._s_expr)),
 
     line_comment: $ => seq(';', /.*/),
 

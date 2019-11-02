@@ -117,6 +117,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "operators"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_literals"
         }
       ]

@@ -104,6 +104,10 @@
             "named": true
           },
           {
+            "type": "operators",
+            "named": true
+          },
+          {
             "type": "pattern_literal",
             "named": true
           },
@@ -313,6 +317,10 @@
           },
           {
             "type": "map_expression",
+            "named": true
+          },
+          {
+            "type": "operators",
             "named": true
           },
           {
@@ -562,6 +570,10 @@
             "named": true
           },
           {
+            "type": "operators",
+            "named": true
+          },
+          {
             "type": "pattern_literal",
             "named": true
           },
@@ -748,6 +760,10 @@
             "named": true
           },
           {
+            "type": "operators",
+            "named": true
+          },
+          {
             "type": "pattern_literal",
             "named": true
           },
@@ -928,6 +944,10 @@
             "named": true
           },
           {
+            "type": "operators",
+            "named": true
+          },
+          {
             "type": "pattern_literal",
             "named": true
           },
@@ -1095,6 +1115,10 @@
           },
           {
             "type": "map_expression",
+            "named": true
+          },
+          {
+            "type": "operators",
             "named": true
           },
           {
@@ -1275,6 +1299,10 @@
           },
           {
             "type": "map_expression",
+            "named": true
+          },
+          {
+            "type": "operators",
             "named": true
           },
           {
@@ -1504,6 +1532,10 @@
             "named": true
           },
           {
+            "type": "operators",
+            "named": true
+          },
+          {
             "type": "pattern_literal",
             "named": true
           },
@@ -1713,6 +1745,10 @@
             "named": true
           },
           {
+            "type": "operators",
+            "named": true
+          },
+          {
             "type": "pattern_literal",
             "named": true
           },
@@ -1883,6 +1919,10 @@
             "named": true
           },
           {
+            "type": "operators",
+            "named": true
+          },
+          {
             "type": "pattern_literal",
             "named": true
           },
@@ -2037,6 +2077,10 @@
             "named": true
           },
           {
+            "type": "operators",
+            "named": true
+          },
+          {
             "type": "pattern_literal",
             "named": true
           },
@@ -2188,6 +2232,10 @@
           },
           {
             "type": "map_expression",
+            "named": true
+          },
+          {
+            "type": "operators",
             "named": true
           },
           {
@@ -2393,6 +2441,10 @@
             "named": true
           },
           {
+            "type": "operators",
+            "named": true
+          },
+          {
             "type": "pattern_literal",
             "named": true
           },
@@ -2563,6 +2615,10 @@
             "named": true
           },
           {
+            "type": "operators",
+            "named": true
+          },
+          {
             "type": "pattern_literal",
             "named": true
           },
@@ -2724,6 +2780,11 @@
     }
   },
   {
+    "type": "operators",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "parameters",
     "named": true,
     "fields": {},
@@ -2859,6 +2920,10 @@
           },
           {
             "type": "map_expression",
+            "named": true
+          },
+          {
+            "type": "operators",
             "named": true
           },
           {
@@ -3068,6 +3133,10 @@
             "named": true
           },
           {
+            "type": "operators",
+            "named": true
+          },
+          {
             "type": "pattern_literal",
             "named": true
           },
@@ -3225,6 +3294,10 @@
           },
           {
             "type": "map_expression",
+            "named": true
+          },
+          {
+            "type": "operators",
             "named": true
           },
           {
@@ -3390,6 +3463,10 @@
           "named": true
         },
         {
+          "type": "operators",
+          "named": true
+        },
+        {
           "type": "pattern_literal",
           "named": true
         },
@@ -3538,6 +3615,10 @@
         },
         {
           "type": "map_expression",
+          "named": true
+        },
+        {
+          "type": "operators",
           "named": true
         },
         {
@@ -3692,6 +3773,10 @@
           "named": true
         },
         {
+          "type": "operators",
+          "named": true
+        },
+        {
           "type": "pattern_literal",
           "named": true
         },
@@ -3843,6 +3928,10 @@
           "named": true
         },
         {
+          "type": "operators",
+          "named": true
+        },
+        {
           "type": "pattern_literal",
           "named": true
         },
@@ -3991,6 +4080,10 @@
         },
         {
           "type": "map_expression",
+          "named": true
+        },
+        {
+          "type": "operators",
           "named": true
         },
         {
@@ -4180,6 +4273,10 @@
           },
           {
             "type": "map_expression",
+            "named": true
+          },
+          {
+            "type": "operators",
             "named": true
           },
           {
@@ -4419,6 +4516,10 @@
             "named": true
           },
           {
+            "type": "operators",
+            "named": true
+          },
+          {
             "type": "pattern_literal",
             "named": true
           },
@@ -4570,6 +4671,10 @@
           },
           {
             "type": "map_expression",
+            "named": true
+          },
+          {
+            "type": "operators",
             "named": true
           },
           {
