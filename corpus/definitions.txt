@@ -276,3 +276,73 @@ Defmodule
           name: (identifier))
         argument: (identifier)
         argument: (identifier)))))
+
+============================================
+Deftype
+============================================
+
+(deftype AAA [a Int b Double])
+
+(deftype BBB [a (Array Int) b Double])
+
+(deftype (Pair) [a Int, b Int])
+
+(deftype (Pair a b) [a a b b])
+
+(deftype MyEnum
+    (Enum [])
+    (Enum2 []))
+
+(deftype (Maybe a)
+  (Just [a])
+  (Nothing []))
+
+---
+
+(source_file
+  (deftype
+    name: (identifier)
+    fields: (fields
+      (identifier)
+      (type)
+      (identifier)
+      (type)))
+  (deftype
+    name: (identifier)
+    fields: (fields
+      (identifier)
+      (complex_type
+        (identifier)
+        (identifier))
+      (identifier)
+      (type)))
+  (deftype
+    name: (identifier)
+    fields: (fields
+      (identifier)
+      (type)
+      (identifier)
+      (type)))
+  (deftype
+    name: (identifier)
+    generic_type: (identifier)
+    generic_type: (identifier)
+    fields: (fields
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier)))
+  (deftype
+    name: (identifier)
+    variant: (identifier)
+    fields: (fields)
+    variant: (identifier)
+    fields: (fields))
+  (deftype
+    name: (identifier)
+    generic_type: (identifier)
+    variant: (identifier)
+    fields: (fields
+      (identifier))
+    variant: (identifier)
+    fields: (fields)))

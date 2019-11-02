@@ -25,11 +25,6 @@ const core_types = [
 module.exports = grammar({
   name: 'carp',
 
-  // conflicts: $ => [
-  //   // [$.let_pairs, $.array_expression]
-  //   [$._anything, $._anything],
-  // ],
-
   rules: {
     source_file: $ => repeat(choice($.line_comment, $._s_expr)),
 
@@ -83,6 +78,7 @@ module.exports = grammar({
       $.defmacro,
       $.defndynamic,
       $.defmodule,
+      $.deftype,
     ),
 
     _literals: $ => choice(
@@ -183,7 +179,7 @@ module.exports = grammar({
       choice(
         seq(
           field('type', choice($.type, $._short_helper)),
-          field('value_name', $._expr),
+          optional(field('value_name', $._expr)),
         ),
         seq(
           '(',
@@ -195,8 +191,8 @@ module.exports = grammar({
 
     type: $ => choice(
       alias(choice(...core_types), $.identifier),
-      $.identifier,
       $.complex_type,
+      $.identifier,
     ),
 
     complex_type: $ => seq(
@@ -249,6 +245,58 @@ module.exports = grammar({
       repeat(field('definition', $._expr)),
     ),
 
+
+    deftype: $ => seq(
+      'deftype',
+      choice(
+        $._deftype1,
+        $._deftype2,
+      ),
+    ),
+
+    _deftype1: $ => seq(
+      $._name_deftypes,
+      field('fields', $.fields),
+    ),
+
+    _deftype2: $ => seq(
+      $._name_deftypes,
+      repeat(seq(
+        '(',
+        field("variant", $.identifier),
+        field("fields", $.fields),
+        token.immediate(')'),
+      )),
+    ),
+
+    _name_deftypes: $ => choice(
+      field('name', $.identifier),
+      seq(
+        '(',
+        field('name', $.identifier),
+        optional(field('generic_type', repeat($.identifier))),
+        token.immediate(')'),
+      ),
+    ),
+
+    _tagged_union: $ => seq(
+      '(',
+      field("variant", $.identifier),
+      field("fields", $.fields),
+      token.immediate(')'),
+    ),
+
+    fields: $ => seq(
+      '[',
+      repeat(seq(choice(
+        $.identifier,
+        $.complex_type,
+        alias(choice(...core_types), $.type)),
+        // alias(/[A-ZΑ-Ω][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\+\-\*\/\|\!\?\^]*/, $.type),
+        optional(','))),
+      token.immediate(']'),
+    ),
+
     interface_fn: $ => seq(
       choice('Fn', 'λ'),
       field('typed_params', $.typed_parameters),
@@ -266,13 +314,13 @@ module.exports = grammar({
     parameters: $ => seq(
       '[',
       repeat(choice($.identifier, $.symbol)),
-      ']'
+      token.immediate(']'),
     ),
 
     typed_parameters: $ => seq(
       '[',
       repeat(choice($.type, $._short_helper)),
-      ']'
+      token.immediate(']'),
     ),
 
     integer_literal: $ => token(seq(
@@ -332,7 +380,7 @@ module.exports = grammar({
       repeat(
         choice($.identifier, $._literals)
       ),
-      ']'
+      token.immediate(']'),
     ),
 
     map_expression: $ => seq(
@@ -343,7 +391,7 @@ module.exports = grammar({
           field('value', choice($.identifier, $._literals)),
         )
       ),
-      '}'
+      token.immediate('}'),
     ),
 
     symbol: $ => seq(
@@ -351,7 +399,7 @@ module.exports = grammar({
       $.identifier,
     ),
 
-    identifier: $ => /[a-zA-Zα-ωΑ-Ωµ_<%=>\+\-\*\/\|\!\?\^][a-zA-Zα-ωΑ-Ωµ_<%=>\+\-\*\/\|\!\?\^]*/,
+    identifier: $ => /[a-zA-Zα-ωΑ-Ωµ_<%=>\+\-\*\/\|\!\?\^][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\+\-\*\/\|\!\?\^]*/,
   }
 });
 

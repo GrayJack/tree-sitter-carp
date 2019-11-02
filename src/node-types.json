@@ -60,6 +60,10 @@
             "named": true
           },
           {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
             "named": true
           },
@@ -257,6 +261,10 @@
           },
           {
             "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
             "named": true
           },
           {
@@ -494,6 +502,10 @@
             "named": true
           },
           {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
             "named": true
           },
@@ -668,6 +680,10 @@
             "named": true
           },
           {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
             "named": true
           },
@@ -836,6 +852,10 @@
             "named": true
           },
           {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
             "named": true
           },
@@ -991,6 +1011,10 @@
           },
           {
             "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
             "named": true
           },
           {
@@ -1162,6 +1186,10 @@
             "named": true
           },
           {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
             "named": true
           },
@@ -1270,6 +1298,52 @@
     }
   },
   {
+    "type": "deftype",
+    "named": true,
+    "fields": {
+      "fields": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "fields",
+            "named": true
+          }
+        ]
+      },
+      "generic_type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "variant": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "do",
     "named": true,
     "fields": {
@@ -1327,6 +1401,10 @@
           },
           {
             "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
             "named": true
           },
           {
@@ -1418,6 +1496,29 @@
     }
   },
   {
+    "type": "fields",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "complex_type",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "fn",
     "named": true,
     "fields": {
@@ -1475,6 +1576,10 @@
           },
           {
             "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
             "named": true
           },
           {
@@ -1636,6 +1741,10 @@
             "named": true
           },
           {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
             "named": true
           },
@@ -1778,6 +1887,10 @@
             "named": true
           },
           {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
             "named": true
           },
@@ -1917,6 +2030,10 @@
           },
           {
             "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
             "named": true
           },
           {
@@ -2110,6 +2227,10 @@
             "named": true
           },
           {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
             "named": true
           },
@@ -2265,6 +2386,10 @@
           },
           {
             "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
             "named": true
           },
           {
@@ -2555,6 +2680,10 @@
             "named": true
           },
           {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
             "named": true
           },
@@ -2749,6 +2878,10 @@
             "named": true
           },
           {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
             "named": true
           },
@@ -2894,6 +3027,10 @@
           },
           {
             "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
             "named": true
           },
           {
@@ -3047,6 +3184,10 @@
           "named": true
         },
         {
+          "type": "deftype",
+          "named": true
+        },
+        {
           "type": "do",
           "named": true
         },
@@ -3183,6 +3324,10 @@
         },
         {
           "type": "defndynamic",
+          "named": true
+        },
+        {
+          "type": "deftype",
           "named": true
         },
         {
@@ -3325,6 +3470,10 @@
           "named": true
         },
         {
+          "type": "deftype",
+          "named": true
+        },
+        {
           "type": "do",
           "named": true
         },
@@ -3464,6 +3613,10 @@
           "named": true
         },
         {
+          "type": "deftype",
+          "named": true
+        },
+        {
           "type": "do",
           "named": true
         },
@@ -3600,6 +3753,10 @@
         },
         {
           "type": "defndynamic",
+          "named": true
+        },
+        {
+          "type": "deftype",
           "named": true
         },
         {
@@ -3780,6 +3937,10 @@
             "named": true
           },
           {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
             "named": true
           },
@@ -3883,7 +4044,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "complex_type",
@@ -3985,6 +4146,10 @@
           },
           {
             "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
             "named": true
           },
           {
@@ -4130,6 +4295,10 @@
             "named": true
           },
           {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
             "named": true
           },
@@ -4242,6 +4411,10 @@
     "named": false
   },
   {
+    "type": ",",
+    "named": false
+  },
+  {
     "type": ".",
     "named": false
   },
@@ -4302,6 +4475,10 @@
     "named": false
   },
   {
+    "type": "deftype",
+    "named": false
+  },
+  {
     "type": "do",
     "named": false
   },
@@ -4356,6 +4533,10 @@
   {
     "type": "true",
     "named": false
+  },
+  {
+    "type": "type",
+    "named": true
   },
   {
     "type": "while",
