@@ -109,6 +109,14 @@
         },
         {
           "type": "SYMBOL",
+          "name": "use"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "doc"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_literals"
         }
       ]
@@ -246,6 +254,48 @@
         {
           "type": "SYMBOL",
           "name": "short_quote"
+        }
+      ]
+    },
+    "use": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "use"
+        },
+        {
+          "type": "FIELD",
+          "name": "module",
+          "content": {
+            "type": "SYMBOL",
+            "name": "upper_identifier"
+          }
+        }
+      ]
+    },
+    "doc": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "doc"
+        },
+        {
+          "type": "FIELD",
+          "name": "fn",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "doc_str",
+          "content": {
+            "type": "SYMBOL",
+            "name": "str_literal"
+          }
         }
       ]
     },
@@ -929,7 +979,7 @@
                         "name": "module",
                         "content": {
                           "type": "SYMBOL",
-                          "name": "identifier"
+                          "name": "upper_identifier"
                         }
                       },
                       {
@@ -1890,9 +1940,135 @@
         }
       ]
     },
+    "hidden": {
+      "type": "STRING",
+      "value": "hidden"
+    },
+    "other_str": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "let-do"
+        },
+        {
+          "type": "STRING",
+          "value": "while-do"
+        },
+        {
+          "type": "STRING",
+          "value": "defn-do"
+        },
+        {
+          "type": "STRING",
+          "value": "break"
+        },
+        {
+          "type": "STRING",
+          "value": "for"
+        },
+        {
+          "type": "STRING",
+          "value": "when"
+        },
+        {
+          "type": "STRING",
+          "value": "cond"
+        },
+        {
+          "type": "STRING",
+          "value": "unless"
+        },
+        {
+          "type": "STRING",
+          "value": "case"
+        },
+        {
+          "type": "STRING",
+          "value": "foreach"
+        },
+        {
+          "type": "STRING",
+          "value": "defdynamic"
+        }
+      ]
+    },
+    "operators": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "+"
+        },
+        {
+          "type": "STRING",
+          "value": "-"
+        },
+        {
+          "type": "STRING",
+          "value": "/"
+        },
+        {
+          "type": "STRING",
+          "value": "*"
+        },
+        {
+          "type": "STRING",
+          "value": "%"
+        },
+        {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "STRING",
+          "value": "<="
+        },
+        {
+          "type": "STRING",
+          "value": ">="
+        },
+        {
+          "type": "STRING",
+          "value": "/="
+        },
+        {
+          "type": "STRING",
+          "value": "and"
+        },
+        {
+          "type": "STRING",
+          "value": "or"
+        },
+        {
+          "type": "STRING",
+          "value": "not"
+        },
+        {
+          "type": "STRING",
+          "value": "and*"
+        },
+        {
+          "type": "STRING",
+          "value": "or*"
+        }
+      ]
+    },
     "identifier": {
       "type": "PATTERN",
       "value": "[a-zA-Zα-ωΑ-Ωµ_<%=>\\+\\-\\*\\/\\|\\!\\?\\^][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\\+\\-\\*\\/\\|\\!\\?\\^]*"
+    },
+    "upper_identifier": {
+      "type": "PATTERN",
+      "value": "[A-ZΑ-Ω][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\\+\\-\\*\\/\\|\\!\\?\\^]*"
     }
   },
   "extras": [

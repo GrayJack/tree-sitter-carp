@@ -2,6 +2,16 @@ const PREC = {
   call: 14,
 }
 
+const op = [
+  '+', '-', '/', '*', '%', '<', '>',
+  '=', '<=', '>=', '/=', 'and', 'or', 'not', 'and*', 'or*'
+]
+
+const important_str = [
+  'let-do', 'while-do', 'defn-do', 'break', 'for', 'when',
+  'cond', 'unless', 'case', 'foreach', 'defdynamic',
+]
+
 const core_types = [
   'Bool',
   'Char',
@@ -54,6 +64,8 @@ module.exports = grammar({
       $._defs,
       $.call_expression,
       $._short_helper,
+      $.use,
+      $.doc,
       // literals
       $._literals,
     ),
@@ -97,6 +109,17 @@ module.exports = grammar({
       $.short_copy,
       $.short_fn_ref,
       $.short_quote,
+    ),
+
+    use: $ => seq(
+      'use',
+      field('module', $.upper_identifier),
+    ),
+
+    doc: $ => seq(
+      'doc',
+      field('fn', $.identifier),
+      field('doc_str', $.str_literal),
     ),
 
     def: $ => seq(
@@ -169,8 +192,8 @@ module.exports = grammar({
 
     the: $ => seq(
       'the',
-      field("type", $.type),
-      field("expr", $._expr),
+      field('type', $.type),
+      field('expr', $._expr),
     ),
 
     register: $ => seq(
@@ -211,7 +234,7 @@ module.exports = grammar({
 
     call_name: $ => prec(PREC.call, choice(
       seq(
-        optional(seq(field('module', $.identifier), '.')),
+        optional(seq(field('module', $.upper_identifier), '.')),
         field('name', $.identifier),
       ),
       $.short_fn_ref,
@@ -263,8 +286,8 @@ module.exports = grammar({
       $._name_deftypes,
       repeat(seq(
         '(',
-        field("variant", $.identifier),
-        field("fields", $.fields),
+        field('variant', $.identifier),
+        field('fields', $.fields),
         token.immediate(')'),
       )),
     ),
@@ -281,8 +304,8 @@ module.exports = grammar({
 
     _tagged_union: $ => seq(
       '(',
-      field("variant", $.identifier),
-      field("fields", $.fields),
+      field('variant', $.identifier),
+      field('fields', $.fields),
       token.immediate(')'),
     ),
 
@@ -399,7 +422,11 @@ module.exports = grammar({
       $.identifier,
     ),
 
+    hidden: $ => 'hidden',
+    other_str: $ => choice(...important_str),
+    operators: $ => choice(...op),
     identifier: $ => /[a-zA-Zα-ωΑ-Ωµ_<%=>\+\-\*\/\|\!\?\^][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\+\-\*\/\|\!\?\^]*/,
+    upper_identifier: $ => /[A-ZΑ-Ω][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\+\-\*\/\|\!\?\^]*/,
   }
 });
 
