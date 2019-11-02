@@ -12,6 +12,14 @@
           },
           {
             "type": "SYMBOL",
+            "name": "operators"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "other_str"
+          },
+          {
+            "type": "SYMBOL",
             "name": "_s_expr"
           }
         ]
@@ -114,10 +122,6 @@
         {
           "type": "SYMBOL",
           "name": "doc"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "operators"
         },
         {
           "type": "SYMBOL",
@@ -2066,13 +2070,13 @@
         }
       ]
     },
-    "identifier": {
-      "type": "PATTERN",
-      "value": "[a-zA-Zα-ωΑ-Ωµ_<%=>\\+\\-\\*\\/\\|\\!\\?\\^][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\\+\\-\\*\\/\\|\\!\\?\\^]*"
-    },
     "upper_identifier": {
       "type": "PATTERN",
       "value": "[A-ZΑ-Ω][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\\+\\-\\*\\/\\|\\!\\?\\^]*"
+    },
+    "identifier": {
+      "type": "PATTERN",
+      "value": "[a-zA-Zα-ωΑ-Ωµ_<%=>\\+\\-\\*\\/\\|\\!\\?\\^][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\\+\\-\\*\\/\\|\\!\\?\\^]*"
     }
   },
   "extras": [

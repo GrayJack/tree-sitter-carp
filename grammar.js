@@ -425,8 +425,8 @@ module.exports = grammar({
     hidden: $ => 'hidden',
     other_str: $ => choice(...important_str),
     operators: $ => choice(...op),
-    identifier: $ => /[a-zA-Zα-ωΑ-Ωµ_<%=>\+\-\*\/\|\!\?\^][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\+\-\*\/\|\!\?\^]*/,
     upper_identifier: $ => /[A-ZΑ-Ω][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\+\-\*\/\|\!\?\^]*/,
+    identifier: $ => /[a-zA-Zα-ωΑ-Ωµ_<%=>\+\-\*\/\|\!\?\^][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\+\-\*\/\|\!\?\^]*/,
   }
 });
 

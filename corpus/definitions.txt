@@ -272,7 +272,7 @@ Defmodule
         (identifier))
       body: (call_expression
         call_name: (call_name
-          module: (identifier)
+          module: (upper_identifier)
           name: (identifier))
         argument: (identifier)
         argument: (identifier)))))
