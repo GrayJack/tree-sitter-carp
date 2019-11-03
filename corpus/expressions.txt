@@ -10,23 +10,43 @@ Call expressions
 
 (~f a)
 
+(Array.swap! a b)
+
+(Maybe.Nothing)
+
+(Maybe.Just a)
+
 ---
 
 (source_file
   (call_expression
-    call_name: (call_name
+    call_name: (call_no_module
       name: (identifier)))
   (call_expression
-    call_name: (call_name
+    call_name: (call_no_module
       name: (identifier))
     argument: (identifier))
   (call_expression
-    call_name: (call_name
+    call_name: (call_no_module
       name: (identifier))
     argument: (integer_literal)
     argument: (integer_literal))
   (call_expression
-    call_name: (call_name
-      (short_fn_ref
-        (identifier)))
+    call_name: (short_fn_ref
+      (identifier))
+    argument: (identifier))
+  (call_expression
+    call_name: (call_with_module
+      module: (upper_identifier)
+      name: (identifier))
+    argument: (identifier)
+    argument: (identifier))
+  (call_expression
+    call_name: (call_with_module
+      module: (upper_identifier)
+      name: (upper_identifier)))
+  (call_expression
+    call_name: (call_with_module
+      module: (upper_identifier)
+      name: (upper_identifier))
     argument: (identifier)))

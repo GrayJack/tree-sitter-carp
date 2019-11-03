@@ -49,23 +49,26 @@ module.exports = grammar({
     _expr: $ => choice(
       $._short_helper,
       $._literals,
+      $.upper_identifier,
       $.identifier,
       $.symbol,
+      // $.doc,
       $._s_expr,
     ),
 
     _anything: $ => choice(
       // Core thing
       $._s_expr,
+      $.doc,
+      $.use,
       $._short_helper,
       $.line_comment,
+      $.upper_identifier,
       $.identifier,
       $.symbol,
       $._s_forms,
       $._defs,
       $.call_expression,
-      $.use,
-      $.doc,
       // literals
       $._literals,
     ),
@@ -228,17 +231,23 @@ module.exports = grammar({
     ),
 
     call_expression: $ => prec(PREC.call, seq(
-      field('call_name', $.call_name),
+      field('call_name', $._call_name),
       optional(field('argument', repeat(seq($._expr)))),
     )),
 
-    call_name: $ => prec(PREC.call, choice(
-      seq(
-        optional(seq(field('module', $.upper_identifier), '.')),
-        field('name', $.identifier),
-      ),
+    _call_name: $ => prec(PREC.call, choice(
+      $.call_with_module,
+      $.call_no_module,
       $.short_fn_ref,
     )),
+
+    call_no_module: $ =>  prec(PREC.call, field('name',choice($.upper_identifier, $.identifier))),
+
+    call_with_module: $ => seq(
+      field('module', $.upper_identifier),
+      '.',
+      field('name',choice($.upper_identifier, $.identifier)),
+    ),
 
     definterface: $ => seq(
       'definterface',
@@ -265,7 +274,10 @@ module.exports = grammar({
     defmodule: $ => seq(
       'defmodule',
       field('name', $.identifier),
-      repeat(field('definition', $._expr)),
+      repeat(seq(
+        optional($.doc),
+        field('definition', $._expr)),
+      ),
     ),
 
 
@@ -286,7 +298,7 @@ module.exports = grammar({
       $._name_deftypes,
       repeat(seq(
         '(',
-        field('variant', $.identifier),
+        field('variant', choice($.upper_identifier, $.identifier)),
         field('fields', $.fields),
         token.immediate(')'),
       )),

@@ -18,7 +18,7 @@ Fn
       (identifier)
       (identifier))
     body: (call_expression
-      call_name: (call_name
+      call_name: (call_no_module
         name: (identifier))
       argument: (identifier)
       argument: (identifier))))
@@ -42,7 +42,7 @@ Defn
     parameters: (parameters
       (identifier))
     body: (call_expression
-      call_name: (call_name
+      call_name: (call_no_module
         name: (identifier))
       argument: (identifier)
       argument: (integer_literal))))
@@ -79,7 +79,7 @@ Let
       var: (identifier)
       expr: (integer_literal))
     body: (call_expression
-      call_name: (call_name
+      call_name: (call_no_module
         name: (identifier))
       argument: (identifier))))
 
@@ -103,7 +103,7 @@ Do
     expr: (identifier))
   (do
     expr: (call_expression
-      call_name: (call_name
+      call_name: (call_no_module
         name: (identifier))
       argument: (identifier)
       argument: (integer_literal))
@@ -115,7 +115,7 @@ Do
       expr: (integer_literal))
     body: (do
       expr: (call_expression
-        call_name: (call_name
+        call_name: (call_no_module
           name: (identifier))
         argument: (identifier)
         argument: (integer_literal)))))
@@ -141,7 +141,7 @@ If
 (source_file
   (if
     condition: (call_expression
-      call_name: (call_name
+      call_name: (call_no_module
         name: (identifier))
       argument: (identifier)
       argument: (integer_literal))
@@ -149,7 +149,7 @@ If
     else: (bool_literal))
   (if
     condition: (call_expression
-      call_name: (call_name
+      call_name: (call_no_module
         name: (identifier))
       argument: (identifier)
       argument: (integer_literal))
@@ -159,20 +159,20 @@ If
       (identifier)))
   (if
     condition: (call_expression
-      call_name: (call_name
+      call_name: (call_no_module
         name: (identifier))
       argument: (call_expression
-        call_name: (call_name
+        call_name: (call_no_module
           name: (identifier))
         argument: (identifier)
         argument: (integer_literal))
       argument: (integer_literal))
     then: (call_expression
-      call_name: (call_name
+      call_name: (call_no_module
         name: (identifier))
       argument: (str_literal))
     else: (call_expression
-      call_name: (call_name
+      call_name: (call_no_module
         name: (identifier))
       argument: (str_literal))))
 
@@ -190,18 +190,18 @@ While
 (source_file
   (while
     condition: (call_expression
-      call_name: (call_name
+      call_name: (call_no_module
         name: (identifier))
       argument: (identifier)
       argument: (integer_literal)))
   (while
     condition: (call_expression
-      call_name: (call_name
+      call_name: (call_no_module
         name: (identifier))
       argument: (identifier)
       argument: (integer_literal))
     body: (call_expression
-      call_name: (call_name
+      call_name: (call_no_module
         name: (identifier))
       argument: (identifier)
       argument: (integer_literal))))
@@ -220,7 +220,7 @@ Ref
   (ref
     expr: (identifier))
   (call_expression
-    call_name: (call_name
+    call_name: (call_no_module
       name: (identifier))
     argument: (ref
       expr: (identifier))))
@@ -256,17 +256,17 @@ Set!
     variable: (identifier)
     expr: (if
       condition: (call_expression
-        call_name: (call_name
+        call_name: (call_no_module
           name: (identifier))
         argument: (identifier)
         argument: (integer_literal))
       then: (call_expression
-        call_name: (call_name
+        call_name: (call_no_module
           name: (identifier))
         argument: (identifier)
         argument: (integer_literal))
       else: (call_expression
-        call_name: (call_name
+        call_name: (call_no_module
           name: (identifier))
         argument: (identifier)
         argument: (integer_literal)))))

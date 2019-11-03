@@ -205,7 +205,7 @@ Defmacro
       (identifier)
       (identifier))
     body: (call_expression
-      call_name: (call_name
+      call_name: (call_no_module
         name: (identifier))
       argument: (short_quote
         (identifier))
@@ -219,7 +219,7 @@ Defmacro
         (identifier))
       (identifier))
     body: (call_expression
-      call_name: (call_name
+      call_name: (call_no_module
         name: (identifier))
       argument: (identifier))))
 
@@ -237,10 +237,10 @@ Defndynamic
     parameters: (parameters
       (identifier))
     body: (call_expression
-      call_name: (call_name
+      call_name: (call_no_module
         name: (identifier))
       argument: (call_expression
-        call_name: (call_name
+        call_name: (call_no_module
           name: (identifier))
         argument: (identifier)))))
 
@@ -271,7 +271,7 @@ Defmodule
         (identifier)
         (identifier))
       body: (call_expression
-        call_name: (call_name
+        call_name: (call_with_module
           module: (upper_identifier)
           name: (identifier))
         argument: (identifier)
@@ -334,15 +334,15 @@ Deftype
       (identifier)))
   (deftype
     name: (identifier)
-    variant: (identifier)
+    variant: (upper_identifier)
     fields: (fields)
-    variant: (identifier)
+    variant: (upper_identifier)
     fields: (fields))
   (deftype
     name: (identifier)
     generic_type: (identifier)
-    variant: (identifier)
+    variant: (upper_identifier)
     fields: (fields
       (identifier))
-    variant: (identifier)
+    variant: (upper_identifier)
     fields: (fields)))
