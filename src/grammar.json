@@ -2061,6 +2061,10 @@
         {
           "type": "STRING",
           "value": "load"
+        },
+        {
+          "type": "STRING",
+          "value": "match"
         }
       ]
     },

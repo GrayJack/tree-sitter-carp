@@ -9,7 +9,8 @@ const op = [
 
 const important_str = [
   'let-do', 'while-do', 'defn-do', 'break', 'for', 'when',
-  'cond', 'unless', 'case', 'foreach', 'defdynamic', 'load'
+  'cond', 'unless', 'case', 'foreach', 'defdynamic', 'load',
+  'match'
 ]
 
 const core_types = [
