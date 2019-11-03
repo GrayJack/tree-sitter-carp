@@ -89,6 +89,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "_short_helper"
+        },
+        {
+          "type": "SYMBOL",
           "name": "line_comment"
         },
         {
@@ -110,10 +114,6 @@
         {
           "type": "SYMBOL",
           "name": "call_expression"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_short_helper"
         },
         {
           "type": "SYMBOL",
@@ -1998,6 +1998,10 @@
         {
           "type": "STRING",
           "value": "defdynamic"
+        },
+        {
+          "type": "STRING",
+          "value": "load"
         }
       ]
     },

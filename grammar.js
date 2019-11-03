@@ -9,7 +9,7 @@ const op = [
 
 const important_str = [
   'let-do', 'while-do', 'defn-do', 'break', 'for', 'when',
-  'cond', 'unless', 'case', 'foreach', 'defdynamic',
+  'cond', 'unless', 'case', 'foreach', 'defdynamic', 'load'
 ]
 
 const core_types = [
@@ -57,13 +57,13 @@ module.exports = grammar({
     _anything: $ => choice(
       // Core thing
       $._s_expr,
+      $._short_helper,
       $.line_comment,
       $.identifier,
       $.symbol,
       $._s_forms,
       $._defs,
       $.call_expression,
-      $._short_helper,
       $.use,
       $.doc,
       // literals
