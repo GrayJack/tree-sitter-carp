@@ -311,7 +311,7 @@ module.exports = grammar({
         '(',
         field('name', $.identifier),
         optional(field('generic_type', repeat($.identifier))),
-        token.immediate(')'),
+        ')',
       ),
     ),
 
@@ -319,7 +319,7 @@ module.exports = grammar({
       '(',
       field('variant', $.identifier),
       field('fields', $.fields),
-      token.immediate(')'),
+      ')',
     ),
 
     fields: $ => seq(
@@ -330,7 +330,7 @@ module.exports = grammar({
         alias(choice(...core_types), $.type)),
         // alias(/[A-ZΑ-Ω][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\+\-\*\/\|\!\?\^]*/, $.type),
         optional(','))),
-      token.immediate(']'),
+      ']',
     ),
 
     interface_fn: $ => seq(
@@ -350,13 +350,13 @@ module.exports = grammar({
     parameters: $ => seq(
       '[',
       repeat(choice($.identifier, $.symbol)),
-      token.immediate(']'),
+      ']',
     ),
 
     typed_parameters: $ => seq(
       '[',
       repeat(choice($.type, $._short_helper)),
-      token.immediate(']'),
+      ']',
     ),
 
     integer_literal: $ => token(seq(
@@ -381,7 +381,7 @@ module.exports = grammar({
         $.escape_sequence,
         /./,
       )),
-      token.immediate('"')
+      '"'
     ),
 
     char_literal: $ => seq(
@@ -398,7 +398,7 @@ module.exports = grammar({
         $.escape_sequence,
         /./,
       )),
-      token.immediate('"'),
+      '"',
     ),
 
     escape_sequence: $ => token.immediate(
@@ -416,7 +416,7 @@ module.exports = grammar({
       repeat(
         choice($.identifier, $._literals)
       ),
-      token.immediate(']'),
+      ']',
     ),
 
     map_expression: $ => seq(
@@ -427,7 +427,7 @@ module.exports = grammar({
           field('value', choice($.identifier, $._literals)),
         )
       ),
-      token.immediate('}'),
+      '}',
     ),
 
     symbol: $ => seq(
