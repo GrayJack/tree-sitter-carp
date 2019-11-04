@@ -1364,6 +1364,10 @@
           {
             "type": "parameters",
             "named": true
+          },
+          {
+            "type": "quote_param",
+            "named": true
           }
         ]
       }
@@ -1997,6 +2001,10 @@
           {
             "type": "parameters",
             "named": true
+          },
+          {
+            "type": "quote_param",
+            "named": true
           }
         ]
       }
@@ -2529,6 +2537,10 @@
         "required": true,
         "types": [
           {
+            "type": "quote_typaram",
+            "named": true
+          },
+          {
             "type": "typed_parameters",
             "named": true
           }
@@ -2708,6 +2720,10 @@
         "types": [
           {
             "type": "let_pairs",
+            "named": true
+          },
+          {
+            "type": "quote_let",
             "named": true
           }
         ]
@@ -3937,6 +3953,51 @@
       "types": [
         {
           "type": "escape_sequence",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quote_let",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "let_pairs",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quote_param",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "parameters",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quote_typaram",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "typed_parameters",
           "named": true
         }
       ]

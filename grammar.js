@@ -1,6 +1,6 @@
 const PREC = {
   call: 14,
-  call_module: 13
+  call_module: 13,
 }
 
 const op = [
@@ -37,6 +37,10 @@ module.exports = grammar({
   name: 'carp',
 
   extras: $ => [/\s/, $.line_comment],
+
+  conflicts: $ => [
+    [$.let_pairs, $.array_expression],
+  ],
 
   rules: {
     source_file: $ => repeat($._s_expr),
@@ -136,20 +140,20 @@ module.exports = grammar({
 
     fn: $ => prec.left(seq(
       'fn',
-      field('parameters', $.parameters),
+      field('parameters', choice($.quote_param, $.parameters)),
       optional(field('body', repeat($._expr))),
     )),
 
     defn: $ => prec.left(seq(
       'defn',
       field('name', $.identifier),
-      field('parameters', $.parameters),
+      field('parameters', choice($.quote_param, $.parameters)),
       optional(field('body', repeat($._expr))),
     )),
 
     let: $ => prec.left(seq(
       'let',
-      field('pairs', $.let_pairs),
+      field('pairs', choice($.quote_let, $.let_pairs)),
       optional(field('body', repeat($._expr))),
     )),
 
@@ -357,7 +361,7 @@ module.exports = grammar({
 
     interface_fn: $ => seq(
       choice('Fn', 'λ'),
-      field('typed_params', $.typed_parameters),
+      field('typed_params', choice($.quote_typaram, $.typed_parameters)),
       field('return_type', choice($._short_helper, $.type)),
     ),
 
@@ -368,6 +372,10 @@ module.exports = grammar({
     short_fn_ref: $ => seq('~', $._expr),
 
     short_quote: $ => seq('\'', $._anything),
+
+    quote_let: $ => seq('\'', $.let_pairs),
+    quote_param: $ => seq('\'', $.parameters),
+    quote_typaram: $ => seq('\'', $.typed_parameters),
 
     parameters: $ => seq(
       '[',
