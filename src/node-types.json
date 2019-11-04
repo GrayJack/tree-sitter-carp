@@ -801,7 +801,7 @@
     "fields": {
       "fn": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "interface_fn",
@@ -812,6 +812,16 @@
       "name": {
         "multiple": false,
         "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
         "types": [
           {
             "type": "identifier",

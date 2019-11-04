@@ -275,9 +275,14 @@ module.exports = grammar({
     definterface: $ => prec.left(seq(
       'definterface',
       field('name', $.identifier),
-      '(',
-      field('fn', $.interface_fn),
-      ')'
+      choice(
+        field('value', $.identifier),
+        seq(
+          '(',
+          field('fn', $.interface_fn),
+          ')',
+        ),
+      ),
     )),
 
     defmacro: $ => prec.left(seq(
