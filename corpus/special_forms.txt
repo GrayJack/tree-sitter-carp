@@ -6,6 +6,8 @@ Fn
 
 (fn [a b] (+ a b))
 
+(fn '[a b])
+
 ---
 
 (source_file
@@ -21,7 +23,12 @@ Fn
       call_name: (call_no_module
         name: (identifier))
       argument: (identifier)
-      argument: (identifier))))
+      argument: (identifier)))
+  (fn
+      parameters: (quote_param
+        (parameters
+          (identifier)
+          (identifier)))))
 
 ============================================
 Defn
@@ -34,6 +41,8 @@ Defn
 (defn func [a]
   (do (this a))
   (do (that a)))
+
+(defn a '[a b])
 
 ---
 
@@ -63,7 +72,13 @@ Defn
       expr: (call_expression
         call_name: (call_no_module
           name: (identifier))
-        argument: (identifier)))))
+        argument: (identifier))))
+  (defn
+      name: (identifier)
+      parameters: (quote_param
+        (parameters
+          (identifier)
+          (identifier)))))
 
 ============================================
 Let
@@ -76,6 +91,8 @@ Let
 (let [a 10 b c])
 
 (let [a 10] (double a))
+
+(let '[a b])
 
 ---
 
@@ -99,7 +116,12 @@ Let
     body: (call_expression
       call_name: (call_no_module
         name: (identifier))
-      argument: (identifier))))
+      argument: (identifier)))
+  (let
+    pairs: (quote_let
+      (let_pairs
+        var: (identifier)
+        expr: (identifier)))))
 
 ============================================
 Do
