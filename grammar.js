@@ -51,7 +51,7 @@ module.exports = grammar({
       $._short_helper,
       $._literals,
       $.upper_identifier,
-      $.identifier,
+      $._identifier,
       $.symbol,
       $.line_comment,
       // $.doc,
@@ -66,7 +66,7 @@ module.exports = grammar({
       $._short_helper,
       $.line_comment,
       $.upper_identifier,
-      $.identifier,
+      $._identifier,
       $.symbol,
       $._s_forms,
       $._defs,
@@ -258,11 +258,11 @@ module.exports = grammar({
 
     call_no_module: $ =>  prec(PREC.call, field('name',choice($.upper_identifier, $.identifier))),
 
-    call_with_module: $ => seq(
+    call_with_module: $ => prec(PREC.call, seq(
       field('module', $.upper_identifier),
       '.',
-      field('name',choice($.upper_identifier, $.identifier)),
-    ),
+      field('name', choice($.upper_identifier, $.identifier)),
+    )),
 
     definterface: $ => prec.left(seq(
       'definterface',
@@ -444,6 +444,17 @@ module.exports = grammar({
 
     symbol: $ => seq(
       ':',
+      $.identifier,
+    ),
+
+    _identifier: $ => choice(
+      $.modular_identifier,
+      $.identifier,
+    ),
+
+    modular_identifier: $ => seq(
+      $.upper_identifier,
+      '.',
       $.identifier,
     ),
 
