@@ -186,6 +186,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "match"
+        },
+        {
+          "type": "SYMBOL",
           "name": "register"
         }
       ]
@@ -652,6 +656,59 @@
         {
           "type": "FIELD",
           "name": "expr",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expr"
+          }
+        }
+      ]
+    },
+    "match": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "match"
+        },
+        {
+          "type": "FIELD",
+          "name": "expr",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expr"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SYMBOL",
+                "name": "match_case"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "match_case": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "case",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expr"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "body",
           "content": {
             "type": "SYMBOL",
             "name": "_expr"
@@ -2034,10 +2091,6 @@
         {
           "type": "STRING",
           "value": "load"
-        },
-        {
-          "type": "STRING",
-          "value": "match"
         }
       ]
     },

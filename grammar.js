@@ -10,7 +10,6 @@ const op = [
 const important_str = [
   'let-do', 'while-do', 'defn-do', 'break', 'for', 'when',
   'cond', 'unless', 'case', 'foreach', 'defdynamic', 'load',
-  'match'
 ]
 
 const core_types = [
@@ -86,6 +85,7 @@ module.exports = grammar({
       $.address,
       $.set,
       $.the,
+      $.match,
       $.register,
     ),
 
@@ -198,6 +198,17 @@ module.exports = grammar({
       'the',
       field('type', $.type),
       field('expr', $._expr),
+    ),
+
+    match: $ => seq(
+      'match',
+      field('expr', $._expr),
+      optional(repeat($.match_case)),
+    ),
+
+    match_case: $ => seq(
+      field('case', $._expr),
+      field('body', $._expr),
     ),
 
     register: $ => seq(

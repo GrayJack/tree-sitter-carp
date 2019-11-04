@@ -292,3 +292,69 @@ The
         (identifier)
         (identifier)))
     expr: (identifier)))
+
+
+============================================
+Match
+============================================
+
+(match a
+  (Nothing) (zero)
+  (Just x) x)
+
+(match bool
+  true (println* "true")
+  false (println* "false"))
+
+(match many
+  (One) 1
+  (Two) 2
+  _ 3)
+
+---
+
+(source_file
+  (match
+    expr: (identifier)
+    (match_case
+      case: (call_expression
+        call_name: (call_no_module
+          name: (upper_identifier)))
+      body: (call_expression
+        call_name: (call_no_module
+          name: (identifier))))
+    (match_case
+      case: (call_expression
+        call_name: (call_no_module
+          name: (upper_identifier))
+        argument: (identifier))
+      body: (identifier)))
+  (match
+    expr: (identifier)
+    (match_case
+      case: (bool_literal)
+      body: (call_expression
+        call_name: (call_no_module
+          name: (identifier))
+        argument: (str_literal)))
+    (match_case
+      case: (bool_literal)
+      body: (call_expression
+        call_name: (call_no_module
+          name: (identifier))
+        argument: (str_literal))))
+  (match
+    expr: (identifier)
+    (match_case
+      case: (call_expression
+        call_name: (call_no_module
+          name: (upper_identifier)))
+      body: (integer_literal))
+    (match_case
+      case: (call_expression
+        call_name: (call_no_module
+          name: (upper_identifier)))
+      body: (integer_literal))
+    (match_case
+      case: (identifier)
+      body: (integer_literal))))
