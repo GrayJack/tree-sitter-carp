@@ -208,7 +208,9 @@ Defmacro
       call_name: (call_no_module
         name: (identifier))
       argument: (short_quote
-        (identifier))
+        (call_expression
+          call_name: (call_no_module
+            name: (identifier))))
       argument: (identifier)
       argument: (str_literal)
       argument: (identifier)))

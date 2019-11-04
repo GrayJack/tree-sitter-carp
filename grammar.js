@@ -128,92 +128,92 @@ module.exports = grammar({
       field('doc_str', $.str_literal),
     ),
 
-    def: $ => seq(
+    def: $ => prec.left(seq(
       'def',
       field('name', $.identifier),
       field('value', $._expr),
-    ),
+    )),
 
-    fn: $ => seq(
+    fn: $ => prec.left(seq(
       'fn',
       field('parameters', $.parameters),
       optional(field('body', repeat($._expr))),
-    ),
+    )),
 
-    defn: $ => seq(
+    defn: $ => prec.left(seq(
       'defn',
       field('name', $.identifier),
       field('parameters', $.parameters),
       optional(field('body', repeat($._expr))),
-    ),
+    )),
 
-    let: $ => seq(
+    let: $ => prec.left(seq(
       'let',
       field('pairs', $.let_pairs),
       optional(field('body', repeat($._expr))),
-    ),
+    )),
 
     let_pairs: $ => seq(
       '[',
       repeat(seq(
-        field('var', $.identifier),
+        field('var', $._expr),
         field('expr', $._expr),
       )),
       ']'
     ),
 
-    do: $ => seq(
+    do: $ => prec.left(seq(
       'do',
       repeat(field('expr', $._expr)),
-    ),
+    )),
 
-    if: $ => seq(
+    if: $ => prec.left(seq(
       'if',
       field('condition', $._expr),
       field('then', $._expr),
       field('else', $._expr),
-    ),
+    )),
 
-    while: $ => seq(
+    while: $ => prec.left(seq(
       'while',
       field('condition', $._expr),
       optional(field('body', repeat($._expr))),
-    ),
+    )),
 
-    ref: $ => seq(
+    ref: $ => prec.left(seq(
       choice('ref'),
       field('expr', $._expr),
-    ),
+    )),
 
-    address: $ => seq(
+    address: $ => prec.left(seq(
       'address',
       field('expr', $._expr),
-    ),
+    )),
 
-    set: $ => seq(
+    set: $ => prec.left(seq(
       'set!',
-      field('variable', $.identifier),
+      field('variable', $._expr),
       field('expr', $._expr),
-    ),
+    )),
 
-    the: $ => seq(
+    the: $ => prec.left(seq(
       'the',
       field('type', $.type),
       field('expr', $._expr),
-    ),
+    )),
 
-    match: $ => seq(
+    match: $ => prec.left(seq(
       'match',
       field('expr', $._expr),
       optional(repeat($.match_case)),
-    ),
+    )),
 
     match_case: $ => seq(
       field('case', $._expr),
       field('body', $._expr),
     ),
 
-    register: $ => seq(
+    register: $ => prec.left(seq(
       'register',
       field('name', $.identifier),
       choice(
@@ -227,7 +227,7 @@ module.exports = grammar({
           ')'
         ),
       ),
-    ),
+    )),
 
     type: $ => choice(
       alias(choice(...core_types), $.identifier),
@@ -245,7 +245,7 @@ module.exports = grammar({
       ')',
     ),
 
-    call_expression: $ => prec(PREC.call, seq(
+    call_expression: $ => prec.left(PREC.call, seq(
       field('call_name', $._call_name),
       optional(field('argument', repeat(seq($._expr)))),
     )),
@@ -264,52 +264,52 @@ module.exports = grammar({
       field('name',choice($.upper_identifier, $.identifier)),
     ),
 
-    definterface: $ => seq(
+    definterface: $ => prec.left(seq(
       'definterface',
       field('name', $.identifier),
       '(',
       field('fn', $.interface_fn),
       ')'
-    ),
+    )),
 
-    defmacro: $ => seq(
+    defmacro: $ => prec.left(seq(
       'defmacro',
       field('name', $.identifier),
       field('parameters', $.parameters),
       optional(field('body', $._expr)),
-    ),
+    )),
 
-    defndynamic: $ => seq(
+    defndynamic: $ => prec.left(seq(
       'defndynamic',
       field('name', $.identifier),
       field('parameters', $.parameters),
       optional(field('body', $._expr)),
-    ),
+    )),
 
-    defmodule: $ => seq(
+    defmodule: $ => prec.left(seq(
       'defmodule',
       field('name', $.identifier),
       repeat(seq(
         optional($.doc),
         field('definition', $._expr)),
       ),
-    ),
+    )),
 
 
-    deftype: $ => seq(
+    deftype: $ => prec.left(seq(
       'deftype',
       choice(
         $._deftype1,
         $._deftype2,
       ),
-    ),
+    )),
 
-    _deftype1: $ => seq(
+    _deftype1: $ => prec.left(seq(
       $._name_deftypes,
       field('fields', $.fields),
-    ),
+    )),
 
-    _deftype2: $ => seq(
+    _deftype2: $ => prec.left(seq(
       $._name_deftypes,
       repeat(seq(
         '(',
@@ -317,7 +317,7 @@ module.exports = grammar({
         field('fields', $.fields),
         ')',
       )),
-    ),
+    )),
 
     _name_deftypes: $ => choice(
       field('name', $.identifier),
@@ -359,7 +359,7 @@ module.exports = grammar({
 
     short_fn_ref: $ => seq('~', $._expr),
 
-    short_quote: $ => seq('\'', $._expr),
+    short_quote: $ => seq('\'', $._anything),
 
     parameters: $ => seq(
       '[',
@@ -427,9 +427,7 @@ module.exports = grammar({
 
     array_expression: $ => seq(
       '[',
-      repeat(
-        choice($.identifier, $._literals)
-      ),
+      repeat($._expr),
       ']',
     ),
 
