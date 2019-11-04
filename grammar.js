@@ -443,8 +443,8 @@ module.exports = grammar({
       '{',
       repeat(
         seq(
-          field('key', choice($.identifier, $._literals)),
-          field('value', choice($.identifier, $._literals)),
+          field('key', $._expr),
+          field('value',  $._expr),
         )
       ),
       '}',

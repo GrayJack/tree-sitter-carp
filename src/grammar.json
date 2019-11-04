@@ -2101,34 +2101,16 @@
                 "type": "FIELD",
                 "name": "key",
                 "content": {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "identifier"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "_literals"
-                    }
-                  ]
+                  "type": "SYMBOL",
+                  "name": "_expr"
                 }
               },
               {
                 "type": "FIELD",
                 "name": "value",
                 "content": {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "identifier"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "_literals"
-                    }
-                  ]
+                  "type": "SYMBOL",
+                  "name": "_expr"
                 }
               }
             ]
