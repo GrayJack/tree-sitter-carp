@@ -55,11 +55,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "upper_identifier"
+          "name": "_identifier"
         },
         {
           "type": "SYMBOL",
-          "name": "_identifier"
+          "name": "upper_identifier"
         },
         {
           "type": "SYMBOL",
@@ -2302,8 +2302,17 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "identifier"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "all_upper"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "identifier"
+            }
+          ]
         }
       ]
     },
@@ -2433,13 +2442,17 @@
         }
       ]
     },
+    "all_upper": {
+      "type": "PATTERN",
+      "value": "[A-ZΑ-Ω][A-ZΑ-Ω][A-ZΑ-Ω0-9_<%=>\\+\\-\\*\\/\\|\\!\\?]+"
+    },
     "upper_identifier": {
       "type": "PATTERN",
-      "value": "[A-ZΑ-Ω][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\\+\\-\\*\\/\\|\\!\\?\\^]*"
+      "value": "[A-ZΑ-Ω][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\\+\\-\\*\\/\\|\\!\\?]*"
     },
     "identifier": {
       "type": "PATTERN",
-      "value": "[a-zA-Zα-ωΑ-Ωµ_<%=>\\+\\-\\*\\/\\|\\!\\?\\^][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\\+\\-\\*\\/\\|\\!\\?\\^]*"
+      "value": "[a-zA-Zα-ωΑ-Ωµ_<%=>\\+\\-\\*\\/\\|\\!\\?][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\\+\\-\\*\\/\\|\\!\\?]*"
     }
   },
   "extras": [

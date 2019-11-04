@@ -57,8 +57,8 @@ module.exports = grammar({
       $._s_expr,
       $._short_helper,
       $._literals,
-      $.upper_identifier,
       $._identifier,
+      $.upper_identifier,
       $.symbol,
       // $.doc,
     ),
@@ -482,14 +482,15 @@ module.exports = grammar({
         field('module', $.upper_identifier),
         '.',
       )),
-      $.identifier,
+      choice($.all_upper, $.identifier),
     ),
 
     hidden: $ => 'hidden',
     other_str: $ => choice(...important_str),
     operators: $ => choice(...op),
-    upper_identifier: $ => /[A-ZΑ-Ω][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\+\-\*\/\|\!\?\^]*/,
-    identifier: $ => /[a-zA-Zα-ωΑ-Ωµ_<%=>\+\-\*\/\|\!\?\^][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\+\-\*\/\|\!\?\^]*/,
+    all_upper: $ => /[A-ZΑ-Ω][A-ZΑ-Ω][A-ZΑ-Ω0-9_<%=>\+\-\*\/\|\!\?]+/,
+    upper_identifier: $ => /[A-ZΑ-Ω][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\+\-\*\/\|\!\?]*/,
+    identifier: $ => /[a-zA-Zα-ωΑ-Ωµ_<%=>\+\-\*\/\|\!\?][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\+\-\*\/\|\!\?]*/,
   }
 });
 

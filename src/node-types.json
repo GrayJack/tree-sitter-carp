@@ -4012,6 +4012,10 @@
       "required": true,
       "types": [
         {
+          "type": "all_upper",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         }
@@ -6368,6 +6372,10 @@
   {
     "type": "address",
     "named": false
+  },
+  {
+    "type": "all_upper",
+    "named": true
   },
   {
     "type": "and",
