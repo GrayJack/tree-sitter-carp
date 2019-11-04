@@ -78,3 +78,32 @@ Call expressions
         module: (upper_identifier)
         name: (identifier))
       argument: (identifier)))
+
+============================================
+Map expressions
+============================================
+
+({a 10 b 10})
+
+({(Black) @"30"
+ (White) @"31"})
+
+---
+
+(source_file
+  (map_expression
+    key: (identifier)
+    value: (integer_literal)
+    key: (identifier)
+    value: (integer_literal))
+  (map_expression
+    key: (call_expression
+      call_name: (call_no_module
+        name: (upper_identifier)))
+    value: (short_copy
+      (str_literal))
+    key: (call_expression
+      call_name: (call_no_module
+        name: (upper_identifier)))
+    value: (short_copy
+      (str_literal))))
