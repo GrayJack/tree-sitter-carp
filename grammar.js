@@ -1,5 +1,6 @@
 const PREC = {
   call: 14,
+  call_module: 13
 }
 
 const op = [
@@ -35,8 +36,10 @@ const core_types = [
 module.exports = grammar({
   name: 'carp',
 
+  extras: $ => [/\s/, $.line_comment],
+
   rules: {
-    source_file: $ => repeat(choice($.line_comment, $.operators, $.other_str, $._s_expr)),
+    source_file: $ => repeat($._s_expr),
 
     line_comment: $ => seq(';', /.*/),
 
@@ -53,18 +56,15 @@ module.exports = grammar({
       $.upper_identifier,
       $._identifier,
       $.symbol,
-      $.line_comment,
       // $.doc,
     ),
 
     _anything: $ => choice(
       // Core thing
-      $.line_comment,
       $._s_expr,
       $.doc,
       $.use,
       $._short_helper,
-      $.line_comment,
       $.upper_identifier,
       $._identifier,
       $.symbol,
@@ -258,9 +258,11 @@ module.exports = grammar({
 
     call_no_module: $ =>  prec(PREC.call, field('name',choice($.upper_identifier, $.identifier))),
 
-    call_with_module: $ => prec(PREC.call, seq(
-      field('module', $.upper_identifier),
-      '.',
+    call_with_module: $ => prec(PREC.call_module, seq(
+      repeat(seq(
+        field('module', $.upper_identifier),
+        '.',
+      )),
       field('name', choice($.upper_identifier, $.identifier)),
     )),
 
@@ -447,14 +449,16 @@ module.exports = grammar({
       $.identifier,
     ),
 
-    _identifier: $ => choice(
+    _identifier: $ => prec(2, choice(
       $.modular_identifier,
       $.identifier,
-    ),
+    )),
 
     modular_identifier: $ => seq(
-      $.upper_identifier,
-      '.',
+      repeat(seq(
+        field('module', $.upper_identifier),
+        '.',
+      )),
       $.identifier,
     ),
 

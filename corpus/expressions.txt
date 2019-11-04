@@ -18,6 +18,8 @@ Call expressions
 
 (zip &Pair.init-from-refs &(range 0 (length xs) 1) xs)
 
+(Statistics.Summary.min res)
+
 ---
 
 (source_file
@@ -57,7 +59,7 @@ Call expressions
         name: (identifier))
       argument: (short_ref
         (modular_identifier
-          (upper_identifier)
+          module: (upper_identifier)
           (identifier)))
       argument: (short_ref
         (call_expression
@@ -69,4 +71,10 @@ Call expressions
               name: (identifier))
             argument: (identifier))
           argument: (integer_literal)))
+      argument: (identifier))
+  (call_expression
+      call_name: (call_with_module
+        module: (upper_identifier)
+        module: (upper_identifier)
+        name: (identifier))
       argument: (identifier)))
