@@ -104,6 +104,7 @@ module.exports = grammar({
     ),
 
     _literals: $ => choice(
+      $.unit,
       $.array_expression,
       $.map_expression,
       $.str_literal,
@@ -457,6 +458,8 @@ module.exports = grammar({
       ),
       '}',
     ),
+
+    unit: $ => seq('(', ')'),
 
     symbol: $ => seq(
       ':',
