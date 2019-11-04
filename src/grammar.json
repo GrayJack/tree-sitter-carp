@@ -60,6 +60,10 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "_s_expr"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_short_helper"
         },
         {
@@ -80,13 +84,17 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_s_expr"
+          "name": "line_comment"
         }
       ]
     },
     "_anything": {
       "type": "CHOICE",
       "members": [
+        {
+          "type": "SYMBOL",
+          "name": "line_comment"
+        },
         {
           "type": "SYMBOL",
           "name": "_s_expr"
@@ -366,8 +374,11 @@
               "type": "FIELD",
               "name": "body",
               "content": {
-                "type": "SYMBOL",
-                "name": "_expr"
+                "type": "REPEAT",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expr"
+                }
               }
             },
             {
@@ -407,8 +418,11 @@
               "type": "FIELD",
               "name": "body",
               "content": {
-                "type": "SYMBOL",
-                "name": "_expr"
+                "type": "REPEAT",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expr"
+                }
               }
             },
             {
@@ -440,8 +454,11 @@
               "type": "FIELD",
               "name": "body",
               "content": {
-                "type": "SYMBOL",
-                "name": "_expr"
+                "type": "REPEAT",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expr"
+                }
               }
             },
             {
@@ -563,8 +580,11 @@
               "type": "FIELD",
               "name": "body",
               "content": {
-                "type": "SYMBOL",
-                "name": "_expr"
+                "type": "REPEAT",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expr"
+                }
               }
             },
             {
@@ -1349,11 +1369,8 @@
                 }
               },
               {
-                "type": "IMMEDIATE_TOKEN",
-                "content": {
-                  "type": "STRING",
-                  "value": ")"
-                }
+                "type": "STRING",
+                "value": ")"
               }
             ]
           }

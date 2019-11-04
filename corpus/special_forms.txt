@@ -31,6 +31,10 @@ Defn
 
 (defn double [x] (* x 2))
 
+(defn func [a]
+  (do (this a))
+  (do (that a)))
+
 ---
 
 (source_file
@@ -45,7 +49,21 @@ Defn
       call_name: (call_no_module
         name: (identifier))
       argument: (identifier)
-      argument: (integer_literal))))
+      argument: (integer_literal)))
+  (defn
+    name: (identifier)
+    parameters: (parameters
+      (identifier))
+    body: (do
+      expr: (call_expression
+        call_name: (call_no_module
+          name: (identifier))
+        argument: (identifier)))
+    body: (do
+      expr: (call_expression
+        call_name: (call_no_module
+          name: (identifier))
+        argument: (identifier)))))
 
 ============================================
 Let

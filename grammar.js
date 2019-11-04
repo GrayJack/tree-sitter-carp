@@ -47,17 +47,19 @@ module.exports = grammar({
     ),
 
     _expr: $ => choice(
+      $._s_expr,
       $._short_helper,
       $._literals,
       $.upper_identifier,
       $.identifier,
       $.symbol,
+      $.line_comment,
       // $.doc,
-      $._s_expr,
     ),
 
     _anything: $ => choice(
       // Core thing
+      $.line_comment,
       $._s_expr,
       $.doc,
       $.use,
@@ -135,20 +137,20 @@ module.exports = grammar({
     fn: $ => seq(
       'fn',
       field('parameters', $.parameters),
-      optional(field('body', $._expr)),
+      optional(field('body', repeat($._expr))),
     ),
 
     defn: $ => seq(
       'defn',
       field('name', $.identifier),
       field('parameters', $.parameters),
-      optional(field('body', $._expr)),
+      optional(field('body', repeat($._expr))),
     ),
 
     let: $ => seq(
       'let',
       field('pairs', $.let_pairs),
-      optional(field('body', $._expr))
+      optional(field('body', repeat($._expr))),
     ),
 
     let_pairs: $ => seq(
@@ -175,7 +177,7 @@ module.exports = grammar({
     while: $ => seq(
       'while',
       field('condition', $._expr),
-      optional(field('body', $._expr)),
+      optional(field('body', repeat($._expr))),
     ),
 
     ref: $ => seq(
@@ -312,7 +314,7 @@ module.exports = grammar({
         '(',
         field('variant', choice($.upper_identifier, $.identifier)),
         field('fields', $.fields),
-        token.immediate(')'),
+        ')',
       )),
     ),
 
