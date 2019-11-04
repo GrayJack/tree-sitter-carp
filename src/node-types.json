@@ -479,6 +479,10 @@
       "required": false,
       "types": [
         {
+          "type": "complex_type",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         }

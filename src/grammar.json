@@ -1000,6 +1000,10 @@
               },
               {
                 "type": "SYMBOL",
+                "name": "complex_type"
+              },
+              {
+                "type": "SYMBOL",
                 "name": "identifier"
               }
             ]

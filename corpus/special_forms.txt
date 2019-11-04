@@ -297,6 +297,8 @@ The
 
 (the (Ref Id) a)
 
+(the (Ref (Maybe a)) a)
+
 ---
 
 (source_file
@@ -309,6 +311,14 @@ The
       (complex_type
         (identifier)
         (identifier)))
+    expr: (identifier))
+  (the
+    type: (type
+      (complex_type
+        (identifier)
+        (complex_type
+          (identifier)
+          (identifier))))
     expr: (identifier)))
 
 

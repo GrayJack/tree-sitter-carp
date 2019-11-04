@@ -239,6 +239,7 @@ module.exports = grammar({
       '(',
       repeat(choice(
         alias(choice(...core_types), $.identifier),
+        $.complex_type,
         $.identifier,
       )),
       ')',
