@@ -36,7 +36,7 @@ const core_types = [
 module.exports = grammar({
   name: 'carp',
 
-  extras: $ => [/\s/, $.line_comment],
+  extras: $ => [/\s/, ',', $.line_comment],
 
   conflicts: $ => [
     [$.let_pairs, $.array_expression],

@@ -2430,6 +2430,10 @@
       "value": "\\s"
     },
     {
+      "type": "STRING",
+      "value": ","
+    },
+    {
       "type": "SYMBOL",
       "name": "line_comment"
     }
