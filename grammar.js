@@ -303,6 +303,7 @@ module.exports = grammar({
       choice(
         $._deftype1,
         $._deftype2,
+        $._deftype3,
       ),
     )),
 
@@ -319,6 +320,11 @@ module.exports = grammar({
         field('fields', $.fields),
         ')',
       )),
+    )),
+
+    _deftype3: $ => prec.left(PREC.call, seq(
+      field('name', $.identifier),
+      repeat(field('variant', choice($.upper_identifier, $.identifier)))
     )),
 
     _name_deftypes: $ => choice(

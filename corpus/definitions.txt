@@ -299,6 +299,11 @@ Deftype
   (Just [a])
   (Nothing []))
 
+(deftype Enum
+  Kind1
+  Kind2
+  Kind3)
+
 ---
 
 (source_file
@@ -347,4 +352,9 @@ Deftype
     fields: (fields
       (identifier))
     variant: (upper_identifier)
-    fields: (fields)))
+    fields: (fields))
+  (deftype
+    name: (identifier)
+    variant: (upper_identifier)
+    variant: (upper_identifier)
+    variant: (upper_identifier)))

@@ -1363,6 +1363,10 @@
               {
                 "type": "SYMBOL",
                 "name": "_deftype2"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_deftype3"
               }
             ]
           }
@@ -1439,6 +1443,43 @@
                   "value": ")"
                 }
               ]
+            }
+          }
+        ]
+      }
+    },
+    "_deftype3": {
+      "type": "PREC_LEFT",
+      "value": 14,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "name",
+            "content": {
+              "type": "SYMBOL",
+              "name": "identifier"
+            }
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "FIELD",
+              "name": "variant",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "upper_identifier"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "identifier"
+                  }
+                ]
+              }
             }
           }
         ]
