@@ -863,6 +863,22 @@
                   {
                     "type": "STRING",
                     "value": ")"
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "FIELD",
+                        "name": "value_name",
+                        "content": {
+                          "type": "SYMBOL",
+                          "name": "_expr"
+                        }
+                      },
+                      {
+                        "type": "BLANK"
+                      }
+                    ]
                   }
                 ]
               }

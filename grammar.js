@@ -229,7 +229,8 @@ module.exports = grammar({
         seq(
           '(',
           field('fn', $.interface_fn),
-          ')'
+          ')',
+          optional(field('value_name', $._expr)),
         ),
       ),
     )),

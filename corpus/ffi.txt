@@ -8,6 +8,8 @@ Register
 
 (register pi Double)
 
+(register leak-array (Fn [a] ()) "Debug_leak_MINUS_array")
+
 ---
 
 (source_file
@@ -29,4 +31,13 @@ Register
   (register
     name: (identifier)
     type: (type
-      (identifier))))
+      (identifier)))
+  (register
+      name: (identifier)
+      fn: (interface_fn
+        typed_params: (typed_parameters
+          (type
+            (identifier)))
+        return_type: (type
+          (complex_type)))
+      value_name: (str_literal)))
