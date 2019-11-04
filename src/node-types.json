@@ -166,6 +166,10 @@
           {
             "type": "while",
             "named": true
+          },
+          {
+            "type": "with",
+            "named": true
           }
         ]
       }
@@ -329,6 +333,10 @@
         },
         {
           "type": "while",
+          "named": true
+        },
+        {
+          "type": "with",
           "named": true
         }
       ]
@@ -505,6 +513,10 @@
           },
           {
             "type": "while",
+            "named": true
+          },
+          {
+            "type": "with",
             "named": true
           }
         ]
@@ -790,6 +802,10 @@
           {
             "type": "while",
             "named": true
+          },
+          {
+            "type": "with",
+            "named": true
           }
         ]
       }
@@ -998,6 +1014,10 @@
           {
             "type": "while",
             "named": true
+          },
+          {
+            "type": "with",
+            "named": true
           }
         ]
       },
@@ -1190,6 +1210,10 @@
           {
             "type": "while",
             "named": true
+          },
+          {
+            "type": "with",
+            "named": true
           }
         ]
       },
@@ -1381,6 +1405,10 @@
           },
           {
             "type": "while",
+            "named": true
+          },
+          {
+            "type": "with",
             "named": true
           }
         ]
@@ -1577,6 +1605,10 @@
           },
           {
             "type": "while",
+            "named": true
+          },
+          {
+            "type": "with",
             "named": true
           }
         ]
@@ -1820,6 +1852,10 @@
           {
             "type": "while",
             "named": true
+          },
+          {
+            "type": "with",
+            "named": true
           }
         ]
       }
@@ -2041,6 +2077,10 @@
           {
             "type": "while",
             "named": true
+          },
+          {
+            "type": "with",
+            "named": true
           }
         ]
       },
@@ -2227,6 +2267,10 @@
           {
             "type": "while",
             "named": true
+          },
+          {
+            "type": "with",
+            "named": true
           }
         ]
       },
@@ -2393,6 +2437,10 @@
           {
             "type": "while",
             "named": true
+          },
+          {
+            "type": "with",
+            "named": true
           }
         ]
       },
@@ -2558,6 +2606,10 @@
           },
           {
             "type": "while",
+            "named": true
+          },
+          {
+            "type": "with",
             "named": true
           }
         ]
@@ -2777,6 +2829,10 @@
           {
             "type": "while",
             "named": true
+          },
+          {
+            "type": "with",
+            "named": true
           }
         ]
       },
@@ -2963,6 +3019,10 @@
           {
             "type": "while",
             "named": true
+          },
+          {
+            "type": "with",
+            "named": true
           }
         ]
       },
@@ -3128,6 +3188,10 @@
           },
           {
             "type": "while",
+            "named": true
+          },
+          {
+            "type": "with",
             "named": true
           }
         ]
@@ -3301,6 +3365,10 @@
           {
             "type": "while",
             "named": true
+          },
+          {
+            "type": "with",
+            "named": true
           }
         ]
       },
@@ -3466,6 +3534,10 @@
           },
           {
             "type": "while",
+            "named": true
+          },
+          {
+            "type": "with",
             "named": true
           }
         ]
@@ -3638,6 +3710,10 @@
           },
           {
             "type": "while",
+            "named": true
+          },
+          {
+            "type": "with",
             "named": true
           }
         ]
@@ -3821,6 +3897,10 @@
           {
             "type": "while",
             "named": true
+          },
+          {
+            "type": "with",
+            "named": true
           }
         ]
       },
@@ -3986,6 +4066,10 @@
           },
           {
             "type": "while",
+            "named": true
+          },
+          {
+            "type": "with",
             "named": true
           }
         ]
@@ -4268,6 +4352,10 @@
           {
             "type": "while",
             "named": true
+          },
+          {
+            "type": "with",
+            "named": true
           }
         ]
       }
@@ -4486,6 +4574,10 @@
           {
             "type": "while",
             "named": true
+          },
+          {
+            "type": "with",
+            "named": true
           }
         ]
       }
@@ -4658,6 +4750,10 @@
           {
             "type": "while",
             "named": true
+          },
+          {
+            "type": "with",
+            "named": true
           }
         ]
       },
@@ -4824,6 +4920,10 @@
           {
             "type": "while",
             "named": true
+          },
+          {
+            "type": "with",
+            "named": true
           }
         ]
       }
@@ -4988,6 +5088,10 @@
         {
           "type": "while",
           "named": true
+        },
+        {
+          "type": "with",
+          "named": true
         }
       ]
     }
@@ -5150,6 +5254,10 @@
         },
         {
           "type": "while",
+          "named": true
+        },
+        {
+          "type": "with",
           "named": true
         }
       ]
@@ -5314,6 +5422,10 @@
         {
           "type": "while",
           "named": true
+        },
+        {
+          "type": "with",
+          "named": true
         }
       ]
     }
@@ -5477,6 +5589,10 @@
         {
           "type": "while",
           "named": true
+        },
+        {
+          "type": "with",
+          "named": true
         }
       ]
     }
@@ -5639,6 +5755,10 @@
         },
         {
           "type": "while",
+          "named": true
+        },
+        {
+          "type": "with",
           "named": true
         }
       ]
@@ -5840,6 +5960,10 @@
           },
           {
             "type": "while",
+            "named": true
+          },
+          {
+            "type": "with",
             "named": true
           }
         ]
@@ -6094,6 +6218,10 @@
           {
             "type": "while",
             "named": true
+          },
+          {
+            "type": "with",
+            "named": true
           }
         ]
       },
@@ -6259,6 +6387,196 @@
           },
           {
             "type": "while",
+            "named": true
+          },
+          {
+            "type": "with",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "with",
+    "named": true,
+    "fields": {
+      "expr": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "address",
+            "named": true
+          },
+          {
+            "type": "array_expression",
+            "named": true
+          },
+          {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
+            "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "fn",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "map_expression",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "modular_identifier",
+            "named": true
+          },
+          {
+            "type": "pattern_literal",
+            "named": true
+          },
+          {
+            "type": "ref",
+            "named": true
+          },
+          {
+            "type": "register",
+            "named": true
+          },
+          {
+            "type": "set",
+            "named": true
+          },
+          {
+            "type": "short_copy",
+            "named": true
+          },
+          {
+            "type": "short_fn_ref",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          },
+          {
+            "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "str_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          },
+          {
+            "type": "the",
+            "named": true
+          },
+          {
+            "type": "unit",
+            "named": true
+          },
+          {
+            "type": "upper_identifier",
+            "named": true
+          },
+          {
+            "type": "use",
+            "named": true
+          },
+          {
+            "type": "while",
+            "named": true
+          },
+          {
+            "type": "with",
+            "named": true
+          }
+        ]
+      },
+      "module": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "upper_identifier",
             "named": true
           }
         ]
@@ -6551,6 +6869,10 @@
   },
   {
     "type": "while-do",
+    "named": false
+  },
+  {
+    "type": "with",
     "named": false
   },
   {

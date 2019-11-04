@@ -67,7 +67,6 @@ module.exports = grammar({
       // Core thing
       $._s_expr,
       $.doc,
-      $.use,
       $._short_helper,
       $.upper_identifier,
       $._identifier,
@@ -87,6 +86,8 @@ module.exports = grammar({
       $.do,
       $.if,
       $.while,
+      $.use,
+      $.with,
       $.ref,
       $.address,
       $.set,
@@ -120,11 +121,6 @@ module.exports = grammar({
       $.short_copy,
       $.short_fn_ref,
       $.short_quote,
-    ),
-
-    use: $ => seq(
-      'use',
-      field('module', $.upper_identifier),
     ),
 
     doc: $ => seq(
@@ -183,6 +179,17 @@ module.exports = grammar({
       'while',
       field('condition', $._expr),
       optional(field('body', repeat($._expr))),
+    )),
+
+    use: $ => prec.left(seq(
+      'use',
+      field('module', $.upper_identifier),
+    )),
+
+    with: $ => prec.left(seq(
+      'with',
+      field('module', $.upper_identifier),
+      repeat(field('expr', $._expr)),
     )),
 
     ref: $ => prec.left(seq(

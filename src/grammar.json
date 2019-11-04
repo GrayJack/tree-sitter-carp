@@ -80,10 +80,6 @@
         },
         {
           "type": "SYMBOL",
-          "name": "use"
-        },
-        {
-          "type": "SYMBOL",
           "name": "_short_helper"
         },
         {
@@ -146,6 +142,14 @@
         {
           "type": "SYMBOL",
           "name": "while"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "use"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "with"
         },
         {
           "type": "SYMBOL",
@@ -257,23 +261,6 @@
         {
           "type": "SYMBOL",
           "name": "short_quote"
-        }
-      ]
-    },
-    "use": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "use"
-        },
-        {
-          "type": "FIELD",
-          "name": "module",
-          "content": {
-            "type": "SYMBOL",
-            "name": "upper_identifier"
-          }
         }
       ]
     },
@@ -620,6 +607,59 @@
                 "type": "BLANK"
               }
             ]
+          }
+        ]
+      }
+    },
+    "use": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "use"
+          },
+          {
+            "type": "FIELD",
+            "name": "module",
+            "content": {
+              "type": "SYMBOL",
+              "name": "upper_identifier"
+            }
+          }
+        ]
+      }
+    },
+    "with": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "with"
+          },
+          {
+            "type": "FIELD",
+            "name": "module",
+            "content": {
+              "type": "SYMBOL",
+              "name": "upper_identifier"
+            }
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "FIELD",
+              "name": "expr",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_expr"
+              }
+            }
           }
         ]
       }

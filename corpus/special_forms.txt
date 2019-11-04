@@ -247,6 +247,54 @@ While
       argument: (integer_literal))))
 
 ============================================
+Use
+============================================
+
+(use Array)
+
+---
+
+(source_file
+  (use
+    module: (upper_identifier)))
+
+============================================
+With
+============================================
+
+(with Array
+  (defn aaa [arr]
+    (length arr)))
+
+(with Mod
+  (def item 10)
+  (defn func [a] a))
+
+---
+
+(source_file
+  (with
+    module: (upper_identifier)
+    expr: (defn
+      name: (identifier)
+      parameters: (parameters
+        (identifier))
+      body: (call_expression
+        call_name: (call_no_module
+          name: (identifier))
+        argument: (identifier))))
+  (with
+    module: (upper_identifier)
+    expr: (def
+      name: (identifier)
+      value: (integer_literal))
+    expr: (defn
+      name: (identifier)
+      parameters: (parameters
+        (identifier))
+      body: (identifier))))
+
+============================================
 Ref
 ============================================
 
