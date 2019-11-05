@@ -31,34 +31,6 @@
         "value": "'"
       }
     },
-    "doc": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "("
-          },
-          {
-            "type": "STRING",
-            "value": "doc"
-          },
-          {
-            "type": "PATTERN",
-            "value": ".+"
-          },
-          {
-            "type": "PATTERN",
-            "value": "\\\".*\\\""
-          },
-          {
-            "type": "STRING",
-            "value": ")"
-          }
-        ]
-      }
-    },
     "hidden": {
       "type": "TOKEN",
       "content": {
@@ -3082,7 +3054,12 @@
       "modular_identifier"
     ]
   ],
-  "externals": [],
+  "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "doc"
+    }
+  ],
   "inline": [],
   "supertypes": []
 }

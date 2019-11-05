@@ -52,6 +52,12 @@ const core_types = [
 module.exports = grammar({
   name: 'carp',
 
+  externals: $ => [
+    $.doc,
+  ],
+
+  // Hey, you, writting more code to this, if you gonna put more itens here
+  // it better be token, or things get messy.
   extras: $ => [/\s/, ',', $.line_comment, $.quote, $.doc, $.hidden],
 
   conflicts: $ => [
@@ -64,8 +70,6 @@ module.exports = grammar({
     line_comment: $ => token(seq(';', /.*/)),
 
     quote: $ => token('\''),
-
-    doc: $ => token(seq('(', 'doc', /.+/, /\".*\"/, ')')),
 
     hidden: $ => token(seq('(', 'hidden', /.+/, ')')),
 
