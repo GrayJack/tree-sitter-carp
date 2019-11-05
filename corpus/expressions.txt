@@ -20,64 +20,74 @@ Call expressions
 
 (Statistics.Summary.min res)
 
+(call 'a 'b)
+
 ---
 
 (source_file
-  (call_expression
+  (call
     call_name: (call_no_module
       name: (identifier)))
-  (call_expression
+  (call
     call_name: (call_no_module
       name: (identifier))
     argument: (identifier))
-  (call_expression
+  (call
     call_name: (call_no_module
       name: (identifier))
     argument: (integer_literal)
     argument: (integer_literal))
-  (call_expression
+  (call
     call_name: (short_fn_ref
       (identifier))
     argument: (identifier))
-  (call_expression
+  (call
     call_name: (call_with_module
       module: (upper_identifier)
       name: (identifier))
     argument: (identifier)
     argument: (identifier))
-  (call_expression
+  (call
     call_name: (call_with_module
       module: (upper_identifier)
       name: (upper_identifier)))
-  (call_expression
+  (call
     call_name: (call_with_module
       module: (upper_identifier)
       name: (upper_identifier))
     argument: (identifier))
-  (call_expression
-      call_name: (call_no_module
-        name: (identifier))
-      argument: (short_ref
-        (modular_identifier
-          module: (upper_identifier)
-          (identifier)))
-      argument: (short_ref
-        (call_expression
+  (call
+    call_name: (call_no_module
+      name: (identifier))
+    argument: (short_ref
+      (modular_identifier
+        module: (upper_identifier)
+        (identifier)))
+    argument: (short_ref
+      (call
+        call_name: (call_no_module
+          name: (identifier))
+        argument: (integer_literal)
+        argument: (call
           call_name: (call_no_module
             name: (identifier))
-          argument: (integer_literal)
-          argument: (call_expression
-            call_name: (call_no_module
-              name: (identifier))
-            argument: (identifier))
-          argument: (integer_literal)))
-      argument: (identifier))
-  (call_expression
-      call_name: (call_with_module
-        module: (upper_identifier)
-        module: (upper_identifier)
-        name: (identifier))
-      argument: (identifier)))
+          argument: (identifier))
+        argument: (integer_literal)))
+    argument: (identifier))
+  (call
+    call_name: (call_with_module
+      module: (upper_identifier)
+      module: (upper_identifier)
+      name: (identifier))
+    argument: (identifier))
+  (call
+    call_name: (call_no_module
+      name: (identifier))
+    (quote)
+    argument: (identifier)
+    (quote)
+    argument: (identifier)))
+
 
 ============================================
 Map expressions
@@ -97,12 +107,12 @@ Map expressions
     key: (identifier)
     value: (integer_literal))
   (map_expression
-    key: (call_expression
+    key: (call
       call_name: (call_no_module
         name: (upper_identifier)))
     value: (short_copy
       (str_literal))
-    key: (call_expression
+    key: (call
       call_name: (call_no_module
         name: (upper_identifier)))
     value: (short_copy

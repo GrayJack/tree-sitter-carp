@@ -204,13 +204,11 @@ Defmacro
     parameters: (parameters
       (identifier)
       (identifier))
-    body: (call_expression
+    body: (call
       call_name: (call_no_module
         name: (identifier))
-      argument: (short_quote
-        (call_expression
-          call_name: (call_no_module
-            name: (identifier))))
+      (quote)
+      argument: (identifier)
       argument: (identifier)
       argument: (str_literal)
       argument: (identifier)))
@@ -220,7 +218,7 @@ Defmacro
       (symbol
         (identifier))
       (identifier))
-    body: (call_expression
+    body: (call
       call_name: (call_no_module
         name: (identifier))
       argument: (identifier))))
@@ -238,10 +236,10 @@ Defndynamic
     name: (identifier)
     parameters: (parameters
       (identifier))
-    body: (call_expression
+    body: (call
       call_name: (call_no_module
         name: (identifier))
-      argument: (call_expression
+      argument: (call
         call_name: (call_no_module
           name: (identifier))
         argument: (identifier)))))
@@ -272,7 +270,7 @@ Defmodule
       parameters: (parameters
         (identifier)
         (identifier))
-      body: (call_expression
+      body: (call
         call_name: (call_with_module
           module: (upper_identifier)
           name: (identifier))

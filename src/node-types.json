@@ -28,7 +28,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -65,10 +65,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -129,10 +125,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -196,7 +188,7 @@
           "named": true
         },
         {
-          "type": "call_expression",
+          "type": "call",
           "named": true
         },
         {
@@ -233,10 +225,6 @@
         },
         {
           "type": "do",
-          "named": true
-        },
-        {
-          "type": "doc",
           "named": true
         },
         {
@@ -300,10 +288,6 @@
           "named": true
         },
         {
-          "type": "short_quote",
-          "named": true
-        },
-        {
           "type": "short_ref",
           "named": true
         },
@@ -348,7 +332,7 @@
     "fields": {}
   },
   {
-    "type": "call_expression",
+    "type": "call",
     "named": true,
     "fields": {
       "argument": {
@@ -376,7 +360,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -413,10 +397,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -477,10 +457,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -664,7 +640,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -701,10 +677,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -765,10 +737,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -876,7 +844,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -913,10 +881,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -977,10 +941,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -1072,7 +1032,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -1109,10 +1069,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -1173,10 +1129,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -1227,16 +1179,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "doc",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -1268,7 +1210,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -1305,10 +1247,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -1369,10 +1307,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -1428,11 +1362,11 @@
         "required": true,
         "types": [
           {
-            "type": "parameters",
+            "type": "parameter_ident",
             "named": true
           },
           {
-            "type": "quote_param",
+            "type": "parameters",
             "named": true
           }
         ]
@@ -1468,7 +1402,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -1505,10 +1439,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -1569,10 +1499,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -1714,7 +1640,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -1751,10 +1677,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -1818,10 +1740,6 @@
             "named": true
           },
           {
-            "type": "short_quote",
-            "named": true
-          },
-          {
             "type": "short_ref",
             "named": true
           },
@@ -1855,32 +1773,6 @@
           },
           {
             "type": "with",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "doc",
-    "named": true,
-    "fields": {
-      "doc_str": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "str_literal",
-            "named": true
-          }
-        ]
-      },
-      "fn": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "identifier",
             "named": true
           }
         ]
@@ -1939,7 +1831,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -1976,10 +1868,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -2040,10 +1928,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -2089,16 +1973,21 @@
         "required": true,
         "types": [
           {
-            "type": "parameters",
+            "type": "parameter_ident",
             "named": true
           },
           {
-            "type": "quote_param",
+            "type": "parameters",
             "named": true
           }
         ]
       }
     }
+  },
+  {
+    "type": "identifier",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "if",
@@ -2129,7 +2018,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -2166,10 +2055,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -2230,10 +2115,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -2299,7 +2180,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -2336,10 +2217,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -2400,10 +2277,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -2469,7 +2342,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -2506,10 +2379,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -2570,10 +2439,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -2633,10 +2498,6 @@
             "named": true
           },
           {
-            "type": "short_quote",
-            "named": true
-          },
-          {
             "type": "short_ref",
             "named": true
           },
@@ -2650,10 +2511,6 @@
         "multiple": false,
         "required": true,
         "types": [
-          {
-            "type": "quote_typaram",
-            "named": true
-          },
           {
             "type": "typed_parameters",
             "named": true
@@ -2691,7 +2548,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -2728,10 +2585,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -2792,10 +2645,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -2841,11 +2690,15 @@
         "required": true,
         "types": [
           {
-            "type": "let_pairs",
+            "type": "let_array",
             "named": true
           },
           {
-            "type": "quote_let",
+            "type": "let_ident",
+            "named": true
+          },
+          {
+            "type": "let_pairs",
             "named": true
           }
         ]
@@ -2853,7 +2706,7 @@
     }
   },
   {
-    "type": "let_pairs",
+    "type": "let_array",
     "named": true,
     "fields": {
       "expr": {
@@ -2881,7 +2734,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -2918,10 +2771,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -2982,10 +2831,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -3051,7 +2896,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -3088,10 +2933,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -3155,7 +2996,348 @@
             "named": true
           },
           {
-            "type": "short_quote",
+            "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "str_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          },
+          {
+            "type": "the",
+            "named": true
+          },
+          {
+            "type": "unit",
+            "named": true
+          },
+          {
+            "type": "upper_identifier",
+            "named": true
+          },
+          {
+            "type": "use",
+            "named": true
+          },
+          {
+            "type": "while",
+            "named": true
+          },
+          {
+            "type": "with",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "let_ident",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "let_pairs",
+    "named": true,
+    "fields": {
+      "expr": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "address",
+            "named": true
+          },
+          {
+            "type": "array_expression",
+            "named": true
+          },
+          {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
+            "type": "do",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "fn",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "map_expression",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "modular_identifier",
+            "named": true
+          },
+          {
+            "type": "pattern_literal",
+            "named": true
+          },
+          {
+            "type": "ref",
+            "named": true
+          },
+          {
+            "type": "register",
+            "named": true
+          },
+          {
+            "type": "set",
+            "named": true
+          },
+          {
+            "type": "short_copy",
+            "named": true
+          },
+          {
+            "type": "short_fn_ref",
+            "named": true
+          },
+          {
+            "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "str_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          },
+          {
+            "type": "the",
+            "named": true
+          },
+          {
+            "type": "unit",
+            "named": true
+          },
+          {
+            "type": "upper_identifier",
+            "named": true
+          },
+          {
+            "type": "use",
+            "named": true
+          },
+          {
+            "type": "while",
+            "named": true
+          },
+          {
+            "type": "with",
+            "named": true
+          }
+        ]
+      },
+      "var": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "address",
+            "named": true
+          },
+          {
+            "type": "array_expression",
+            "named": true
+          },
+          {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
+            "type": "do",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "fn",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "map_expression",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "modular_identifier",
+            "named": true
+          },
+          {
+            "type": "pattern_literal",
+            "named": true
+          },
+          {
+            "type": "ref",
+            "named": true
+          },
+          {
+            "type": "register",
+            "named": true
+          },
+          {
+            "type": "set",
+            "named": true
+          },
+          {
+            "type": "short_copy",
+            "named": true
+          },
+          {
+            "type": "short_fn_ref",
             "named": true
           },
           {
@@ -3227,7 +3409,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -3264,10 +3446,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -3328,10 +3506,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -3397,7 +3571,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -3434,10 +3608,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -3498,10 +3668,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -3573,7 +3739,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -3610,10 +3776,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -3674,10 +3836,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -3759,7 +3917,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -3796,10 +3954,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -3860,10 +4014,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -3929,7 +4079,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -3966,10 +4116,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -4030,10 +4176,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -4107,6 +4249,21 @@
     }
   },
   {
+    "type": "parameter_ident",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "parameters",
     "named": true,
     "fields": {},
@@ -4119,7 +4276,15 @@
           "named": true
         },
         {
+          "type": "modular_identifier",
+          "named": true
+        },
+        {
           "type": "symbol",
+          "named": true
+        },
+        {
+          "type": "upper_identifier",
           "named": true
         }
       ]
@@ -4135,51 +4300,6 @@
       "types": [
         {
           "type": "escape_sequence",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "quote_let",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "let_pairs",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "quote_param",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "parameters",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "quote_typaram",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "typed_parameters",
           "named": true
         }
       ]
@@ -4214,7 +4334,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -4251,10 +4371,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -4315,10 +4431,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -4398,10 +4510,6 @@
             "named": true
           },
           {
-            "type": "short_quote",
-            "named": true
-          },
-          {
             "type": "short_ref",
             "named": true
           },
@@ -4436,7 +4544,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -4473,10 +4581,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -4537,10 +4641,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -4612,7 +4712,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -4649,10 +4749,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -4713,10 +4809,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -4782,7 +4874,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -4819,10 +4911,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -4886,10 +4974,6 @@
             "named": true
           },
           {
-            "type": "short_quote",
-            "named": true
-          },
-          {
             "type": "short_ref",
             "named": true
           },
@@ -4950,7 +5034,7 @@
           "named": true
         },
         {
-          "type": "call_expression",
+          "type": "call",
           "named": true
         },
         {
@@ -4987,10 +5071,6 @@
         },
         {
           "type": "do",
-          "named": true
-        },
-        {
-          "type": "doc",
           "named": true
         },
         {
@@ -5051,10 +5131,6 @@
         },
         {
           "type": "short_fn_ref",
-          "named": true
-        },
-        {
-          "type": "short_quote",
           "named": true
         },
         {
@@ -5117,7 +5193,7 @@
           "named": true
         },
         {
-          "type": "call_expression",
+          "type": "call",
           "named": true
         },
         {
@@ -5154,10 +5230,6 @@
         },
         {
           "type": "do",
-          "named": true
-        },
-        {
-          "type": "doc",
           "named": true
         },
         {
@@ -5218,177 +5290,6 @@
         },
         {
           "type": "short_fn_ref",
-          "named": true
-        },
-        {
-          "type": "short_quote",
-          "named": true
-        },
-        {
-          "type": "short_ref",
-          "named": true
-        },
-        {
-          "type": "str_literal",
-          "named": true
-        },
-        {
-          "type": "symbol",
-          "named": true
-        },
-        {
-          "type": "the",
-          "named": true
-        },
-        {
-          "type": "unit",
-          "named": true
-        },
-        {
-          "type": "upper_identifier",
-          "named": true
-        },
-        {
-          "type": "use",
-          "named": true
-        },
-        {
-          "type": "while",
-          "named": true
-        },
-        {
-          "type": "with",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "short_quote",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "address",
-          "named": true
-        },
-        {
-          "type": "array_expression",
-          "named": true
-        },
-        {
-          "type": "bool_literal",
-          "named": true
-        },
-        {
-          "type": "call_expression",
-          "named": true
-        },
-        {
-          "type": "char_literal",
-          "named": true
-        },
-        {
-          "type": "def",
-          "named": true
-        },
-        {
-          "type": "definterface",
-          "named": true
-        },
-        {
-          "type": "defmacro",
-          "named": true
-        },
-        {
-          "type": "defmodule",
-          "named": true
-        },
-        {
-          "type": "defn",
-          "named": true
-        },
-        {
-          "type": "defndynamic",
-          "named": true
-        },
-        {
-          "type": "deftype",
-          "named": true
-        },
-        {
-          "type": "do",
-          "named": true
-        },
-        {
-          "type": "doc",
-          "named": true
-        },
-        {
-          "type": "float_literal",
-          "named": true
-        },
-        {
-          "type": "fn",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if",
-          "named": true
-        },
-        {
-          "type": "integer_literal",
-          "named": true
-        },
-        {
-          "type": "let",
-          "named": true
-        },
-        {
-          "type": "map_expression",
-          "named": true
-        },
-        {
-          "type": "match",
-          "named": true
-        },
-        {
-          "type": "modular_identifier",
-          "named": true
-        },
-        {
-          "type": "pattern_literal",
-          "named": true
-        },
-        {
-          "type": "ref",
-          "named": true
-        },
-        {
-          "type": "register",
-          "named": true
-        },
-        {
-          "type": "set",
-          "named": true
-        },
-        {
-          "type": "short_copy",
-          "named": true
-        },
-        {
-          "type": "short_fn_ref",
-          "named": true
-        },
-        {
-          "type": "short_quote",
           "named": true
         },
         {
@@ -5451,7 +5352,7 @@
           "named": true
         },
         {
-          "type": "call_expression",
+          "type": "call",
           "named": true
         },
         {
@@ -5488,10 +5389,6 @@
         },
         {
           "type": "do",
-          "named": true
-        },
-        {
-          "type": "doc",
           "named": true
         },
         {
@@ -5552,10 +5449,6 @@
         },
         {
           "type": "short_fn_ref",
-          "named": true
-        },
-        {
-          "type": "short_quote",
           "named": true
         },
         {
@@ -5618,7 +5511,7 @@
           "named": true
         },
         {
-          "type": "call_expression",
+          "type": "call",
           "named": true
         },
         {
@@ -5658,19 +5551,11 @@
           "named": true
         },
         {
-          "type": "doc",
-          "named": true
-        },
-        {
           "type": "float_literal",
           "named": true
         },
         {
           "type": "fn",
-          "named": true
-        },
-        {
-          "type": "identifier",
           "named": true
         },
         {
@@ -5691,10 +5576,6 @@
         },
         {
           "type": "match",
-          "named": true
-        },
-        {
-          "type": "modular_identifier",
           "named": true
         },
         {
@@ -5719,10 +5600,6 @@
         },
         {
           "type": "short_fn_ref",
-          "named": true
-        },
-        {
-          "type": "short_quote",
           "named": true
         },
         {
@@ -5823,7 +5700,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -5860,10 +5737,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -5924,10 +5797,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -6016,10 +5885,6 @@
           "named": true
         },
         {
-          "type": "short_quote",
-          "named": true
-        },
-        {
           "type": "short_ref",
           "named": true
         },
@@ -6044,22 +5909,6 @@
         "required": true,
         "types": [
           {
-            "type": "upper_identifier",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "while",
-    "named": true,
-    "fields": {
-      "body": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
             "type": "(",
             "named": false
           },
@@ -6080,7 +5929,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -6117,10 +5966,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -6184,7 +6029,171 @@
             "named": true
           },
           {
-            "type": "short_quote",
+            "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "str_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          },
+          {
+            "type": "the",
+            "named": true
+          },
+          {
+            "type": "unit",
+            "named": true
+          },
+          {
+            "type": "upper_identifier",
+            "named": true
+          },
+          {
+            "type": "use",
+            "named": true
+          },
+          {
+            "type": "while",
+            "named": true
+          },
+          {
+            "type": "with",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "while",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "address",
+            "named": true
+          },
+          {
+            "type": "array_expression",
+            "named": true
+          },
+          {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
+            "type": "do",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "fn",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "map_expression",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "modular_identifier",
+            "named": true
+          },
+          {
+            "type": "pattern_literal",
+            "named": true
+          },
+          {
+            "type": "ref",
+            "named": true
+          },
+          {
+            "type": "register",
+            "named": true
+          },
+          {
+            "type": "set",
+            "named": true
+          },
+          {
+            "type": "short_copy",
+            "named": true
+          },
+          {
+            "type": "short_fn_ref",
             "named": true
           },
           {
@@ -6250,7 +6259,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -6287,10 +6296,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -6351,10 +6356,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -6426,7 +6427,7 @@
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call",
             "named": true
           },
           {
@@ -6463,10 +6464,6 @@
           },
           {
             "type": "do",
-            "named": true
-          },
-          {
-            "type": "doc",
             "named": true
           },
           {
@@ -6527,10 +6524,6 @@
           },
           {
             "type": "short_fn_ref",
-            "named": true
-          },
-          {
-            "type": "short_quote",
             "named": true
           },
           {
@@ -6704,6 +6697,10 @@
     "named": false
   },
   {
+    "type": "array",
+    "named": false
+  },
+  {
     "type": "break",
     "named": false
   },
@@ -6784,6 +6781,10 @@
     "named": false
   },
   {
+    "type": "hidden",
+    "named": false
+  },
+  {
     "type": "identifier",
     "named": true
   },
@@ -6829,6 +6830,10 @@
   },
   {
     "type": "register",
+    "named": false
+  },
+  {
+    "type": "set",
     "named": false
   },
   {

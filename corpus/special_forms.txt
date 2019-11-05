@@ -8,6 +8,9 @@ Fn
 
 (fn '[a b])
 
+; inside macros
+(fn arguments)
+
 ---
 
 (source_file
@@ -19,16 +22,20 @@ Fn
     parameters: (parameters
       (identifier)
       (identifier))
-    body: (call_expression
+    body: (call
       call_name: (call_no_module
         name: (identifier))
       argument: (identifier)
       argument: (identifier)))
   (fn
-      parameters: (quote_param
-        (parameters
-          (identifier)
-          (identifier)))))
+    (quote)
+    parameters: (parameters
+      (identifier)
+      (identifier)))
+  (line_comment)
+  (fn
+    parameters: (parameter_ident
+      (identifier))))
 
 ============================================
 Defn
@@ -44,6 +51,9 @@ Defn
 
 (defn a '[a b])
 
+; inside macros
+(defn name arguments)
+
 ---
 
 (source_file
@@ -54,7 +64,7 @@ Defn
     name: (identifier)
     parameters: (parameters
       (identifier))
-    body: (call_expression
+    body: (call
       call_name: (call_no_module
         name: (identifier))
       argument: (identifier)
@@ -64,21 +74,26 @@ Defn
     parameters: (parameters
       (identifier))
     body: (do
-      expr: (call_expression
+      expr: (call
         call_name: (call_no_module
           name: (identifier))
         argument: (identifier)))
     body: (do
-      expr: (call_expression
+      expr: (call
         call_name: (call_no_module
           name: (identifier))
         argument: (identifier))))
   (defn
-      name: (identifier)
-      parameters: (quote_param
-        (parameters
-          (identifier)
-          (identifier)))))
+    name: (identifier)
+    (quote)
+    parameters: (parameters
+      (identifier)
+      (identifier)))
+  (line_comment)
+  (defn
+    name: (identifier)
+    parameters: (parameter_ident
+      (identifier))))
 
 ============================================
 Let
@@ -93,6 +108,11 @@ Let
 (let [a 10] (double a))
 
 (let '[a b])
+
+(let (array variable from))
+
+; inside macros
+(list 'let bindings)
 
 ---
 
@@ -113,15 +133,26 @@ Let
     pairs: (let_pairs
       var: (identifier)
       expr: (integer_literal))
-    body: (call_expression
+    body: (call
       call_name: (call_no_module
         name: (identifier))
       argument: (identifier)))
   (let
-    pairs: (quote_let
-      (let_pairs
-        var: (identifier)
-        expr: (identifier)))))
+    (quote)
+    pairs: (let_pairs
+      var: (identifier)
+      expr: (identifier)))
+  (let
+    pairs: (let_array
+      var: (identifier)
+      expr: (identifier)))
+  (line_comment)
+  (call
+    call_name: (call_no_module
+      name: (identifier))
+    (quote)
+    argument: (let
+      pairs: (let_ident (identifier)))))
 
 ============================================
 Do
@@ -142,7 +173,7 @@ Do
   (do
     expr: (identifier))
   (do
-    expr: (call_expression
+    expr: (call
       call_name: (call_no_module
         name: (identifier))
       argument: (identifier)
@@ -154,7 +185,7 @@ Do
       var: (identifier)
       expr: (integer_literal))
     body: (do
-      expr: (call_expression
+      expr: (call
         call_name: (call_no_module
           name: (identifier))
         argument: (identifier)
@@ -180,7 +211,7 @@ If
 
 (source_file
   (if
-    condition: (call_expression
+    condition: (call
       call_name: (call_no_module
         name: (identifier))
       argument: (identifier)
@@ -188,7 +219,7 @@ If
     then: (bool_literal)
     else: (bool_literal))
   (if
-    condition: (call_expression
+    condition: (call
       call_name: (call_no_module
         name: (identifier))
       argument: (identifier)
@@ -198,20 +229,20 @@ If
     else: (short_ref
       (identifier)))
   (if
-    condition: (call_expression
+    condition: (call
       call_name: (call_no_module
         name: (identifier))
-      argument: (call_expression
+      argument: (call
         call_name: (call_no_module
           name: (identifier))
         argument: (identifier)
         argument: (integer_literal))
       argument: (integer_literal))
-    then: (call_expression
+    then: (call
       call_name: (call_no_module
         name: (identifier))
       argument: (str_literal))
-    else: (call_expression
+    else: (call
       call_name: (call_no_module
         name: (identifier))
       argument: (str_literal))))
@@ -229,18 +260,18 @@ While
 
 (source_file
   (while
-    condition: (call_expression
+    condition: (call
       call_name: (call_no_module
         name: (identifier))
       argument: (identifier)
       argument: (integer_literal)))
   (while
-    condition: (call_expression
+    condition: (call
       call_name: (call_no_module
         name: (identifier))
       argument: (identifier)
       argument: (integer_literal))
-    body: (call_expression
+    body: (call
       call_name: (call_no_module
         name: (identifier))
       argument: (identifier)
@@ -252,11 +283,24 @@ Use
 
 (use Array)
 
+; inside macro
+(list 'use (car names))
+
 ---
 
 (source_file
   (use
-    module: (upper_identifier)))
+    module: (upper_identifier))
+  (line_comment)
+  (call
+    call_name: (call_no_module
+      name: (identifier))
+    (quote)
+    argument: (use
+      module: (call
+        call_name: (call_no_module
+          name: (identifier))
+        argument: (identifier)))))
 
 ============================================
 With
@@ -279,7 +323,7 @@ With
       name: (identifier)
       parameters: (parameters
         (identifier))
-      body: (call_expression
+      body: (call
         call_name: (call_no_module
           name: (identifier))
         argument: (identifier))))
@@ -307,7 +351,7 @@ Ref
 (source_file
   (ref
     expr: (identifier))
-  (call_expression
+  (call
     call_name: (call_no_module
       name: (identifier))
     argument: (ref
@@ -343,17 +387,17 @@ Set!
   (set
     variable: (identifier)
     expr: (if
-      condition: (call_expression
+      condition: (call
         call_name: (call_no_module
           name: (identifier))
         argument: (identifier)
         argument: (integer_literal))
-      then: (call_expression
+      then: (call
         call_name: (call_no_module
           name: (identifier))
         argument: (identifier)
         argument: (integer_literal))
-      else: (call_expression
+      else: (call
         call_name: (call_no_module
           name: (identifier))
         argument: (identifier)
@@ -415,14 +459,14 @@ Match
   (match
     expr: (identifier)
     (match_case
-      case: (call_expression
+      case: (call
         call_name: (call_no_module
           name: (upper_identifier)))
-      body: (call_expression
+      body: (call
         call_name: (call_no_module
           name: (identifier))))
     (match_case
-      case: (call_expression
+      case: (call
         call_name: (call_no_module
           name: (upper_identifier))
         argument: (identifier))
@@ -431,25 +475,25 @@ Match
     expr: (identifier)
     (match_case
       case: (bool_literal)
-      body: (call_expression
+      body: (call
         call_name: (call_no_module
           name: (identifier))
         argument: (str_literal)))
     (match_case
       case: (bool_literal)
-      body: (call_expression
+      body: (call
         call_name: (call_no_module
           name: (identifier))
         argument: (str_literal))))
   (match
     expr: (identifier)
     (match_case
-      case: (call_expression
+      case: (call
         call_name: (call_no_module
           name: (upper_identifier)))
       body: (integer_literal))
     (match_case
-      case: (call_expression
+      case: (call
         call_name: (call_no_module
           name: (upper_identifier)))
       body: (integer_literal))
