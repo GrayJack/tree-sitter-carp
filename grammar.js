@@ -65,20 +65,9 @@ module.exports = grammar({
 
     quote: $ => token('\''),
 
-    doc: $ => seq(
-      '(',
-      'doc',
-      field('item_name', $.identifier),
-      field('text', $.str_literal),
-      ')'
-    ),
+    doc: $ => token(seq('(', 'doc', /.+/, /\".*\"/, ')')),
 
-    hidden: $ => seq(
-      '(',
-      'hidden',
-      field('item_name', $.identifier),
-      ')'
-    ),
+    hidden: $ => token(seq('(', 'hidden', /.+/, ')')),
 
     _s_expr: $ => seq(
       '(',

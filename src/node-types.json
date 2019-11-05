@@ -6904,10 +6904,6 @@
     "named": false
   },
   {
-    "type": "doc",
-    "named": false
-  },
-  {
     "type": "escape_sequence",
     "named": true
   },
@@ -6929,10 +6925,6 @@
   },
   {
     "type": "foreach",
-    "named": false
-  },
-  {
-    "type": "hidden",
     "named": false
   },
   {
