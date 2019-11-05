@@ -404,6 +404,7 @@ module.exports = grammar({
         alias(choice(...core_types), $.identifier),
         $.complex_type,
         $.identifier,
+        $.interface_fn,
       )),
       ')',
     ),

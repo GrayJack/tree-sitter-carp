@@ -597,6 +597,10 @@
         {
           "type": "identifier",
           "named": true
+        },
+        {
+          "type": "interface_fn",
+          "named": true
         }
       ]
     }
