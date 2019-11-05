@@ -54,7 +54,9 @@ module.exports = grammar({
 
   extras: $ => [/\s/, ',', $.line_comment, $.quote, $.doc, $.hidden],
 
-  conflicts: $ => [],
+  conflicts: $ => [
+    [$.call_with_module, $.modular_identifier],
+  ],
 
   rules: {
     source_file: $ => repeat($._s_expr),
@@ -473,6 +475,7 @@ module.exports = grammar({
       '\\',
       choice(
         $.escape_sequence,
+        /\s/,
         /./,
       )
     )),
@@ -530,7 +533,7 @@ module.exports = grammar({
 
     modular_identifier: $ => prec(PREC.literal, seq(
       repeat(seq(
-        field('module', $.upper_identifier),
+        field('module', choice($.upper_identifier, $.all_upper)),
         '.',
       )),
       choice($.all_upper, $.identifier),
@@ -539,7 +542,7 @@ module.exports = grammar({
     _ignore: $ => choice(...ignore_str),
     other_str: $ => choice(...important_str),
     operators: $ => choice(...op),
-    all_upper: $ => /[A-ZΑ-Ω][A-ZΑ-Ω][A-ZΑ-Ω0-9_<%=>\+\-\*\/\|\!\?]+/,
+    all_upper: $ => /[A-ZΑ-Ω][A-ZΑ-Ω][A-ZΑ-Ω0-9_]+/,
     upper_identifier: $ => /[A-ZΑ-Ω][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\+\-\*\/\|\!\?]*/,
     identifier: $ => prec(PREC.literal, /[a-zA-Zα-ωΑ-Ωµ_<%=>\+\-\*\/\|\!\?][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\+\-\*\/\|\!\?]*/),
   }

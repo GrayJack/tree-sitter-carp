@@ -1570,6 +1570,10 @@
         "required": false,
         "types": [
           {
+            "type": "field_ident",
+            "named": true
+          },
+          {
             "type": "fields",
             "named": true
           }
@@ -1777,6 +1781,21 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "field_ident",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -4226,6 +4245,10 @@
         "multiple": true,
         "required": false,
         "types": [
+          {
+            "type": "all_upper",
+            "named": true
+          },
           {
             "type": "upper_identifier",
             "named": true
