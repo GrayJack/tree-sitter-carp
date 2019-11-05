@@ -61,9 +61,9 @@ module.exports = grammar({
   rules: {
     source_file: $ => repeat($._s_expr),
 
-    line_comment: $ => seq(';', /.*/),
+    line_comment: $ => token(seq(';', /.*/)),
 
-    quote: $ => '\'',
+    quote: $ => token('\''),
 
     doc: $ => seq(
       '(',
