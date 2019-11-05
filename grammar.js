@@ -186,14 +186,14 @@ module.exports = grammar({
 
     fn: $ => prec.left(PREC.special, seq(
       'fn',
-      field('parameters', choice($.parameter_ident, $.parameters)),
+      field('parameters', choice($.parameter_ident, $.parameter_array, $.parameters)),
       optional(field('body', repeat($._expr))),
     )),
 
     defn: $ => prec.left(PREC.special, seq(
       'defn',
       field('name', $.identifier),
-      field('parameters', choice($.parameter_ident, $.parameters)),
+      field('parameters', choice($.parameter_ident, $.parameter_array, $.parameters)),
       optional(field('body', repeat($._expr))),
     )),
 
@@ -208,10 +208,10 @@ module.exports = grammar({
     let_array: $ => seq(
       '(',
       'array',
-      repeat(seq(
+      optional(repeat(seq(
         field('var', $._expr),
         field('expr', $._expr),
-      )),
+      ))),
       ')',
     ),
 
@@ -320,14 +320,14 @@ module.exports = grammar({
     defmacro: $ => prec.left(PREC.defines, seq(
       'defmacro',
       field('name', $.identifier),
-      field('parameters', $.parameters),
+      field('parameters', choice($.parameter_ident, $.parameter_array, $.parameters)),
       optional(field('body', $._expr)),
     )),
 
     defndynamic: $ => prec.left(PREC.defines, seq(
       'defndynamic',
       field('name', $.identifier),
-      field('parameters', $.parameters),
+      field('parameters', choice($.parameter_ident, $.parameter_array, $.parameters)),
       optional(field('body', $._expr)),
     )),
 
@@ -349,7 +349,7 @@ module.exports = grammar({
 
     _deftype1: $ => prec.left(seq(
       $._name_deftypes,
-      field('fields', choice($.field_ident, $.fields)),
+      field('fields', choice($.field_ident, $.field_array, $.fields)),
     )),
 
     _deftype2: $ => prec.left(seq(
@@ -357,7 +357,7 @@ module.exports = grammar({
       repeat(seq(
         '(',
         field('variant', choice($.upper_identifier, $.identifier)),
-        field('fields', choice($.field_ident, $.fields)),
+        field('fields', choice($.field_ident, $.field_array, $.fields)),
         ')',
       )),
     )),
@@ -388,7 +388,7 @@ module.exports = grammar({
 
     interface_fn: $ => seq(
       choice('Fn', 'λ'),
-      field('typed_params', $.typed_parameters),
+      field('typed_params', choice($.typed_parameter_ident, $.typed_parameter_array, $.typed_parameters)),
       field('return_type', choice($._short_helper, $.type)),
     ),
 
@@ -415,12 +415,26 @@ module.exports = grammar({
       ']',
     ),
 
+    parameter_array: $ => seq(
+      '(',
+      'array',
+      optional(repeat(choice($._identifier, $.upper_identifier, $.symbol))),
+      ')',
+    ),
+
     parameter_ident: $ => $.identifier,
 
     typed_parameters: $ => seq(
       '[',
       repeat(choice($.type, $._short_helper)),
       ']',
+    ),
+
+    typed_parameter_array: $ => seq(
+      '(',
+      'array',
+      optional(repeat(choice($.type, $._short_helper))),
+      ')',
     ),
 
     typed_parameter_ident: $ => $.identifier,
@@ -430,10 +444,20 @@ module.exports = grammar({
       repeat(seq(choice(
         $.identifier,
         $.complex_type,
-        alias(choice(...core_types), $.type)),
-        // alias(/[A-ZΑ-Ω][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\+\-\*\/\|\!\?\^]*/, $.type),
-        optional(','))),
+        alias(choice(...core_types), $.type)
+      ))),
       ']',
+    ),
+
+    field_array: $ => seq(
+      '(',
+      'array',
+      optional(repeat(seq(choice(
+        $.identifier,
+        $.complex_type,
+        alias(choice(...core_types), $.type)
+      )))),
+      ')',
     ),
 
     field_ident: $ => $.identifier,
