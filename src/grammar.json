@@ -2430,20 +2430,12 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "SYMBOL",
-                  "name": "_ignore"
+                  "type": "PATTERN",
+                  "value": "[^\"\\\\]+"
                 },
                 {
                   "type": "SYMBOL",
                   "name": "escape_sequence"
-                },
-                {
-                  "type": "PATTERN",
-                  "value": "\\s"
-                },
-                {
-                  "type": "PATTERN",
-                  "value": "."
                 }
               ]
             }
@@ -2501,20 +2493,15 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "SYMBOL",
-                  "name": "_ignore"
+                  "type": "IMMEDIATE_TOKEN",
+                  "content": {
+                    "type": "PATTERN",
+                    "value": "[^\"\\\\]+"
+                  }
                 },
                 {
                   "type": "SYMBOL",
                   "name": "escape_sequence"
-                },
-                {
-                  "type": "PATTERN",
-                  "value": "\\s"
-                },
-                {
-                  "type": "PATTERN",
-                  "value": "."
                 }
               ]
             }
@@ -2880,6 +2867,10 @@
         {
           "type": "STRING",
           "value": "'"
+        },
+        {
+          "type": "STRING",
+          "value": ";"
         }
       ]
     },

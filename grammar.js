@@ -26,7 +26,7 @@ const ignore_str = [
   'deftype',
   'let-do', 'while-do', 'defn-do', 'break', 'for', 'when',
   'cond', 'unless', 'case', 'foreach', 'defdynamic', 'load',
-  '(', ')', '[', ']', '{', '}', ';', '.', '\'',
+  '(', ')', '[', ']', '{', '}', ';', '.', '\'', ';',
 ]
 
 const core_types = [
@@ -481,10 +481,11 @@ module.exports = grammar({
     str_literal: $ => prec(PREC.literal, seq(
       '"',
       repeat(choice(
-        $._ignore,
+        /[^"\\]+/,
+        // $._ignore,
         $.escape_sequence,
-        /\s/,
-        /./,
+        // /\s/,
+        // /./,
       )),
       '"'
     )),
@@ -501,10 +502,11 @@ module.exports = grammar({
     pattern_literal: $ => prec(PREC.literal, seq(
       '#"',
       repeat(choice(
-        $._ignore,
+        token.immediate(/[^"\\]+/),
+        // $._ignore,
         $.escape_sequence,
-        /\s/,
-        /./,
+        // /\s/,
+        // /./,
       )),
       '"',
     )),
