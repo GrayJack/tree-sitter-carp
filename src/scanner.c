@@ -5,7 +5,7 @@ enum TokenType {
   DOC,
 };
 
-void * tree_sitter_carp_external_scanner_create() { return NULL; }
+void * tree_sitter_carp_external_scanner_create(void) { return NULL; }
 
 void tree_sitter_carp_external_scanner_destroy(void *payload) {}
 
