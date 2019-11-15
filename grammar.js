@@ -522,7 +522,7 @@ module.exports = grammar({
       )
     ),
 
-    unit: $ => prec(PREC.literal, seq('(', ')')),
+    unit: $ => prec(PREC.literal, '()'),
 
     array_expression: $ => seq(
       '[',
