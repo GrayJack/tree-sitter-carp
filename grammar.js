@@ -487,7 +487,7 @@ module.exports = grammar({
         // /\s/,
         // /./,
       )),
-      '"'
+      token.immediate('"'),
     )),
 
     char_literal: $ => prec(PREC.literal, seq(

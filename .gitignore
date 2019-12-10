@@ -63,9 +63,9 @@ typings/
 node_modules
 build
 *.log
-package-lock.json
 examples
 !examples/ast.rs
 test.carp
 tested.carp
 .mypy_cache
+test.carp
