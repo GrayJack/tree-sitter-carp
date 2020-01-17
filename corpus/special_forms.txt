@@ -6,8 +6,6 @@ Fn
 
 (fn [a b] (+ a b))
 
-(fn '[a b])
-
 ; inside macros
 (fn arguments)
 
@@ -27,11 +25,6 @@ Fn
         name: (identifier))
       argument: (identifier)
       argument: (identifier)))
-  (fn
-    (quote)
-    parameters: (parameters
-      (identifier)
-      (identifier)))
   (line_comment)
   (fn
     parameters: (parameter_ident
@@ -48,8 +41,6 @@ Defn
 (defn func [a]
   (do (this a))
   (do (that a)))
-
-(defn a '[a b])
 
 ; inside macros
 (defn name arguments)
@@ -83,12 +74,6 @@ Defn
         call_name: (call_no_module
           name: (identifier))
         argument: (identifier))))
-  (defn
-    name: (identifier)
-    (quote)
-    parameters: (parameters
-      (identifier)
-      (identifier)))
   (line_comment)
   (defn
     name: (identifier)
@@ -106,8 +91,6 @@ Let
 (let [a 10 b c])
 
 (let [a 10] (double a))
-
-(let '[a b])
 
 (let (array variable from))
 
@@ -138,11 +121,6 @@ Let
         name: (identifier))
       argument: (identifier)))
   (let
-    (quote)
-    pairs: (let_pairs
-      var: (identifier)
-      expr: (identifier)))
-  (let
     pairs: (let_array
       var: (identifier)
       expr: (identifier)))
@@ -150,9 +128,10 @@ Let
   (call
     call_name: (call_no_module
       name: (identifier))
-    (quote)
-    argument: (let
-      pairs: (let_ident (identifier)))))
+    argument: (quote_expression
+      (let
+        pairs: (let_ident
+          (identifier))))))
 
 ============================================
 Do
@@ -295,12 +274,12 @@ Use
   (call
     call_name: (call_no_module
       name: (identifier))
-    (quote)
-    argument: (use
-      module: (call
-        call_name: (call_no_module
-          name: (identifier))
-        argument: (identifier)))))
+    argument: (quote_expression
+      (use
+        module: (call
+          call_name: (call_no_module
+            name: (identifier))
+          argument: (identifier))))))
 
 ============================================
 With

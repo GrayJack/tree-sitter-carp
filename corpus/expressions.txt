@@ -83,10 +83,10 @@ Call expressions
   (call
     call_name: (call_no_module
       name: (identifier))
-    (quote)
-    argument: (identifier)
-    (quote)
-    argument: (identifier)))
+    argument: (quote_expression
+      (identifier))
+    argument: (quote_expression
+      (identifier))))
 
 
 ============================================
@@ -117,3 +117,71 @@ Map expressions
         name: (upper_identifier)))
     value: (short_copy
       (str_literal))))
+
+============================================
+Quote expressions
+============================================
+
+(defmacro doc [name string]
+  (list 'meta-set! name "doc" string))
+
+(list '(c a b))
+
+(list 'defn 'main [x] (list 'IO.println* form))
+
+(defmacro define [var value] (list 'def var value))
+
+---
+
+(source_file
+  (defmacro
+    name: (identifier)
+    parameters: (parameters
+      (identifier)
+      (identifier))
+    body: (call
+      call_name: (call_no_module
+        name: (identifier))
+      argument: (quote_expression
+        (identifier))
+      argument: (identifier)
+      argument: (str_literal)
+      argument: (identifier)))
+  (call
+    call_name: (call_no_module
+      name: (identifier))
+    argument: (quote_expression
+      (call
+        call_name: (call_no_module
+          name: (identifier))
+        argument: (identifier)
+        argument: (identifier))))
+  (call
+    call_name: (call_no_module
+      name: (identifier))
+    argument: (quote_expression
+      (defn
+        name: (quote_expression
+          (identifier))
+        parameters: (parameters
+          (identifier))))
+    argument: (call
+      call_name: (call_no_module
+        name: (identifier))
+      argument: (quote_expression
+        (modular_identifier
+          module: (upper_identifier)
+          (identifier)))
+      argument: (identifier)))
+  (defmacro
+    name: (identifier)
+    parameters: (parameters
+      (identifier)
+      (identifier))
+    body: (call
+      call_name: (call_no_module
+        name: (identifier))
+      argument: (quote_expression
+        (def
+          name: (identifier)
+          value: (identifier))))))

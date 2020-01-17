@@ -58,7 +58,7 @@ module.exports = grammar({
 
   // Hey, you, writting more code to this, if you gonna put more itens here
   // it better be token, or things get messy.
-  extras: $ => [/\s/, ',', $.line_comment, $.quote, $.doc, $.hidden],
+  extras: $ => [/\s/, ',', $.line_comment, $.doc, $.hidden],
 
   conflicts: $ => [
     [$.call_with_module, $.modular_identifier],
@@ -68,8 +68,6 @@ module.exports = grammar({
     source_file: $ => repeat($._s_expr),
 
     line_comment: $ => token(seq(';', /.*/)),
-
-    quote: $ => token('\''),
 
     hidden: $ => token(seq('(', 'hidden', /.+/, ')')),
 
@@ -84,6 +82,7 @@ module.exports = grammar({
       $._s_expr,
       $._short_helper,
       $._identifier,
+      $.quote_expression,
       $.upper_identifier,
       $.symbol,
       $._s_forms,
@@ -149,6 +148,11 @@ module.exports = grammar({
       $.short_fn_ref,
     ),
 
+    quote_expression: $ => seq(
+      '\'',
+      $._expr,
+    ),
+
     call: $ => prec.left(PREC.call, seq(
       field('call_name', $._call_name),
       optional(field('argument', repeat(seq($._expr)))),
@@ -173,7 +177,7 @@ module.exports = grammar({
     // Special Expressions
     def: $ => prec.left(PREC.special, seq(
       'def',
-      field('name', $.identifier),
+      field('name', choice($.identifier, $.quote_expression)),
       field('value', $._expr),
     )),
 
@@ -185,7 +189,7 @@ module.exports = grammar({
 
     defn: $ => prec.left(PREC.special, seq(
       'defn',
-      field('name', $.identifier),
+      field('name', choice($.identifier, $.quote_expression)),
       field('parameters', choice($.parameter_ident, $.parameter_array, $.parameters)),
       optional(field('body', repeat($._expr))),
     )),
@@ -281,7 +285,7 @@ module.exports = grammar({
 
     register: $ => prec.left(PREC.special, seq(
       'register',
-      field('name', $.identifier),
+      field('name', choice($.identifier, $.quote_expression)),
       choice(
         seq(
           field('type', choice($.type, $._short_helper)),
@@ -299,7 +303,7 @@ module.exports = grammar({
     // Defines
     definterface: $ => prec.left(PREC.defines, seq(
       'definterface',
-      field('name', $.identifier),
+      field('name', choice($.identifier, $.quote_expression)),
       choice(
         field('value', $.identifier),
         seq(

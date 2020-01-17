@@ -196,6 +196,8 @@ Defmacro
 (defmacro => [:rest forms]
   (thread-first-internal forms))
 
+(defmacro define [var value] (list 'def var value))
+
 ---
 
 (source_file
@@ -207,8 +209,8 @@ Defmacro
     body: (call
       call_name: (call_no_module
         name: (identifier))
-      (quote)
-      argument: (identifier)
+      argument: (quote_expression
+        (identifier))
       argument: (identifier)
       argument: (str_literal)
       argument: (identifier)))
@@ -221,7 +223,19 @@ Defmacro
     body: (call
       call_name: (call_no_module
         name: (identifier))
-      argument: (identifier))))
+      argument: (identifier)))
+  (defmacro
+    name: (identifier)
+    parameters: (parameters
+      (identifier)
+      (identifier))
+    body: (call
+      call_name: (call_no_module
+        name: (identifier))
+      argument: (quote_expression
+        (def
+          name: (identifier)
+          value: (identifier))))))
 
 ============================================
 Defndynamic
