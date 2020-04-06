@@ -31,6 +31,7 @@ const ignore_str = [
 
 const core_types = [
   'Bool',
+  'Byte',
   'Char',
   'Int',
   'Long',
@@ -468,15 +469,18 @@ module.exports = grammar({
     // Literals
     integer_literal: $ => prec(PREC.literal, token(seq(
       optional('-'),
-      /[0-9][0-9]*/,
-      optional('l'),
+      choice(
+        /[0-9][0-9]*/,
+        /[0-9][0-9]*l/,
+        /[0-9][0-9]*b/,
+      ),
     ))),
 
     float_literal: $ => prec(PREC.literal, token(seq(
       optional('-'),
       choice(
-        seq(/[0-9][0-9]*/, 'f'),
-        seq(/[0-9][0-9]*\.[0-9][0-9]*/, optional('f')),
+        /[0-9][0-9]*f/,
+        /[0-9][0-9]*\.[0-9][0-9]*f?/,
       ),
     ))),
 

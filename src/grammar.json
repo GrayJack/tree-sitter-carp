@@ -1717,6 +1717,10 @@
               },
               {
                 "type": "STRING",
+                "value": "Byte"
+              },
+              {
+                "type": "STRING",
                 "value": "Char"
               },
               {
@@ -1814,6 +1818,10 @@
                     {
                       "type": "STRING",
                       "value": "Bool"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "Byte"
                     },
                     {
                       "type": "STRING",
@@ -2095,6 +2103,10 @@
                         },
                         {
                           "type": "STRING",
+                          "value": "Byte"
+                        },
+                        {
+                          "type": "STRING",
                           "value": "Char"
                         },
                         {
@@ -2211,6 +2223,10 @@
                             {
                               "type": "STRING",
                               "value": "Bool"
+                            },
+                            {
+                              "type": "STRING",
+                              "value": "Byte"
                             },
                             {
                               "type": "STRING",
@@ -2361,18 +2377,19 @@
               ]
             },
             {
-              "type": "PATTERN",
-              "value": "[0-9][0-9]*"
-            },
-            {
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "STRING",
-                  "value": "l"
+                  "type": "PATTERN",
+                  "value": "[0-9][0-9]*"
                 },
                 {
-                  "type": "BLANK"
+                  "type": "PATTERN",
+                  "value": "[0-9][0-9]*l"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "[0-9][0-9]*b"
                 }
               ]
             }
@@ -2404,38 +2421,12 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "PATTERN",
-                      "value": "[0-9][0-9]*"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "f"
-                    }
-                  ]
+                  "type": "PATTERN",
+                  "value": "[0-9][0-9]*f"
                 },
                 {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "PATTERN",
-                      "value": "[0-9][0-9]*\\.[0-9][0-9]*"
-                    },
-                    {
-                      "type": "CHOICE",
-                      "members": [
-                        {
-                          "type": "STRING",
-                          "value": "f"
-                        },
-                        {
-                          "type": "BLANK"
-                        }
-                      ]
-                    }
-                  ]
+                  "type": "PATTERN",
+                  "value": "[0-9][0-9]*\\.[0-9][0-9]*f?"
                 }
               ]
             }

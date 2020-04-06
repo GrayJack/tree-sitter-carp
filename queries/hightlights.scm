@@ -17,11 +17,11 @@
 "deftype" @keyword
 "defmacro" @keyword
 "defmodule" @keyword
-"defdynamic" @keyword
+; "defdynamic" @keyword
 "definterface" @keyword
-"local-include" @keyword
-"register-type" @keyword
-"system-include" @keyword
+; "local-include" @keyword
+; "register-type" @keyword
+; "system-include" @keyword
 
 (short_copy "@" @support.copy)
 (short_ref "&" @support.reference)
