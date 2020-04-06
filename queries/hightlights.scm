@@ -17,7 +17,7 @@
 "deftype" @keyword
 "defmacro" @keyword
 "defmodule" @keyword
-; "defdynamic" @keyword
+"defndynamic" @keyword
 "definterface" @keyword
 ; "local-include" @keyword
 ; "register-type" @keyword
