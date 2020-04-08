@@ -53,20 +53,18 @@ const core_types = [
 module.exports = grammar({
   name: 'carp',
 
-  externals: $ => [
-    $.doc,
-  ],
+  // externals: $ => [
+  //   $.doc,
+  // ],
 
   // Hey, you, writting more code to this, if you gonna put more itens here
   // it better be token, or things get messy.
-  extras: $ => [/\s/, ',', $.line_comment, $.doc, $.hidden],
+  extras: $ => [/\s/, ',', $.line_comment, $.hidden], //$.doc,
 
-  conflicts: $ => [
-    // [$.call_with_module, $.modular_identifier],
-  ],
+  conflicts: $ => [],
 
   rules: {
-    source_file: $ => repeat($._s_expr),
+    source_file: $ => repeat($._anything),
 
     line_comment: $ => token(seq(';', /.*/)),
 
@@ -85,6 +83,7 @@ module.exports = grammar({
       $._identifier,
       $.quote_expression,
       $.signature,
+      $.doc,
       // $.upper_identifier,
       $.symbol,
       $._s_forms,
@@ -103,6 +102,7 @@ module.exports = grammar({
       $._s_forms,
       $._defs,
       $.signature,
+      $.doc,
       // literals
       $._literals,
     ),
@@ -181,6 +181,14 @@ module.exports = grammar({
       field('path', $._identifier),
       '(',
       field('signature', $.interface_fn),
+      ')',
+    )),
+
+    doc: $ => prec.left(PREC.special, seq(
+      '(',
+      'doc',
+      field('path', $._identifier),
+      field('text', $.str_literal),
       ')',
     )),
 
@@ -340,8 +348,8 @@ module.exports = grammar({
 
     defmodule: $ => prec.left(PREC.defines, seq(
       'defmodule',
-      field('name', $.identifier),
-      repeat(field('definition', $._expr)),
+      field('name', alias($.identifier, $.module_identifier)),
+      repeat(field('item', $._expr)),
     )),
 
 

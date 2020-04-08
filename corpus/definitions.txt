@@ -266,14 +266,14 @@ Defmodule
 
 (source_file
   (defmodule
-    name: (identifier)
-    definition: (def
+    name: (module_identifier)
+    item: (def
       name: (identifier)
       value: (float_literal))
-    definition: (def
+    item: (def
       name: (identifier)
       value: (float_literal))
-    definition: (defn
+    item: (defn
       name: (identifier)
       parameters: (parameters
         (identifier)
@@ -314,14 +314,14 @@ Deftype
 
 (source_file
   (deftype
-    name: (identifier)
+    name: (type_identifier)
     fields: (fields
       (identifier)
       (type)
       (identifier)
       (type)))
   (deftype
-    name: (identifier)
+    name: (type_identifier)
     fields: (fields
       (identifier)
       (complex_type
@@ -346,7 +346,7 @@ Deftype
       (identifier)
       (identifier)))
   (deftype
-    name: (identifier)
+    name: (type_identifier)
     variant: (variant_identifier)
     fields: (fields)
     variant: (variant_identifier)
@@ -360,7 +360,7 @@ Deftype
     variant: (variant_identifier)
     fields: (fields))
   (deftype
-    name: (identifier)
+    name: (type_identifier)
     variant: (variant_identifier)
     variant: (variant_identifier)
     variant: (variant_identifier)))

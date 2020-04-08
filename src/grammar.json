@@ -5,7 +5,7 @@
       "type": "REPEAT",
       "content": {
         "type": "SYMBOL",
-        "name": "_s_expr"
+        "name": "_anything"
       }
     },
     "line_comment": {
@@ -94,6 +94,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "doc"
+        },
+        {
+          "type": "SYMBOL",
           "name": "symbol"
         },
         {
@@ -140,6 +144,10 @@
         {
           "type": "SYMBOL",
           "name": "signature"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "doc"
         },
         {
           "type": "SYMBOL",
@@ -398,6 +406,43 @@
             "content": {
               "type": "SYMBOL",
               "name": "interface_fn"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ")"
+          }
+        ]
+      }
+    },
+    "doc": {
+      "type": "PREC_LEFT",
+      "value": 10,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "STRING",
+            "value": "doc"
+          },
+          {
+            "type": "FIELD",
+            "name": "path",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_identifier"
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "text",
+            "content": {
+              "type": "SYMBOL",
+              "name": "str_literal"
             }
           },
           {
@@ -1366,15 +1411,20 @@
             "type": "FIELD",
             "name": "name",
             "content": {
-              "type": "SYMBOL",
-              "name": "identifier"
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "identifier"
+              },
+              "named": true,
+              "value": "module_identifier"
             }
           },
           {
             "type": "REPEAT",
             "content": {
               "type": "FIELD",
-              "name": "definition",
+              "name": "item",
               "content": {
                 "type": "SYMBOL",
                 "name": "_expr"
@@ -3025,20 +3075,11 @@
     },
     {
       "type": "SYMBOL",
-      "name": "doc"
-    },
-    {
-      "type": "SYMBOL",
       "name": "hidden"
     }
   ],
   "conflicts": [],
-  "externals": [
-    {
-      "type": "SYMBOL",
-      "name": "doc"
-    }
-  ],
+  "externals": [],
   "inline": [],
   "supertypes": []
 }
