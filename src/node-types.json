@@ -136,6 +136,10 @@
             "named": true
           },
           {
+            "type": "signature",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -293,6 +297,10 @@
         },
         {
           "type": "short_ref",
+          "named": true
+        },
+        {
+          "type": "signature",
           "named": true
         },
         {
@@ -465,6 +473,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -720,6 +732,10 @@
             "named": true
           },
           {
+            "type": "signature",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -928,6 +944,10 @@
             "named": true
           },
           {
+            "type": "signature",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -1124,6 +1144,10 @@
             "named": true
           },
           {
+            "type": "signature",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -1299,6 +1323,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -1502,6 +1530,10 @@
             "named": true
           },
           {
+            "type": "signature",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -1599,6 +1631,10 @@
         "types": [
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
             "named": true
           }
         ]
@@ -1749,6 +1785,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -1986,6 +2026,10 @@
             "named": true
           },
           {
+            "type": "signature",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -2177,6 +2221,10 @@
             "named": true
           },
           {
+            "type": "signature",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -2339,6 +2387,10 @@
             "named": true
           },
           {
+            "type": "signature",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -2498,6 +2550,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -2720,6 +2776,10 @@
             "named": true
           },
           {
+            "type": "signature",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -2910,6 +2970,10 @@
             "named": true
           },
           {
+            "type": "signature",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -3069,6 +3133,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -3255,6 +3323,10 @@
             "named": true
           },
           {
+            "type": "signature",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -3414,6 +3486,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -3585,6 +3661,10 @@
             "named": true
           },
           {
+            "type": "signature",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -3744,6 +3824,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -3912,6 +3996,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -4093,6 +4181,10 @@
             "named": true
           },
           {
+            "type": "signature",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -4252,6 +4344,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -4486,6 +4582,10 @@
           "named": true
         },
         {
+          "type": "signature",
+          "named": true
+        },
+        {
           "type": "str_literal",
           "named": true
         },
@@ -4650,6 +4750,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -4867,6 +4971,10 @@
             "named": true
           },
           {
+            "type": "signature",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -5065,6 +5173,10 @@
             "named": true
           },
           {
+            "type": "signature",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -5224,6 +5336,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -5387,6 +5503,10 @@
           "named": true
         },
         {
+          "type": "signature",
+          "named": true
+        },
+        {
           "type": "str_literal",
           "named": true
         },
@@ -5543,6 +5663,10 @@
         },
         {
           "type": "short_ref",
+          "named": true
+        },
+        {
+          "type": "signature",
           "named": true
         },
         {
@@ -5705,6 +5829,10 @@
           "named": true
         },
         {
+          "type": "signature",
+          "named": true
+        },
+        {
           "type": "str_literal",
           "named": true
         },
@@ -5733,6 +5861,36 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "signature",
+    "named": true,
+    "fields": {
+      "path": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "scoped_identifier",
+            "named": true
+          }
+        ]
+      },
+      "signature": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "interface_fn",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -5857,6 +6015,10 @@
         },
         {
           "type": "short_ref",
+          "named": true
+        },
+        {
+          "type": "signature",
           "named": true
         },
         {
@@ -6057,6 +6219,10 @@
             "named": true
           },
           {
+            "type": "signature",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -6116,6 +6282,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "type_identifier",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "typed_parameter_array",
@@ -6332,6 +6503,10 @@
             "named": true
           },
           {
+            "type": "signature",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -6505,6 +6680,10 @@
             "named": true
           },
           {
+            "type": "signature",
+            "named": true
+          },
+          {
             "type": "str_literal",
             "named": true
           },
@@ -6664,6 +6843,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -6832,6 +7015,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -7114,6 +7301,10 @@
   },
   {
     "type": "set!",
+    "named": false
+  },
+  {
+    "type": "sig",
     "named": false
   },
   {

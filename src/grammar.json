@@ -90,6 +90,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "signature"
+        },
+        {
+          "type": "SYMBOL",
           "name": "symbol"
         },
         {
@@ -132,6 +136,10 @@
         {
           "type": "SYMBOL",
           "name": "_defs"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "signature"
         },
         {
           "type": "SYMBOL",
@@ -358,6 +366,43 @@
           {
             "type": "SYMBOL",
             "name": "short_fn_ref"
+          }
+        ]
+      }
+    },
+    "signature": {
+      "type": "PREC_LEFT",
+      "value": 10,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "sig"
+          },
+          {
+            "type": "FIELD",
+            "name": "path",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_identifier"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "FIELD",
+            "name": "signature",
+            "content": {
+              "type": "SYMBOL",
+              "name": "interface_fn"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ")"
           }
         ]
       }
@@ -1476,8 +1521,13 @@
             "type": "FIELD",
             "name": "name",
             "content": {
-              "type": "SYMBOL",
-              "name": "identifier"
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "identifier"
+              },
+              "named": true,
+              "value": "type_identifier"
             }
           },
           {
@@ -1506,8 +1556,13 @@
           "type": "FIELD",
           "name": "name",
           "content": {
-            "type": "SYMBOL",
-            "name": "identifier"
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "identifier"
+            },
+            "named": true,
+            "value": "type_identifier"
           }
         },
         {

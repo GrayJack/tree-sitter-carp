@@ -84,6 +84,7 @@ module.exports = grammar({
       $._short_helper,
       $._identifier,
       $.quote_expression,
+      $.signature,
       // $.upper_identifier,
       $.symbol,
       $._s_forms,
@@ -101,6 +102,7 @@ module.exports = grammar({
       $._short_helper,
       $._s_forms,
       $._defs,
+      $.signature,
       // literals
       $._literals,
     ),
@@ -173,6 +175,14 @@ module.exports = grammar({
     //   )),
     //   field('name', choice($.upper_identifier, $.identifier)),
     // )),
+
+    signature: $ => prec.left(PREC.special, seq(
+      'sig',
+      field('path', $._identifier),
+      '(',
+      field('signature', $.interface_fn),
+      ')',
+    )),
 
     // Special Expressions
     def: $ => prec.left(PREC.special, seq(
