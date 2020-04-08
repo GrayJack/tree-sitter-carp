@@ -26,15 +26,12 @@ Call expressions
 
 (source_file
   (call
-    call_name: (call_no_module
-      name: (identifier)))
+    name: (identifier))
   (call
-    call_name: (call_no_module
-      name: (identifier))
+    name: (identifier)
     argument: (identifier))
   (call
-    call_name: (call_no_module
-      name: (identifier))
+    name: (identifier)
     argument: (integer_literal)
     argument: (integer_literal))
   (call
@@ -42,47 +39,44 @@ Call expressions
       (identifier))
     argument: (identifier))
   (call
-    call_name: (call_with_module
-      module: (upper_identifier)
-      name: (identifier))
+    name: (scoped_identifier
+      path: (module_identifier)
+      (identifier))
     argument: (identifier)
     argument: (identifier))
   (call
-    call_name: (call_with_module
-      module: (upper_identifier)
-      name: (upper_identifier)))
+    name: (scoped_identifier
+      path: (module_identifier)
+      (identifier)))
   (call
-    call_name: (call_with_module
-      module: (upper_identifier)
-      name: (upper_identifier))
+    name: (scoped_identifier
+      path: (module_identifier)
+      (identifier))
     argument: (identifier))
   (call
-    call_name: (call_no_module
-      name: (identifier))
+    name: (identifier)
     argument: (short_ref
-      (modular_identifier
-        module: (upper_identifier)
+      (scoped_identifier
+        path: (module_identifier)
         (identifier)))
     argument: (short_ref
       (call
-        call_name: (call_no_module
-          name: (identifier))
+        name: (identifier)
         argument: (integer_literal)
         argument: (call
-          call_name: (call_no_module
-            name: (identifier))
+          name: (identifier)
           argument: (identifier))
         argument: (integer_literal)))
     argument: (identifier))
   (call
-    call_name: (call_with_module
-      module: (upper_identifier)
-      module: (upper_identifier)
-      name: (identifier))
+    name: (scoped_identifier
+      path: (scoped_identifier
+        path: (module_identifier)
+        (identifier))
+      (identifier))
     argument: (identifier))
   (call
-    call_name: (call_no_module
-      name: (identifier))
+    name: (identifier)
     argument: (quote_expression
       (identifier))
     argument: (quote_expression
@@ -108,13 +102,11 @@ Map expressions
     value: (integer_literal))
   (map_expression
     key: (call
-      call_name: (call_no_module
-        name: (upper_identifier)))
+      name: (identifier))
     value: (short_copy
       (str_literal))
     key: (call
-      call_name: (call_no_module
-        name: (upper_identifier)))
+      name: (identifier))
     value: (short_copy
       (str_literal))))
 
@@ -140,25 +132,21 @@ Quote expressions
       (identifier)
       (identifier))
     body: (call
-      call_name: (call_no_module
-        name: (identifier))
+      name: (identifier)
       argument: (quote_expression
         (identifier))
       argument: (identifier)
       argument: (str_literal)
       argument: (identifier)))
   (call
-    call_name: (call_no_module
-      name: (identifier))
+    name: (identifier)
     argument: (quote_expression
       (call
-        call_name: (call_no_module
-          name: (identifier))
+        name: (identifier)
         argument: (identifier)
         argument: (identifier))))
   (call
-    call_name: (call_no_module
-      name: (identifier))
+    name: (identifier)
     argument: (quote_expression
       (defn
         name: (quote_expression
@@ -166,11 +154,10 @@ Quote expressions
         parameters: (parameters
           (identifier))))
     argument: (call
-      call_name: (call_no_module
-        name: (identifier))
+      name: (identifier)
       argument: (quote_expression
-        (modular_identifier
-          module: (upper_identifier)
+        (scoped_identifier
+          path: (module_identifier)
           (identifier)))
       argument: (identifier)))
   (defmacro
@@ -179,8 +166,7 @@ Quote expressions
       (identifier)
       (identifier))
     body: (call
-      call_name: (call_no_module
-        name: (identifier))
+      name: (identifier)
       argument: (quote_expression
         (def
           name: (identifier)

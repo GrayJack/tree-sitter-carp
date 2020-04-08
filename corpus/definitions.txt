@@ -84,8 +84,7 @@ Def with literals
     value: (pattern_literal))
   (def
     name: (identifier)
-    value: (pattern_literal
-      (escape_sequence))))
+    value: (pattern_literal)))
 
 ============================================
 Def with Array
@@ -207,8 +206,7 @@ Defmacro
       (identifier)
       (identifier))
     body: (call
-      call_name: (call_no_module
-        name: (identifier))
+      name: (identifier)
       argument: (quote_expression
         (identifier))
       argument: (identifier)
@@ -221,8 +219,7 @@ Defmacro
         (identifier))
       (identifier))
     body: (call
-      call_name: (call_no_module
-        name: (identifier))
+      name: (identifier)
       argument: (identifier)))
   (defmacro
     name: (identifier)
@@ -230,8 +227,7 @@ Defmacro
       (identifier)
       (identifier))
     body: (call
-      call_name: (call_no_module
-        name: (identifier))
+      name: (identifier)
       argument: (quote_expression
         (def
           name: (identifier)
@@ -251,11 +247,9 @@ Defndynamic
     parameters: (parameters
       (identifier))
     body: (call
-      call_name: (call_no_module
-        name: (identifier))
+      name: (identifier)
       argument: (call
-        call_name: (call_no_module
-          name: (identifier))
+        name: (identifier)
         argument: (identifier)))))
 
 ============================================
@@ -285,9 +279,9 @@ Defmodule
         (identifier)
         (identifier))
       body: (call
-        call_name: (call_with_module
-          module: (upper_identifier)
-          name: (identifier))
+        name: (scoped_identifier
+          path: (module_identifier)
+          (identifier))
         argument: (identifier)
         argument: (identifier)))))
 
@@ -353,20 +347,20 @@ Deftype
       (identifier)))
   (deftype
     name: (identifier)
-    variant: (upper_identifier)
+    variant: (variant_identifier)
     fields: (fields)
-    variant: (upper_identifier)
+    variant: (variant_identifier)
     fields: (fields))
   (deftype
     name: (identifier)
     generic_type: (identifier)
-    variant: (upper_identifier)
+    variant: (variant_identifier)
     fields: (fields
       (identifier))
-    variant: (upper_identifier)
+    variant: (variant_identifier)
     fields: (fields))
   (deftype
     name: (identifier)
-    variant: (upper_identifier)
-    variant: (upper_identifier)
-    variant: (upper_identifier)))
+    variant: (variant_identifier)
+    variant: (variant_identifier)
+    variant: (variant_identifier)))

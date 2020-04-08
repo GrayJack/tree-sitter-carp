@@ -62,7 +62,7 @@ module.exports = grammar({
   extras: $ => [/\s/, ',', $.line_comment, $.doc, $.hidden],
 
   conflicts: $ => [
-    [$.call_with_module, $.modular_identifier],
+    // [$.call_with_module, $.modular_identifier],
   ],
 
   rules: {
@@ -84,18 +84,18 @@ module.exports = grammar({
       $._short_helper,
       $._identifier,
       $.quote_expression,
-      $.upper_identifier,
+      // $.upper_identifier,
       $.symbol,
       $._s_forms,
       $._defs,
-      $.call,
+      // $.call,
     ),
 
     _anything: $ => choice(
       // Core thing
       $._s_expr,
-      $.upper_identifier,
-      // $._identifier,
+      // $.upper_identifier,
+      $._identifier,
       $.symbol,
       $.call,
       $._short_helper,
@@ -160,20 +160,19 @@ module.exports = grammar({
     )),
 
     _call_name: $ => prec(PREC.call, choice(
-      $.call_with_module,
-      $.call_no_module,
+      field('name', $._identifier),
       $.short_fn_ref,
     )),
 
-    call_no_module: $ =>  prec(PREC.call, field('name',choice($.upper_identifier, $.identifier))),
-
-    call_with_module: $ => prec(PREC.call_module, seq(
-      repeat(seq(
-        field('module', $.upper_identifier),
-        '.',
-      )),
-      field('name', choice($.upper_identifier, $.identifier)),
-    )),
+    // call_no_module: $ =>  prec(PREC.call, field('name',choice($.upper_identifier, $.identifier))),
+    //
+    // call_with_module: $ => prec(PREC.call_module, seq(
+    //   repeat(seq(
+    //     field('module', $.upper_identifier),
+    //     '.',
+    //   )),
+    //   field('name', choice($.upper_identifier, $.identifier)),
+    // )),
 
     // Special Expressions
     def: $ => prec.left(PREC.special, seq(
@@ -197,7 +196,7 @@ module.exports = grammar({
 
     let: $ => prec.left(PREC.special, seq(
       'let',
-      field('pairs', choice($.let_array, $.let_pairs, $.let_ident)),
+      field('pairs', choice($.let_array, $.let_pairs, $.let_ident, $.quote_expression)),
       optional(field('body', repeat($._expr))),
     )),
 
@@ -242,18 +241,18 @@ module.exports = grammar({
 
     use: $ => prec.left(PREC.special, seq(
       'use',
-      field('module', choice($.upper_identifier, $._expr)),
+      field('module', choice(prec(PREC.literal+1, alias($.identifier, $.module_identifier)), $._expr)),
     )),
 
     with: $ => prec.left(PREC.special, seq(
       'with',
-      field('module', $.upper_identifier),
+      field('module', alias($.identifier, $.module_identifier)),
       repeat(field('expr', $._expr)),
     )),
 
     ref: $ => prec.left(PREC.special, seq(
       choice('ref'),
-      field('expr', $._expr),
+      optional(field('expr', $._expr)),
     )),
 
     address: $ => prec.left(PREC.special, seq(
@@ -354,19 +353,19 @@ module.exports = grammar({
       $._name_deftypes,
       repeat(seq(
         '(',
-        field('variant', choice($.upper_identifier, $.identifier)),
+        field('variant', alias($.identifier, $.variant_identifier)),
         field('fields', choice($.field_ident, $.field_array, $.fields)),
         ')',
       )),
     )),
 
     _deftype3: $ => prec.left(PREC.call, seq(
-      field('name', $.identifier),
-      repeat(field('variant', choice($.upper_identifier, $.identifier)))
+      field('name', alias($.identifier, $.type_identifier)),
+      repeat(field('variant', alias($.identifier, $.variant_identifier)))
     )),
 
     _name_deftypes: $ => choice(
-      field('name', $.identifier),
+      field('name', alias($.identifier, $.type_identifier)),
       seq(
         '(',
         field('name', $.identifier),
@@ -409,14 +408,14 @@ module.exports = grammar({
 
     parameters: $ => seq(
       '[',
-      repeat(choice($._identifier, $.upper_identifier, $.symbol)),
+      repeat(choice($._identifier, $.symbol)),
       ']',
     ),
 
     parameter_array: $ => seq(
       '(',
       'array',
-      optional(repeat(choice($._identifier, $.upper_identifier, $.symbol))),
+      optional(repeat(choice($._identifier, $.symbol))),
       ')',
     ),
 
@@ -510,9 +509,9 @@ module.exports = grammar({
     pattern_literal: $ => prec(PREC.literal, seq(
       '#"',
       repeat(choice(
-        token.immediate(/[^"\\]+/),
+        token.immediate(/[^"]+/),
         // $._ignore,
-        $.escape_sequence,
+        // $.escape_sequence,
         // /\s/,
         // /./,
       )),
@@ -554,24 +553,30 @@ module.exports = grammar({
       $.identifier,
     ),
 
-    _identifier: $ => prec(PREC.literal+1, choice(
-      $.modular_identifier,
+    _identifier: $ => prec(PREC.literal, choice(
+      $.scoped_identifier,
       $.identifier,
     )),
 
-    modular_identifier: $ => prec(PREC.literal, seq(
-      repeat(seq(
-        field('module', choice($.upper_identifier, $.all_upper)),
-        '.',
-      )),
-      choice($.all_upper, $.identifier),
+    // modular_identifier: $ => prec(PREC.literal, seq(
+    //   repeat(seq(
+    //     field('module', choice($.upper_identifier, $.all_upper)),
+    //     '.',
+    //   )),
+    //   choice($.all_upper, $.identifier),
+    // )),
+
+    scoped_identifier: $ => prec(PREC.literal, seq(
+      field('path', choice($.scoped_identifier, alias($.identifier, $.module_identifier))),
+      '.',
+      $.identifier
     )),
 
     _ignore: $ => choice(...ignore_str),
     other_str: $ => choice(...important_str),
     operators: $ => choice(...op),
-    all_upper: $ => /[A-ZΑ-Ω][A-ZΑ-Ω][A-ZΑ-Ω0-9_]+/,
-    upper_identifier: $ => /[A-ZΑ-Ω][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\+\-\*\/\|\!\?]*/,
+    // all_upper: $ => /[A-ZΑ-Ω][A-ZΑ-Ω][A-ZΑ-Ω0-9_]+/,
+    // upper_identifier: $ => /[A-ZΑ-Ω][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\+\-\*\/\|\!\?]*/,
     identifier: $ => prec(PREC.literal, /[a-zA-Zα-ωΑ-Ωµ_<%=>\+\-\*\/\|\!\?][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\+\-\*\/\|\!\?]*/),
   }
 });
