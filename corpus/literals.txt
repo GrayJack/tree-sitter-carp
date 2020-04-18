@@ -1,0 +1,122 @@
+============================================
+Unit literal
+============================================
+
+()
+
+---
+
+(source_file
+  (unit))
+
+============================================
+Boolean literal
+============================================
+
+true
+false
+
+---
+
+(source_file
+  (bool_literal)
+  (bool_literal))
+
+============================================
+Integer literal
+============================================
+
+100
+1500l
+1b
+
+---
+
+(source_file
+  (integer_literal)
+  (integer_literal)
+  (integer_literal))
+
+============================================
+Float literal
+============================================
+
+10.0
+3.14f
+
+---
+
+(source_file
+  (float_literal)
+  (float_literal))
+
+
+============================================
+Char literal
+============================================
+
+\a
+\🎷
+\α
+\\n
+\\t
+\
+
+---
+
+(source_file
+  (char_literal)
+  (char_literal)
+  (char_literal)
+  (char_literal
+    (escape_sequence))
+  (char_literal
+    (escape_sequence))
+  (char_literal))
+
+============================================
+String literal
+============================================
+
+""
+"Hello, World!"
+"Holy 🐮"
+"Fire🦊"
+"multi
+line"
+"\t\t\n"
+
+---
+
+(source_file
+  (str_literal)
+  (str_literal)
+  (str_literal)
+  (str_literal)
+  (str_literal)
+  (str_literal
+    (escape_sequence)
+    (escape_sequence)
+    (escape_sequence)))
+
+============================================
+Pattern literal
+============================================
+
+#""
+#"Hello, World!"
+#"Holy 🐮"
+#"Fire🦊"
+#"multi
+line"
+#"\t\t\n"
+
+---
+
+(source_file
+  (pattern_literal)
+  (pattern_literal)
+  (pattern_literal)
+  (pattern_literal)
+  (pattern_literal)
+  (pattern_literal))
