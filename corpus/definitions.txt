@@ -3,87 +3,85 @@ Def with identifiers
 ============================================
 
 (def a b)
+(def 'a 'b)
+(def 🎷 "saxophone")
 
 ---
 
 (source_file
   (def
-    name: (identifier)
-    value: (identifier)))
+    name: (symbol)
+    value: (symbol))
+  (def
+    name: (short_quote
+      (symbol))
+    value: (short_quote
+      (symbol)))
+  (def
+    name: (symbol)
+    value: (str_literal)))
 
 ============================================
 Def with literals
 ============================================
 
 (def a true)
-
 (def a false)
-
 (def a 10)
-
 (def a 10l)
-
 (def a 10f)
-
 (def a 10.0)
-
 (def a 10.0f)
-
 (def a \e)
-
 (def a \\n)
-
 (def a "str")
-
 (def a "\n")
-
 (def a #"pattern")
-
 (def a #"\n")
 
 ---
 
 (source_file
   (def
-    name: (identifier)
+    name: (symbol)
     value: (bool_literal))
   (def
-    name: (identifier)
+    name: (symbol)
     value: (bool_literal))
   (def
-    name: (identifier)
+    name: (symbol)
     value: (integer_literal))
   (def
-    name: (identifier)
+    name: (symbol)
     value: (integer_literal))
   (def
-    name: (identifier)
+    name: (symbol)
     value: (float_literal))
   (def
-    name: (identifier)
+    name: (symbol)
     value: (float_literal))
   (def
-    name: (identifier)
+    name: (symbol)
     value: (float_literal))
   (def
-    name: (identifier)
+    name: (symbol)
     value: (char_literal))
   (def
-    name: (identifier)
+    name: (symbol)
     value: (char_literal
       (escape_sequence)))
   (def
-    name: (identifier)
+    name: (symbol)
     value: (str_literal))
   (def
-    name: (identifier)
+    name: (symbol)
     value: (str_literal
       (escape_sequence)))
   (def
-    name: (identifier)
+    name: (symbol)
     value: (pattern_literal))
   (def
-    name: (identifier)
+    name: (symbol)
     value: (pattern_literal)))
 
 ============================================
@@ -91,36 +89,34 @@ Def with Array
 ============================================
 
 (def arr [1 2 a])
-
 (def ref-arr &[a b c])
-
 (def arr [[1 2] [3 4]])
 
 ---
 
 (source_file
   (def
-    name: (identifier)
-    value: (array_expression
-      (integer_literal)
-      (integer_literal)
-      (identifier)))
+    name: (symbol)
+    value: (array
+      item: (integer_literal)
+      item: (integer_literal)
+      item: (symbol)))
   (def
-    name: (identifier)
+    name: (symbol)
     value: (short_ref
-      (array_expression
-        (identifier)
-        (identifier)
-        (identifier))))
+      (array
+        item: (symbol)
+        item: (symbol)
+        item: (symbol))))
   (def
-    name: (identifier)
-    value: (array_expression
-      (array_expression
-        (integer_literal)
-        (integer_literal))
-      (array_expression
-        (integer_literal)
-        (integer_literal)))))
+    name: (symbol)
+    value: (array
+      item: (array
+        item: (integer_literal)
+        item: (integer_literal))
+      item: (array
+        item: (integer_literal)
+        item: (integer_literal)))))
 
 ============================================
 Def with Map
@@ -132,8 +128,8 @@ Def with Map
 
 (source_file
   (def
-    name: (identifier)
-    value: (map_expression
+    name: (symbol)
+    value: (map
       key: (integer_literal)
       value: (float_literal)
       key: (integer_literal)
@@ -148,43 +144,51 @@ Defn
 (defn double [x] (* x 2))
 
 (defn func [a]
-  (do (this a))
-  (do (that a)))
+  (do
+    (this a)
+    (that a)))
 
 ; inside macros
 (defn name arguments)
+(defn 'name 'args 'body)
+
 
 ---
 
 (source_file
   (defn
-    name: (identifier)
+    name: (symbol)
     parameters: (parameters))
   (defn
-    name: (identifier)
+    name: (symbol)
     parameters: (parameters
-      (identifier))
+      parameter: (symbol))
     body: (call
-      name: (identifier)
-      argument: (identifier)
+      name: (symbol)
+      argument: (symbol)
       argument: (integer_literal)))
   (defn
-    name: (identifier)
+    name: (symbol)
     parameters: (parameters
-      (identifier))
+      parameter: (symbol))
     body: (do
       expr: (call
-        name: (identifier)
-        argument: (identifier)))
-    body: (do
+        name: (symbol)
+        argument: (symbol))
       expr: (call
-        name: (identifier)
-        argument: (identifier))))
+        name: (symbol)
+        argument: (symbol))))
   (line_comment)
   (defn
-    name: (identifier)
-    parameters: (parameter_ident
-      (identifier))))
+    name: (symbol)
+    parameters: (symbol))
+  (defn
+    name: (short_quote
+      (symbol))
+    parameters: (short_quote
+      (symbol))
+    body: (short_quote
+      (symbol))))
 
 ============================================
 Definterface
@@ -196,41 +200,46 @@ Definterface
 
 (definterface frexp (λ [a (Ref Int)] a))
 
+(definterface pi a)
+
 ---
 
 (source_file
   (definterface
-    name: (identifier )
-    fn: (interface_fn
-      typed_params: (typed_parameters
+    name: (symbol)
+    signature: (interface_fn
+      type_parameters: (type_parameters
         (type
-          (identifier ))
+          (symbol))
         (type
-          (identifier )))
+          (symbol)))
       return_type: (type
-        (identifier ))))
+        (core_types))))
   (definterface
-    name: (identifier )
-    fn: (interface_fn
-      typed_params: (typed_parameters
+    name: (symbol)
+    signature: (interface_fn
+      type_parameters: (type_parameters
         (short_ref
-          (identifier ))
+          (symbol))
         (short_ref
-          (identifier )))
+          (symbol)))
       return_type: (type
-        (identifier ))))
+        (symbol))))
   (definterface
-    name: (identifier )
-    fn: (interface_fn
-      typed_params: (typed_parameters
+    name: (symbol)
+    signature: (interface_fn
+      type_parameters: (type_parameters
         (type
-          (identifier ))
+          (symbol))
         (type
           (complex_type
-            (identifier )
-            (identifier ))))
+            (symbol)
+            (core_types))))
       return_type: (type
-        (identifier )))))
+        (symbol))))
+  (definterface
+    name: (symbol)
+    value: (symbol)))
 
 ============================================
 Defmacro
@@ -248,37 +257,37 @@ Defmacro
 
 (source_file
   (defmacro
-    name: (identifier)
+    name: (symbol)
     parameters: (parameters
-      (identifier)
-      (identifier))
+      parameter: (symbol)
+      parameter: (symbol))
     body: (call
-      name: (identifier)
-      argument: (quote_expression
-        (identifier))
-      argument: (identifier)
+      name: (symbol)
+      argument: (short_quote
+        (symbol))
+      argument: (symbol)
       argument: (str_literal)
-      argument: (identifier)))
+      argument: (symbol)))
   (defmacro
-    name: (identifier)
+    name: (symbol)
     parameters: (parameters
-      (symbol
-        (identifier))
-      (identifier))
+      parameter: (keyword)
+      parameter: (symbol)
+      parameter: (symbol))
     body: (call
-      name: (identifier)
-      argument: (identifier)))
+      name: (symbol)
+      argument: (symbol)))
   (defmacro
-    name: (identifier)
+    name: (symbol)
     parameters: (parameters
-      (identifier)
-      (identifier))
+      parameter: (symbol)
+      parameter: (symbol))
     body: (call
-      name: (identifier)
-      argument: (quote_expression
-        (def
-          name: (identifier)
-          value: (identifier))))))
+      name: (symbol)
+      argument: (short_quote
+        (symbol))
+      argument: (symbol)
+      argument: (symbol))))
 
 ============================================
 Defndynamic
@@ -290,14 +299,14 @@ Defndynamic
 
 (source_file
   (defndynamic
-    name: (identifier)
+    name: (symbol)
     parameters: (parameters
-      (identifier))
+      parameter: (symbol))
     body: (call
-      name: (identifier)
+      name: (symbol)
       argument: (call
-        name: (identifier)
-        argument: (identifier)))))
+        name: (symbol)
+        argument: (symbol)))))
 
 ============================================
 Defmodule
@@ -313,24 +322,24 @@ Defmodule
 
 (source_file
   (defmodule
-    name: (module_identifier)
+    name: (module_symbol)
     item: (def
-      name: (identifier)
+      name: (symbol)
       value: (float_literal))
     item: (def
-      name: (identifier)
+      name: (symbol)
       value: (float_literal))
     item: (defn
-      name: (identifier)
+      name: (symbol)
       parameters: (parameters
-        (identifier)
-        (identifier))
+        parameter: (symbol)
+        parameter: (symbol))
       body: (call
         name: (scoped_identifier
-          path: (module_identifier)
-          (identifier))
-        argument: (identifier)
-        argument: (identifier)))))
+          path: (module_symbol)
+          (symbol))
+        argument: (symbol)
+        argument: (symbol)))))
 
 ============================================
 Deftype
@@ -361,53 +370,53 @@ Deftype
 
 (source_file
   (deftype
-    name: (type_identifier)
-    fields: (fields
-      (identifier)
-      (type)
-      (identifier)
-      (type)))
+    name: (type_symbol)
+    field: (field_symbol)
+    type: (type
+      (core_types))
+    field: (field_symbol)
+    type: (type
+      (core_types)))
   (deftype
-    name: (type_identifier)
-    fields: (fields
-      (identifier)
+    name: (type_symbol)
+    field: (field_symbol)
+    type: (type
       (complex_type
-        (identifier)
-        (identifier))
-      (identifier)
-      (type)))
+        (core_types)
+        (core_types)))
+    field: (field_symbol)
+    type: (type
+      (core_types)))
   (deftype
-    name: (identifier)
-    fields: (fields
-      (identifier)
-      (type)
-      (identifier)
-      (type)))
+    name: (type_symbol)
+    field: (field_symbol)
+    type: (type
+      (core_types))
+    field: (field_symbol)
+    type: (type
+      (core_types)))
   (deftype
-    name: (identifier)
-    generic_type: (identifier)
-    generic_type: (identifier)
-    fields: (fields
-      (identifier)
-      (identifier)
-      (identifier)
-      (identifier)))
+    name: (type_symbol)
+    generic_type: (generic_symbol)
+    generic_type: (generic_symbol)
+    field: (field_symbol)
+    type: (type
+      (symbol))
+    field: (field_symbol)
+    type: (type
+      (symbol)))
   (deftype
-    name: (type_identifier)
-    variant: (variant_identifier)
-    fields: (fields)
-    variant: (variant_identifier)
-    fields: (fields))
+    name: (type_symbol)
+    variant: (variant_symbol)
+    variant: (variant_symbol))
   (deftype
-    name: (identifier)
-    generic_type: (identifier)
-    variant: (variant_identifier)
-    fields: (fields
-      (identifier))
-    variant: (variant_identifier)
-    fields: (fields))
+    name: (type_symbol)
+    generic_type: (generic_symbol)
+    variant: (variant_symbol)
+    fields: (field_symbol)
+    variant: (variant_symbol))
   (deftype
-    name: (type_identifier)
-    variant: (variant_identifier)
-    variant: (variant_identifier)
-    variant: (variant_identifier)))
+    name: (type_symbol)
+    (variant_symbol)
+    (variant_symbol)
+    (variant_symbol)))

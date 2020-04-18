@@ -202,6 +202,7 @@ Use
 ============================================
 
 (use Array)
+(use Color.Id)
 
 ; inside macro
 (use (car names))
@@ -211,6 +212,10 @@ Use
 (source_file
   (use
     module: (module_symbol))
+  (use
+    module: (scoped_module
+      path: (module_symbol)
+      (symbol)))
   (line_comment)
   (use
     module: (call
@@ -234,26 +239,23 @@ With
 (source_file
   (with
     module: (module_symbol)
-    expr: (call
+    expr: (defn
       name: (symbol)
-      argument: (symbol)
-      argument: (array
-        item: (symbol))
-      argument: (call
+      parameters: (parameters
+        parameter: (symbol))
+      body: (call
         name: (symbol)
         argument: (symbol))))
   (with
     module: (module_symbol)
-    expr: (call
+    expr: (def
       name: (symbol)
-      argument: (symbol)
-      argument: (integer_literal))
-    expr: (call
+      value: (integer_literal))
+    expr: (defn
       name: (symbol)
-      argument: (symbol)
-      argument: (array
-        item: (symbol))
-      argument: (symbol))))
+      parameters: (parameters
+        parameter: (symbol))
+      body: (symbol))))
 
 ============================================
 Ref

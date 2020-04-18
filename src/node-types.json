@@ -28,7 +28,39 @@
           "named": true
         },
         {
+          "type": "def",
+          "named": true
+        },
+        {
+          "type": "definterface",
+          "named": true
+        },
+        {
+          "type": "defmacro",
+          "named": true
+        },
+        {
+          "type": "defmodule",
+          "named": true
+        },
+        {
+          "type": "defn",
+          "named": true
+        },
+        {
+          "type": "defndynamic",
+          "named": true
+        },
+        {
+          "type": "deftype",
+          "named": true
+        },
+        {
           "type": "do",
+          "named": true
+        },
+        {
+          "type": "doc",
           "named": true
         },
         {
@@ -37,6 +69,10 @@
         },
         {
           "type": "fn",
+          "named": true
+        },
+        {
+          "type": "hidden",
           "named": true
         },
         {
@@ -76,6 +112,10 @@
           "named": true
         },
         {
+          "type": "register",
+          "named": true
+        },
+        {
           "type": "scoped_identifier",
           "named": true
         },
@@ -97,6 +137,10 @@
         },
         {
           "type": "short_ref",
+          "named": true
+        },
+        {
+          "type": "signature",
           "named": true
         },
         {
@@ -159,7 +203,39 @@
             "named": true
           },
           {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
             "named": true
           },
           {
@@ -168,6 +244,10 @@
           },
           {
             "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
             "named": true
           },
           {
@@ -207,6 +287,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "scoped_identifier",
             "named": true
           },
@@ -228,6 +312,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -296,7 +384,39 @@
             "named": true
           },
           {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
             "named": true
           },
           {
@@ -305,6 +425,10 @@
           },
           {
             "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
             "named": true
           },
           {
@@ -344,6 +468,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "scoped_identifier",
             "named": true
           },
@@ -365,6 +493,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -407,6 +539,10 @@
           },
           {
             "type": "scoped_identifier",
+            "named": true
+          },
+          {
+            "type": "short_fn_ref",
             "named": true
           },
           {
@@ -460,12 +596,38 @@
     }
   },
   {
-    "type": "do",
+    "type": "def",
     "named": true,
     "fields": {
-      "expr": {
-        "multiple": true,
-        "required": false,
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "scoped_identifier",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
         "types": [
           {
             "type": "address",
@@ -488,7 +650,39 @@
             "named": true
           },
           {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
             "named": true
           },
           {
@@ -497,6 +691,10 @@
           },
           {
             "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
             "named": true
           },
           {
@@ -536,6 +734,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "scoped_identifier",
             "named": true
           },
@@ -557,6 +759,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -592,7 +798,83 @@
     }
   },
   {
-    "type": "fn",
+    "type": "definterface",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "scoped_identifier",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "signature": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "interface_fn",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "scoped_identifier",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "defmacro",
     "named": true,
     "fields": {
       "body": {
@@ -620,7 +902,39 @@
             "named": true
           },
           {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
             "named": true
           },
           {
@@ -629,6 +943,10 @@
           },
           {
             "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
             "named": true
           },
           {
@@ -668,6 +986,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "scoped_identifier",
             "named": true
           },
@@ -689,6 +1011,1210 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
+            "named": true
+          },
+          {
+            "type": "str_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          },
+          {
+            "type": "the",
+            "named": true
+          },
+          {
+            "type": "unit",
+            "named": true
+          },
+          {
+            "type": "use",
+            "named": true
+          },
+          {
+            "type": "while",
+            "named": true
+          },
+          {
+            "type": "with",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "scoped_identifier",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "parameters",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "scoped_identifier",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "defmodule",
+    "named": true,
+    "fields": {
+      "item": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "address",
+            "named": true
+          },
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
+            "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
+            "named": true
+          },
+          {
+            "type": "if",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "pattern_literal",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "ref",
+            "named": true
+          },
+          {
+            "type": "register",
+            "named": true
+          },
+          {
+            "type": "scoped_identifier",
+            "named": true
+          },
+          {
+            "type": "set",
+            "named": true
+          },
+          {
+            "type": "short_copy",
+            "named": true
+          },
+          {
+            "type": "short_fn_ref",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          },
+          {
+            "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
+            "named": true
+          },
+          {
+            "type": "str_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          },
+          {
+            "type": "the",
+            "named": true
+          },
+          {
+            "type": "unit",
+            "named": true
+          },
+          {
+            "type": "use",
+            "named": true
+          },
+          {
+            "type": "while",
+            "named": true
+          },
+          {
+            "type": "with",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "module_symbol",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "defn",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "address",
+            "named": true
+          },
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
+            "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
+            "named": true
+          },
+          {
+            "type": "if",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "pattern_literal",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "ref",
+            "named": true
+          },
+          {
+            "type": "register",
+            "named": true
+          },
+          {
+            "type": "scoped_identifier",
+            "named": true
+          },
+          {
+            "type": "set",
+            "named": true
+          },
+          {
+            "type": "short_copy",
+            "named": true
+          },
+          {
+            "type": "short_fn_ref",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          },
+          {
+            "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
+            "named": true
+          },
+          {
+            "type": "str_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          },
+          {
+            "type": "the",
+            "named": true
+          },
+          {
+            "type": "unit",
+            "named": true
+          },
+          {
+            "type": "use",
+            "named": true
+          },
+          {
+            "type": "while",
+            "named": true
+          },
+          {
+            "type": "with",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "scoped_identifier",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "parameters",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "scoped_identifier",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "defndynamic",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "address",
+            "named": true
+          },
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
+            "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
+            "named": true
+          },
+          {
+            "type": "if",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "pattern_literal",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "ref",
+            "named": true
+          },
+          {
+            "type": "register",
+            "named": true
+          },
+          {
+            "type": "scoped_identifier",
+            "named": true
+          },
+          {
+            "type": "set",
+            "named": true
+          },
+          {
+            "type": "short_copy",
+            "named": true
+          },
+          {
+            "type": "short_fn_ref",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          },
+          {
+            "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
+            "named": true
+          },
+          {
+            "type": "str_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          },
+          {
+            "type": "the",
+            "named": true
+          },
+          {
+            "type": "unit",
+            "named": true
+          },
+          {
+            "type": "use",
+            "named": true
+          },
+          {
+            "type": "while",
+            "named": true
+          },
+          {
+            "type": "with",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "scoped_identifier",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "parameters",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "scoped_identifier",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "deftype",
+    "named": true,
+    "fields": {
+      "field": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "field_symbol",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          }
+        ]
+      },
+      "fields": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "field_symbol",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          }
+        ]
+      },
+      "generic_type": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "generic_symbol",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_symbol",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
+      },
+      "variant": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "variant_symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "variant_symbol",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "do",
+    "named": true,
+    "fields": {
+      "expr": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "address",
+            "named": true
+          },
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
+            "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
+            "named": true
+          },
+          {
+            "type": "if",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "pattern_literal",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "ref",
+            "named": true
+          },
+          {
+            "type": "register",
+            "named": true
+          },
+          {
+            "type": "scoped_identifier",
+            "named": true
+          },
+          {
+            "type": "set",
+            "named": true
+          },
+          {
+            "type": "short_copy",
+            "named": true
+          },
+          {
+            "type": "short_fn_ref",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          },
+          {
+            "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
+            "named": true
+          },
+          {
+            "type": "str_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          },
+          {
+            "type": "the",
+            "named": true
+          },
+          {
+            "type": "unit",
+            "named": true
+          },
+          {
+            "type": "use",
+            "named": true
+          },
+          {
+            "type": "while",
+            "named": true
+          },
+          {
+            "type": "with",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "doc",
+    "named": true,
+    "fields": {
+      "doc_str": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "str_literal",
+            "named": true
+          }
+        ]
+      },
+      "path": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "scoped_identifier",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "fn",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "address",
+            "named": true
+          },
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
+            "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
+            "named": true
+          },
+          {
+            "type": "if",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "pattern_literal",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "ref",
+            "named": true
+          },
+          {
+            "type": "register",
+            "named": true
+          },
+          {
+            "type": "scoped_identifier",
+            "named": true
+          },
+          {
+            "type": "set",
+            "named": true
+          },
+          {
+            "type": "short_copy",
+            "named": true
+          },
+          {
+            "type": "short_fn_ref",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          },
+          {
+            "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -754,6 +2280,30 @@
     }
   },
   {
+    "type": "hidden",
+    "named": true,
+    "fields": {
+      "path": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "scoped_identifier",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "if",
     "named": true,
     "fields": {
@@ -782,7 +2332,39 @@
             "named": true
           },
           {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
             "named": true
           },
           {
@@ -791,6 +2373,10 @@
           },
           {
             "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
             "named": true
           },
           {
@@ -830,6 +2416,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "scoped_identifier",
             "named": true
           },
@@ -851,6 +2441,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -908,7 +2502,39 @@
             "named": true
           },
           {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
             "named": true
           },
           {
@@ -917,6 +2543,10 @@
           },
           {
             "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
             "named": true
           },
           {
@@ -956,6 +2586,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "scoped_identifier",
             "named": true
           },
@@ -977,6 +2611,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -1034,7 +2672,39 @@
             "named": true
           },
           {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
             "named": true
           },
           {
@@ -1043,6 +2713,10 @@
           },
           {
             "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
             "named": true
           },
           {
@@ -1082,6 +2756,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "scoped_identifier",
             "named": true
           },
@@ -1103,6 +2781,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -1224,7 +2906,39 @@
             "named": true
           },
           {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
             "named": true
           },
           {
@@ -1233,6 +2947,10 @@
           },
           {
             "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
             "named": true
           },
           {
@@ -1272,6 +2990,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "scoped_identifier",
             "named": true
           },
@@ -1293,6 +3015,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -1390,7 +3116,39 @@
             "named": true
           },
           {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
             "named": true
           },
           {
@@ -1399,6 +3157,10 @@
           },
           {
             "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
             "named": true
           },
           {
@@ -1438,6 +3200,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "scoped_identifier",
             "named": true
           },
@@ -1459,6 +3225,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -1516,7 +3286,39 @@
             "named": true
           },
           {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
             "named": true
           },
           {
@@ -1525,6 +3327,10 @@
           },
           {
             "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
             "named": true
           },
           {
@@ -1564,6 +3370,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "scoped_identifier",
             "named": true
           },
@@ -1585,6 +3395,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -1648,7 +3462,39 @@
             "named": true
           },
           {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
             "named": true
           },
           {
@@ -1657,6 +3503,10 @@
           },
           {
             "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
             "named": true
           },
           {
@@ -1696,6 +3546,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "scoped_identifier",
             "named": true
           },
@@ -1717,6 +3571,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -1790,7 +3648,39 @@
             "named": true
           },
           {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
             "named": true
           },
           {
@@ -1799,6 +3689,10 @@
           },
           {
             "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
             "named": true
           },
           {
@@ -1838,6 +3732,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "scoped_identifier",
             "named": true
           },
@@ -1859,6 +3757,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -1916,7 +3818,39 @@
             "named": true
           },
           {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
             "named": true
           },
           {
@@ -1925,6 +3859,10 @@
           },
           {
             "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
             "named": true
           },
           {
@@ -1964,6 +3902,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "scoped_identifier",
             "named": true
           },
@@ -1985,6 +3927,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -2048,7 +3994,39 @@
             "named": true
           },
           {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
             "named": true
           },
           {
@@ -2057,6 +4035,10 @@
           },
           {
             "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
             "named": true
           },
           {
@@ -2096,6 +4078,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "scoped_identifier",
             "named": true
           },
@@ -2117,6 +4103,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -2174,7 +4164,39 @@
             "named": true
           },
           {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
             "named": true
           },
           {
@@ -2183,6 +4205,10 @@
           },
           {
             "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
             "named": true
           },
           {
@@ -2222,6 +4248,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "scoped_identifier",
             "named": true
           },
@@ -2243,6 +4273,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -2335,7 +4369,39 @@
           "named": true
         },
         {
+          "type": "def",
+          "named": true
+        },
+        {
+          "type": "definterface",
+          "named": true
+        },
+        {
+          "type": "defmacro",
+          "named": true
+        },
+        {
+          "type": "defmodule",
+          "named": true
+        },
+        {
+          "type": "defn",
+          "named": true
+        },
+        {
+          "type": "defndynamic",
+          "named": true
+        },
+        {
+          "type": "deftype",
+          "named": true
+        },
+        {
           "type": "do",
+          "named": true
+        },
+        {
+          "type": "doc",
           "named": true
         },
         {
@@ -2344,6 +4410,10 @@
         },
         {
           "type": "fn",
+          "named": true
+        },
+        {
+          "type": "hidden",
           "named": true
         },
         {
@@ -2383,6 +4453,10 @@
           "named": true
         },
         {
+          "type": "register",
+          "named": true
+        },
+        {
           "type": "scoped_identifier",
           "named": true
         },
@@ -2404,6 +4478,10 @@
         },
         {
           "type": "short_ref",
+          "named": true
+        },
+        {
+          "type": "signature",
           "named": true
         },
         {
@@ -2466,7 +4544,39 @@
           "named": true
         },
         {
+          "type": "def",
+          "named": true
+        },
+        {
+          "type": "definterface",
+          "named": true
+        },
+        {
+          "type": "defmacro",
+          "named": true
+        },
+        {
+          "type": "defmodule",
+          "named": true
+        },
+        {
+          "type": "defn",
+          "named": true
+        },
+        {
+          "type": "defndynamic",
+          "named": true
+        },
+        {
+          "type": "deftype",
+          "named": true
+        },
+        {
           "type": "do",
+          "named": true
+        },
+        {
+          "type": "doc",
           "named": true
         },
         {
@@ -2475,6 +4585,10 @@
         },
         {
           "type": "fn",
+          "named": true
+        },
+        {
+          "type": "hidden",
           "named": true
         },
         {
@@ -2514,6 +4628,10 @@
           "named": true
         },
         {
+          "type": "register",
+          "named": true
+        },
+        {
           "type": "scoped_identifier",
           "named": true
         },
@@ -2535,6 +4653,10 @@
         },
         {
           "type": "short_ref",
+          "named": true
+        },
+        {
+          "type": "signature",
           "named": true
         },
         {
@@ -2569,7 +4691,277 @@
     }
   },
   {
+    "type": "register",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "scoped_identifier",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "short_copy",
+            "named": true
+          },
+          {
+            "type": "short_fn_ref",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          },
+          {
+            "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
+      },
+      "value_name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "address",
+            "named": true
+          },
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
+            "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
+            "named": true
+          },
+          {
+            "type": "if",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "pattern_literal",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "ref",
+            "named": true
+          },
+          {
+            "type": "register",
+            "named": true
+          },
+          {
+            "type": "scoped_identifier",
+            "named": true
+          },
+          {
+            "type": "set",
+            "named": true
+          },
+          {
+            "type": "short_copy",
+            "named": true
+          },
+          {
+            "type": "short_fn_ref",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          },
+          {
+            "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
+            "named": true
+          },
+          {
+            "type": "str_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          },
+          {
+            "type": "the",
+            "named": true
+          },
+          {
+            "type": "unit",
+            "named": true
+          },
+          {
+            "type": "use",
+            "named": true
+          },
+          {
+            "type": "while",
+            "named": true
+          },
+          {
+            "type": "with",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "scoped_identifier",
+    "named": true,
+    "fields": {
+      "path": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "module_keyword",
+            "named": true
+          },
+          {
+            "type": "module_symbol",
+            "named": true
+          },
+          {
+            "type": "scoped_identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "scoped_identifier",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "scoped_module",
     "named": true,
     "fields": {
       "path": {
@@ -2639,7 +5031,39 @@
             "named": true
           },
           {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
             "named": true
           },
           {
@@ -2648,6 +5072,10 @@
           },
           {
             "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
             "named": true
           },
           {
@@ -2687,6 +5115,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "scoped_identifier",
             "named": true
           },
@@ -2708,6 +5140,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -2765,7 +5201,39 @@
             "named": true
           },
           {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
             "named": true
           },
           {
@@ -2774,6 +5242,10 @@
           },
           {
             "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
             "named": true
           },
           {
@@ -2813,6 +5285,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "scoped_identifier",
             "named": true
           },
@@ -2834,6 +5310,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -2897,7 +5377,39 @@
           "named": true
         },
         {
+          "type": "def",
+          "named": true
+        },
+        {
+          "type": "definterface",
+          "named": true
+        },
+        {
+          "type": "defmacro",
+          "named": true
+        },
+        {
+          "type": "defmodule",
+          "named": true
+        },
+        {
+          "type": "defn",
+          "named": true
+        },
+        {
+          "type": "defndynamic",
+          "named": true
+        },
+        {
+          "type": "deftype",
+          "named": true
+        },
+        {
           "type": "do",
+          "named": true
+        },
+        {
+          "type": "doc",
           "named": true
         },
         {
@@ -2906,6 +5418,10 @@
         },
         {
           "type": "fn",
+          "named": true
+        },
+        {
+          "type": "hidden",
           "named": true
         },
         {
@@ -2945,6 +5461,10 @@
           "named": true
         },
         {
+          "type": "register",
+          "named": true
+        },
+        {
           "type": "scoped_identifier",
           "named": true
         },
@@ -2966,6 +5486,10 @@
         },
         {
           "type": "short_ref",
+          "named": true
+        },
+        {
+          "type": "signature",
           "named": true
         },
         {
@@ -3028,7 +5552,39 @@
           "named": true
         },
         {
+          "type": "def",
+          "named": true
+        },
+        {
+          "type": "definterface",
+          "named": true
+        },
+        {
+          "type": "defmacro",
+          "named": true
+        },
+        {
+          "type": "defmodule",
+          "named": true
+        },
+        {
+          "type": "defn",
+          "named": true
+        },
+        {
+          "type": "defndynamic",
+          "named": true
+        },
+        {
+          "type": "deftype",
+          "named": true
+        },
+        {
           "type": "do",
+          "named": true
+        },
+        {
+          "type": "doc",
           "named": true
         },
         {
@@ -3037,6 +5593,10 @@
         },
         {
           "type": "fn",
+          "named": true
+        },
+        {
+          "type": "hidden",
           "named": true
         },
         {
@@ -3076,6 +5636,10 @@
           "named": true
         },
         {
+          "type": "register",
+          "named": true
+        },
+        {
           "type": "scoped_identifier",
           "named": true
         },
@@ -3097,6 +5661,10 @@
         },
         {
           "type": "short_ref",
+          "named": true
+        },
+        {
+          "type": "signature",
           "named": true
         },
         {
@@ -3159,7 +5727,39 @@
           "named": true
         },
         {
+          "type": "def",
+          "named": true
+        },
+        {
+          "type": "definterface",
+          "named": true
+        },
+        {
+          "type": "defmacro",
+          "named": true
+        },
+        {
+          "type": "defmodule",
+          "named": true
+        },
+        {
+          "type": "defn",
+          "named": true
+        },
+        {
+          "type": "defndynamic",
+          "named": true
+        },
+        {
+          "type": "deftype",
+          "named": true
+        },
+        {
           "type": "do",
+          "named": true
+        },
+        {
+          "type": "doc",
           "named": true
         },
         {
@@ -3168,6 +5768,10 @@
         },
         {
           "type": "fn",
+          "named": true
+        },
+        {
+          "type": "hidden",
           "named": true
         },
         {
@@ -3207,6 +5811,10 @@
           "named": true
         },
         {
+          "type": "register",
+          "named": true
+        },
+        {
           "type": "scoped_identifier",
           "named": true
         },
@@ -3228,6 +5836,10 @@
         },
         {
           "type": "short_ref",
+          "named": true
+        },
+        {
+          "type": "signature",
           "named": true
         },
         {
@@ -3290,7 +5902,39 @@
           "named": true
         },
         {
+          "type": "def",
+          "named": true
+        },
+        {
+          "type": "definterface",
+          "named": true
+        },
+        {
+          "type": "defmacro",
+          "named": true
+        },
+        {
+          "type": "defmodule",
+          "named": true
+        },
+        {
+          "type": "defn",
+          "named": true
+        },
+        {
+          "type": "defndynamic",
+          "named": true
+        },
+        {
+          "type": "deftype",
+          "named": true
+        },
+        {
           "type": "do",
+          "named": true
+        },
+        {
+          "type": "doc",
           "named": true
         },
         {
@@ -3299,6 +5943,10 @@
         },
         {
           "type": "fn",
+          "named": true
+        },
+        {
+          "type": "hidden",
           "named": true
         },
         {
@@ -3338,6 +5986,10 @@
           "named": true
         },
         {
+          "type": "register",
+          "named": true
+        },
+        {
           "type": "scoped_identifier",
           "named": true
         },
@@ -3359,6 +6011,10 @@
         },
         {
           "type": "short_ref",
+          "named": true
+        },
+        {
+          "type": "signature",
           "named": true
         },
         {
@@ -3393,6 +6049,40 @@
     }
   },
   {
+    "type": "signature",
+    "named": true,
+    "fields": {
+      "path": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "scoped_identifier",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "signature": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "interface_fn",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "source_file",
     "named": true,
     "fields": {},
@@ -3421,7 +6111,39 @@
           "named": true
         },
         {
+          "type": "def",
+          "named": true
+        },
+        {
+          "type": "definterface",
+          "named": true
+        },
+        {
+          "type": "defmacro",
+          "named": true
+        },
+        {
+          "type": "defmodule",
+          "named": true
+        },
+        {
+          "type": "defn",
+          "named": true
+        },
+        {
+          "type": "defndynamic",
+          "named": true
+        },
+        {
+          "type": "deftype",
+          "named": true
+        },
+        {
           "type": "do",
+          "named": true
+        },
+        {
+          "type": "doc",
           "named": true
         },
         {
@@ -3430,6 +6152,10 @@
         },
         {
           "type": "fn",
+          "named": true
+        },
+        {
+          "type": "hidden",
           "named": true
         },
         {
@@ -3469,6 +6195,10 @@
           "named": true
         },
         {
+          "type": "register",
+          "named": true
+        },
+        {
           "type": "scoped_identifier",
           "named": true
         },
@@ -3490,6 +6220,10 @@
         },
         {
           "type": "short_ref",
+          "named": true
+        },
+        {
+          "type": "signature",
           "named": true
         },
         {
@@ -3567,7 +6301,39 @@
             "named": true
           },
           {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
             "named": true
           },
           {
@@ -3576,6 +6342,10 @@
           },
           {
             "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
             "named": true
           },
           {
@@ -3615,6 +6385,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "scoped_identifier",
             "named": true
           },
@@ -3636,6 +6410,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -3755,6 +6533,10 @@
             "named": true
           },
           {
+            "type": "scoped_module",
+            "named": true
+          },
+          {
             "type": "short_quote",
             "named": true
           }
@@ -3791,7 +6573,39 @@
             "named": true
           },
           {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
             "named": true
           },
           {
@@ -3800,6 +6614,10 @@
           },
           {
             "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
             "named": true
           },
           {
@@ -3839,6 +6657,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "scoped_identifier",
             "named": true
           },
@@ -3860,6 +6682,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -3917,7 +6743,39 @@
             "named": true
           },
           {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
             "named": true
           },
           {
@@ -3926,6 +6784,10 @@
           },
           {
             "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
             "named": true
           },
           {
@@ -3965,6 +6827,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "scoped_identifier",
             "named": true
           },
@@ -3986,6 +6852,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -4049,7 +6919,39 @@
             "named": true
           },
           {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "definterface",
+            "named": true
+          },
+          {
+            "type": "defmacro",
+            "named": true
+          },
+          {
+            "type": "defmodule",
+            "named": true
+          },
+          {
+            "type": "defn",
+            "named": true
+          },
+          {
+            "type": "defndynamic",
+            "named": true
+          },
+          {
+            "type": "deftype",
+            "named": true
+          },
+          {
             "type": "do",
+            "named": true
+          },
+          {
+            "type": "doc",
             "named": true
           },
           {
@@ -4058,6 +6960,10 @@
           },
           {
             "type": "fn",
+            "named": true
+          },
+          {
+            "type": "hidden",
             "named": true
           },
           {
@@ -4097,6 +7003,10 @@
             "named": true
           },
           {
+            "type": "register",
+            "named": true
+          },
+          {
             "type": "scoped_identifier",
             "named": true
           },
@@ -4118,6 +7028,10 @@
           },
           {
             "type": "short_ref",
+            "named": true
+          },
+          {
+            "type": "signature",
             "named": true
           },
           {
@@ -4164,6 +7078,10 @@
           },
           {
             "type": "quote",
+            "named": true
+          },
+          {
+            "type": "scoped_module",
             "named": true
           },
           {
@@ -4231,7 +7149,39 @@
     "named": true
   },
   {
+    "type": "def",
+    "named": false
+  },
+  {
+    "type": "definterface",
+    "named": false
+  },
+  {
+    "type": "defmacro",
+    "named": false
+  },
+  {
+    "type": "defmodule",
+    "named": false
+  },
+  {
+    "type": "defn",
+    "named": false
+  },
+  {
+    "type": "defndynamic",
+    "named": false
+  },
+  {
+    "type": "deftype",
+    "named": false
+  },
+  {
     "type": "do",
+    "named": false
+  },
+  {
+    "type": "doc",
     "named": false
   },
   {
@@ -4243,11 +7193,23 @@
     "named": false
   },
   {
+    "type": "field_symbol",
+    "named": true
+  },
+  {
     "type": "float_literal",
     "named": true
   },
   {
     "type": "fn",
+    "named": false
+  },
+  {
+    "type": "generic_symbol",
+    "named": true
+  },
+  {
+    "type": "hidden",
     "named": false
   },
   {
@@ -4287,7 +7249,15 @@
     "named": false
   },
   {
+    "type": "register",
+    "named": false
+  },
+  {
     "type": "set!",
+    "named": false
+  },
+  {
+    "type": "sig",
     "named": false
   },
   {
@@ -4313,6 +7283,10 @@
   {
     "type": "use",
     "named": false
+  },
+  {
+    "type": "variant_symbol",
+    "named": true
   },
   {
     "type": "while",

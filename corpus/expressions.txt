@@ -26,87 +26,86 @@ Call expressions
 
 (source_file
   (call
-    name: (identifier))
+    name: (symbol))
   (call
-    name: (identifier)
-    argument: (identifier))
+    name: (symbol)
+    argument: (symbol))
   (call
-    name: (identifier)
+    name: (symbol)
     argument: (integer_literal)
     argument: (integer_literal))
   (call
-    call_name: (short_fn_ref
-      (identifier))
-    argument: (identifier))
+    name: (short_fn_ref
+      (symbol))
+    argument: (symbol))
   (call
     name: (scoped_identifier
-      path: (module_identifier)
-      (identifier))
-    argument: (identifier)
-    argument: (identifier))
+      path: (module_symbol)
+      (symbol))
+    argument: (symbol)
+    argument: (symbol))
   (call
     name: (scoped_identifier
-      path: (module_identifier)
-      (identifier)))
+      path: (module_symbol)
+      (symbol)))
   (call
     name: (scoped_identifier
-      path: (module_identifier)
-      (identifier))
-    argument: (identifier))
+      path: (module_symbol)
+      (symbol))
+    argument: (symbol))
   (call
-    name: (identifier)
+    name: (symbol)
     argument: (short_ref
       (scoped_identifier
-        path: (module_identifier)
-        (identifier)))
+        path: (module_symbol)
+        (symbol)))
     argument: (short_ref
       (call
-        name: (identifier)
+        name: (symbol)
         argument: (integer_literal)
         argument: (call
-          name: (identifier)
-          argument: (identifier))
+          name: (symbol)
+          argument: (symbol))
         argument: (integer_literal)))
-    argument: (identifier))
+    argument: (symbol))
   (call
     name: (scoped_identifier
-      path: (scoped_identifier
-        path: (module_identifier)
-        (identifier))
-      (identifier))
-    argument: (identifier))
+      path: (module_symbol)
+      (scoped_identifier
+        path: (module_symbol)
+        (symbol)))
+    argument: (symbol))
   (call
-    name: (identifier)
-    argument: (quote_expression
-      (identifier))
-    argument: (quote_expression
-      (identifier))))
-
+    name: (symbol)
+    argument: (short_quote
+      (symbol))
+    argument: (short_quote
+      (symbol))))
 
 ============================================
 Map expressions
 ============================================
 
-({a 10 b 10})
+{a 10 b 10}
 
-({(Black) @"30"
- (White) @"31"})
+{(Black) @"30"
+ (White) @"31"}
 
 ---
 
 (source_file
-  (map_expression
-    key: (identifier)
+  (map
+    key: (symbol)
     value: (integer_literal)
-    key: (identifier)
+    key: (symbol)
     value: (integer_literal))
-  (map_expression
+  (map
     key: (call
-      name: (identifier))
+      name: (symbol))
     value: (short_copy
       (str_literal))
     key: (call
-      name: (identifier))
+      name: (symbol))
     value: (short_copy
       (str_literal))))
 
@@ -127,47 +126,119 @@ Quote expressions
 
 (source_file
   (defmacro
-    name: (identifier)
+    name: (symbol)
     parameters: (parameters
-      (identifier)
-      (identifier))
+      parameter: (symbol)
+      parameter: (symbol))
     body: (call
-      name: (identifier)
-      argument: (quote_expression
-        (identifier))
-      argument: (identifier)
+      name: (symbol)
+      argument: (short_quote
+        (symbol))
+      argument: (symbol)
       argument: (str_literal)
-      argument: (identifier)))
+      argument: (symbol)))
   (call
-    name: (identifier)
-    argument: (quote_expression
+    name: (symbol)
+    argument: (short_quote
       (call
-        name: (identifier)
-        argument: (identifier)
-        argument: (identifier))))
+        name: (symbol)
+        argument: (symbol)
+        argument: (symbol))))
   (call
-    name: (identifier)
-    argument: (quote_expression
-      (defn
-        name: (quote_expression
-          (identifier))
-        parameters: (parameters
-          (identifier))))
+    name: (symbol)
+    argument: (short_quote
+      (symbol))
+    argument: (short_quote
+      (symbol))
+    argument: (array
+      item: (symbol))
     argument: (call
-      name: (identifier)
-      argument: (quote_expression
+      name: (symbol)
+      argument: (short_quote
         (scoped_identifier
-          path: (module_identifier)
-          (identifier)))
-      argument: (identifier)))
+          path: (module_symbol)
+          (symbol)))
+      argument: (symbol)))
   (defmacro
-    name: (identifier)
+    name: (symbol)
     parameters: (parameters
-      (identifier)
-      (identifier))
+      parameter: (symbol)
+      parameter: (symbol))
     body: (call
-      name: (identifier)
-      argument: (quote_expression
-        (def
-          name: (identifier)
-          value: (identifier))))))
+      name: (symbol)
+      argument: (short_quote
+        (symbol))
+      argument: (symbol)
+      argument: (symbol))))
+
+============================================
+Signature expressions
+============================================
+
+(sig func (λ [Int] Int))
+(sig func2 (Fn [Type] Type))
+(sig Path.func (Fn [] Path))
+
+---
+
+(source_file
+  (signature
+    path: (symbol)
+    signature: (interface_fn
+      type_parameters: (type_parameters
+        (type
+          (core_types)))
+      return_type: (type
+        (core_types))))
+  (signature
+    path: (symbol)
+    signature: (interface_fn
+      type_parameters: (type_parameters
+        (type
+          (symbol)))
+      return_type: (type
+        (symbol))))
+  (signature
+    path: (scoped_identifier
+      path: (module_symbol)
+      (symbol))
+    signature: (interface_fn
+      type_parameters: (type_parameters)
+      return_type: (type
+        (symbol)))))
+
+============================================
+Doc expressions
+============================================
+
+(doc func "my doc")
+(doc path.func "my func of path.func")
+
+---
+
+(source_file
+  (doc
+    path: (symbol)
+    doc_str: (str_literal))
+  (doc
+    path: (scoped_identifier
+      path: (module_symbol)
+      (symbol))
+    doc_str: (str_literal)))
+
+============================================
+hidden expressions
+============================================
+
+(hidden func)
+(hidden path.func)
+
+---
+
+(source_file
+  (hidden
+    path: (symbol))
+  (hidden
+    path: (scoped_identifier
+      path: (module_symbol)
+      (symbol))))

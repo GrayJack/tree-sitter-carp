@@ -59,7 +59,7 @@ module.exports = grammar({
 
   // Hey, you, writting more code to this, if you gonna put more itens here
   // it better be token, or things get messy.
-  extras: $ => [/\s/, ',', $.line_comment, $.hidden], //$.doc,
+  extras: $ => [/\s/, ',', $.line_comment], //$.doc,
 
   conflicts: $ => [],
 
@@ -70,23 +70,26 @@ module.exports = grammar({
 
     line_comment: $ => token(seq(';', /.*/)),
 
-    hidden: $ => token(seq('(', 'hidden', /.+/, ')')),
-
     _expr: $ => choice(
       $._special_forms,
       $._literals,
       $._shorthand,
       $._identifier,
-      // $._defs,
+      $._defs,
       $._specials,
       $.call,
       $.array,
       $.map,
+      $.register,
+      $.hidden,
+      $.doc,
+      $.signature,
     ),
+
 
     call: $ => seq(
       '(',
-      field('name', $._identifier),
+      field('name', $._call_name),
       optional(repeat(field('argument', $._expr))),
       ')'
     ),
@@ -108,6 +111,42 @@ module.exports = grammar({
         )
       )),
       '}',
+    ),
+
+    hidden: $ => seq(
+      '(',
+      'hidden',
+      field('path', $._identifier),
+      ')',
+    ),
+
+    doc: $ => seq(
+      '(',
+      'doc',
+      field('path', $._identifier),
+      field('doc_str', $.str_literal),
+      ')',
+    ),
+
+    signature: $ => seq(
+      '(',
+      'sig',
+      field('path', $._identifier),
+      '(',
+      field('signature', $.interface_fn),
+      ')',
+      ')',
+    ),
+
+    register: $ => seq(
+      '(',
+      'register',
+      field('name', $._defs_name),
+      seq(
+        field('type', choice($.type, $._shorthand)),
+        optional(field('value_name', $._expr)),
+      ),
+      ')',
     ),
 
     _special_forms: $ => choice(
@@ -208,6 +247,7 @@ module.exports = grammar({
 
     _use_module: $ => choice(
       alias($.symbol, $.module_symbol),
+      alias($.scoped_identifier, $.scoped_module),
       $.quote,
       $.short_quote,
       $.call,
@@ -254,6 +294,129 @@ module.exports = grammar({
     match_case: $ => seq(
       field('case', $._expr),
       field('body', $._expr),
+    ),
+
+    _defs: $ => choice(
+      $.def,
+      $.defn,
+      $.definterface,
+      $.defmacro,
+      $.defndynamic,
+      $.defmodule,
+      $.deftype,
+    ),
+
+    def: $ => seq(
+      '(',
+      'def',
+      field('name', $._defs_name),
+      field('value', $._expr),
+      ')',
+    ),
+
+    defn: $ => seq(
+      '(',
+      'defn',
+      field('name', $._defs_name),
+      field('parameters', $._parameters),
+      optional(field('body', $._expr)),
+      ')',
+    ),
+
+    definterface: $ => seq(
+      '(',
+      'definterface',
+      field('name', $._defs_name),
+      choice(
+        field('value', $._identifier),
+        field('signature', $._sig),
+      ),
+      ')',
+    ),
+
+    _sig: $ => choice(
+      $.quote, $.short_quote,
+      seq('(', $.interface_fn,')')
+    ),
+
+    defmacro: $ => seq(
+      '(',
+      'defmacro',
+      field('name', $._defs_name),
+      field('parameters', $._parameters),
+      optional(field('body', $._expr)),
+      ')',
+    ),
+
+    defndynamic: $ => seq(
+      '(',
+      'defndynamic',
+      field('name', $._defs_name),
+      field('parameters', $._parameters),
+      optional(field('body', $._expr)),
+      ')',
+    ),
+
+    defmodule: $ => seq(
+      '(',
+      'defmodule',
+      field('name', $._defmodule_name),
+      repeat(field('item', $._expr)),
+      ')',
+    ),
+
+    _defmodule_name: $ => choice(
+      alias($.symbol, $.module_symbol), $.quote, $.short_quote,
+    ),
+
+    deftype: $ => seq(
+      '(',
+      'deftype',
+      $._deftype_names,
+      choice(
+        $._deftype_struct,
+        repeat($._deftype_enum1),
+        repeat($._deftype_enum2),
+      ),
+      ')',
+    ),
+
+    _deftype_struct: $ => seq(
+      '[',
+      repeat(seq(
+        field('field', $._field),
+        field('type', $.type),
+      )),
+      ']',
+    ),
+
+    _deftype_enum1: $ => seq(
+      '(',
+      field('variant', alias($.symbol, $.variant_symbol)),
+      '[',
+      repeat(field('fields', $._field)),
+      ']',
+      ')',
+    ),
+
+    _deftype_enum2: $ => alias($.symbol, $.variant_symbol),
+
+    _deftype_names: $ => choice(
+      field('name', alias($.symbol, $.type_symbol)),
+      seq(
+        '(',
+        field('name', alias($.symbol, $.type_symbol)),
+        optional(repeat(field('generic_type', alias($.symbol, $.generic_symbol)))),
+        ')',
+      ),
+    ),
+
+    _field: $ => choice(
+      alias($.symbol, $.field_symbol), $.call, $.quote, $.short_quote,
+    ),
+
+    _defs_name: $ => choice(
+      $._identifier, $.quote, $.short_quote
     ),
 
     // Specials
@@ -407,8 +570,8 @@ module.exports = grammar({
       $._identifier
     )),
 
-    keyword: $ => /:[^({\[\]})"'@&|`;,~#\s\\]/,
-    symbol: $ => /[^({\[\]})"'@&|`;.,~#\s\\:][^({\[\]})"'@&|`;,~#\s\\]*/,
+    keyword: $ => /:[^({\[\]})"'@&|`;.,~#\s\\]/,
+    symbol: $ => /[^({\[\]})"'@&|`;.,~#\s\\:][^({\[\]})"'@&|`;.,~#\s\\]*/,
   }
 });
 

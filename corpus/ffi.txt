@@ -14,30 +14,34 @@ Register
 
 (source_file
   (register
-    name: (identifier)
+    name: (symbol)
     type: (type
-      (identifier))
+      (core_types))
     value_name: (str_literal))
   (register
-    name: (identifier)
-    fn: (interface_fn
-      typed_params: (typed_parameters
-        (type
-          (identifier))
-        (type
-          (identifier)))
-      return_type: (type
-        (identifier))))
-  (register
-    name: (identifier)
+    name: (symbol)
     type: (type
-      (identifier)))
+      (complex_type
+        (interface_fn
+          type_parameters: (type_parameters
+            (type
+              (core_types))
+            (type
+              (core_types)))
+          return_type: (type
+            (core_types))))))
   (register
-      name: (identifier)
-      fn: (interface_fn
-        typed_params: (typed_parameters
-          (type
-            (identifier)))
-        return_type: (type
-          (complex_type)))
-      value_name: (str_literal)))
+    name: (symbol)
+    type: (type
+      (core_types)))
+  (register
+    name: (symbol)
+    type: (type
+      (complex_type
+        (interface_fn
+          type_parameters: (type_parameters
+            (type
+              (symbol)))
+          return_type: (type
+            (complex_type)))))
+    value_name: (str_literal)))
