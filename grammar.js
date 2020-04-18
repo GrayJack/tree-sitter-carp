@@ -53,15 +53,18 @@ const core_types = [
 module.exports = grammar({
   name: 'carp',
 
-  // externals: $ => [
-  //   $.doc,
-  // ],
-
   // Hey, you, writting more code to this, if you gonna put more itens here
   // it better be token, or things get messy.
   extras: $ => [/\s/, ',', $.line_comment], //$.doc,
 
   conflicts: $ => [],
+
+  supertypes: $ => [
+    $._special_forms,
+    $._literals,
+    $._shorthand,
+    $._defs,
+  ],
 
   word: $ => $.symbol,
 

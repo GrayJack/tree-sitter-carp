@@ -2370,6 +2370,11 @@
   "conflicts": [],
   "externals": [],
   "inline": [],
-  "supertypes": []
+  "supertypes": [
+    "_special_forms",
+    "_literals",
+    "_shorthand",
+    "_defs"
+  ]
 }
 
