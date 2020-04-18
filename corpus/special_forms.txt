@@ -8,73 +8,31 @@ Fn
 
 ; inside macros
 (fn arguments)
+(fn 'args 'doc)
 
 ---
 
 (source_file
   (fn
     parameters: (parameters
-      (identifier))
-    body: (identifier))
+      parameter: (symbol))
+    body: (symbol))
   (fn
     parameters: (parameters
-      (identifier)
-      (identifier))
+      parameter: (symbol)
+      parameter: (symbol))
     body: (call
-      name: (identifier)
-      argument: (identifier)
-      argument: (identifier)))
+      name: (symbol)
+      argument: (symbol)
+      argument: (symbol)))
   (line_comment)
   (fn
-    parameters: (parameter_ident
-      (identifier))))
-
-============================================
-Defn
-============================================
-
-(defn void [])
-
-(defn double [x] (* x 2))
-
-(defn func [a]
-  (do (this a))
-  (do (that a)))
-
-; inside macros
-(defn name arguments)
-
----
-
-(source_file
-  (defn
-    name: (identifier)
-    parameters: (parameters))
-  (defn
-    name: (identifier)
-    parameters: (parameters
-      (identifier))
-    body: (call
-      name: (identifier)
-      argument: (identifier)
-      argument: (integer_literal)))
-  (defn
-    name: (identifier)
-    parameters: (parameters
-      (identifier))
-    body: (do
-      expr: (call
-        name: (identifier)
-        argument: (identifier)))
-    body: (do
-      expr: (call
-        name: (identifier)
-        argument: (identifier))))
-  (line_comment)
-  (defn
-    name: (identifier)
-    parameters: (parameter_ident
-      (identifier))))
+    parameters: (symbol))
+  (fn
+    parameters: (short_quote
+      (symbol))
+    body: (short_quote
+      (symbol))))
 
 ============================================
 Let
@@ -91,41 +49,41 @@ Let
 (let (array variable from))
 
 ; inside macros
-(list 'let bindings)
+(let 'args 'body)
 
 ---
 
 (source_file
   (let
-    pairs: (let_pairs))
+    pairs: (pairs))
   (let
-    pairs: (let_pairs
-      var: (identifier)
-      expr: (integer_literal)))
+    pairs: (pairs
+      var: (symbol)
+      value: (integer_literal)))
   (let
-    pairs: (let_pairs
-      var: (identifier)
-      expr: (integer_literal)
-      var: (identifier)
-      expr: (identifier)))
+    pairs: (pairs
+      var: (symbol)
+      value: (integer_literal)
+      var: (symbol)
+      value: (symbol)))
   (let
-    pairs: (let_pairs
-      var: (identifier)
-      expr: (integer_literal))
+    pairs: (pairs
+      var: (symbol)
+      value: (integer_literal))
     body: (call
-      name: (identifier)
-      argument: (identifier)))
+      name: (symbol)
+      argument: (symbol)))
   (let
-    pairs: (let_array
-      var: (identifier)
-      expr: (identifier)))
+    pairs: (call
+      name: (symbol)
+      argument: (symbol)
+      argument: (symbol)))
   (line_comment)
-  (call
-    name: (identifier)
-    argument: (quote_expression
-      (let
-        pairs: (let_ident
-          (identifier))))))
+  (let
+    pairs: (short_quote
+      (symbol))
+    body: (short_quote
+      (symbol))))
 
 ============================================
 Do
@@ -144,22 +102,22 @@ Do
 
 (source_file
   (do
-    expr: (identifier))
+    expr: (symbol))
   (do
     expr: (call
-      name: (identifier)
-      argument: (identifier)
+      name: (symbol)
+      argument: (symbol)
       argument: (integer_literal))
     expr: (do
-      expr: (identifier)))
+      expr: (symbol)))
   (let
-    pairs: (let_pairs
-      var: (identifier)
-      expr: (integer_literal))
+    pairs: (pairs
+      var: (symbol)
+      value: (integer_literal))
     body: (do
       expr: (call
-        name: (identifier)
-        argument: (identifier)
+        name: (symbol)
+        argument: (symbol)
         argument: (integer_literal)))))
 
 ============================================
@@ -183,33 +141,33 @@ If
 (source_file
   (if
     condition: (call
-      name: (identifier)
-      argument: (identifier)
+      name: (symbol)
+      argument: (symbol)
       argument: (integer_literal))
     then: (bool_literal)
     else: (bool_literal))
   (if
     condition: (call
-      name: (identifier)
-      argument: (identifier)
+      name: (symbol)
+      argument: (symbol)
       argument: (integer_literal))
     then: (short_copy
-      (identifier))
+      (symbol))
     else: (short_ref
-      (identifier)))
+      (symbol)))
   (if
     condition: (call
-      name: (identifier)
+      name: (symbol)
       argument: (call
-        name: (identifier)
-        argument: (identifier)
+        name: (symbol)
+        argument: (symbol)
         argument: (integer_literal))
       argument: (integer_literal))
     then: (call
-      name: (identifier)
+      name: (symbol)
       argument: (str_literal))
     else: (call
-      name: (identifier)
+      name: (symbol)
       argument: (str_literal))))
 
 ============================================
@@ -226,17 +184,17 @@ While
 (source_file
   (while
     condition: (call
-      name: (identifier)
-      argument: (identifier)
+      name: (symbol)
+      argument: (symbol)
       argument: (integer_literal)))
   (while
     condition: (call
-      name: (identifier)
-      argument: (identifier)
+      name: (symbol)
+      argument: (symbol)
       argument: (integer_literal))
     body: (call
-      name: (identifier)
-      argument: (identifier)
+      name: (symbol)
+      argument: (symbol)
       argument: (integer_literal))))
 
 ============================================
@@ -246,21 +204,18 @@ Use
 (use Array)
 
 ; inside macro
-(list 'use (car names))
+(use (car names))
 
 ---
 
 (source_file
   (use
-    module: (module_identifier))
+    module: (module_symbol))
   (line_comment)
-  (call
-    name: (identifier)
-    argument: (quote_expression
-      (use
-        module: (call
-          name: (identifier)
-          argument: (identifier))))))
+  (use
+    module: (call
+      name: (symbol)
+      argument: (symbol))))
 
 ============================================
 With
@@ -278,33 +233,34 @@ With
 
 (source_file
   (with
-    module: (module_identifier)
-    expr: (defn
-      name: (identifier)
-      parameters: (parameters
-        (identifier))
-      body: (call
-        name: (identifier)
-        argument: (identifier))))
+    module: (module_symbol)
+    expr: (call
+      name: (symbol)
+      argument: (symbol)
+      argument: (array
+        item: (symbol))
+      argument: (call
+        name: (symbol)
+        argument: (symbol))))
   (with
-    module: (module_identifier)
-    expr: (def
-      name: (identifier)
-      value: (integer_literal))
-    expr: (defn
-      name: (identifier)
-      parameters: (parameters
-        (identifier))
-      body: (identifier))))
+    module: (module_symbol)
+    expr: (call
+      name: (symbol)
+      argument: (symbol)
+      argument: (integer_literal))
+    expr: (call
+      name: (symbol)
+      argument: (symbol)
+      argument: (array
+        item: (symbol))
+      argument: (symbol))))
 
 ============================================
 Ref
 ============================================
 
 (ref)
-
 (ref a)
-
 (func (ref a))
 
 ---
@@ -312,22 +268,23 @@ Ref
 (source_file
   (ref)
   (ref
-    expr: (identifier))
+    (symbol))
   (call
-    name: (identifier)
+    name: (symbol)
     argument: (ref
-      expr: (identifier))))
+      (symbol))))
 
 ============================================
 Address
 ============================================
+
 (address a)
 
 ---
 
 (source_file
   (address
-    expr: (identifier)))
+    (symbol)))
 
 ============================================
 Set!
@@ -343,22 +300,22 @@ Set!
 
 (source_file
   (set
-    variable: (identifier)
-    expr: (integer_literal))
+    variable: (symbol)
+    value: (integer_literal))
   (set
-    variable: (identifier)
-    expr: (if
+    variable: (symbol)
+    value: (if
       condition: (call
-        name: (identifier)
-        argument: (identifier)
+        name: (symbol)
+        argument: (symbol)
         argument: (integer_literal))
       then: (call
-        name: (identifier)
-        argument: (identifier)
+        name: (symbol)
+        argument: (symbol)
         argument: (integer_literal))
       else: (call
-        name: (identifier)
-        argument: (identifier)
+        name: (symbol)
+        argument: (symbol)
         argument: (integer_literal)))))
 
 ============================================
@@ -376,22 +333,22 @@ The
 (source_file
   (the
     type: (type
-      (identifier))
-    expr: (identifier))
+      (core_types))
+    expr: (symbol))
   (the
     type: (type
       (complex_type
-        (identifier)
-        (identifier)))
-    expr: (identifier))
+        (symbol)
+        (core_types)))
+    expr: (symbol))
   (the
     type: (type
       (complex_type
-        (identifier)
+        (symbol)
         (complex_type
-          (identifier)
-          (identifier))))
-    expr: (identifier)))
+          (core_types)
+          (symbol))))
+    expr: (symbol)))
 
 
 ============================================
@@ -415,39 +372,39 @@ Match
 
 (source_file
   (match
-    expr: (identifier)
+    expr: (symbol)
     (match_case
       case: (call
-        name: (identifier))
+        name: (symbol))
       body: (call
-        name: (identifier)))
+        name: (symbol)))
     (match_case
       case: (call
-        name: (identifier)
-        argument: (identifier))
-      body: (identifier)))
+        name: (symbol)
+        argument: (symbol))
+      body: (symbol)))
   (match
-    expr: (identifier)
+    expr: (symbol)
     (match_case
       case: (bool_literal)
       body: (call
-        name: (identifier)
+        name: (symbol)
         argument: (str_literal)))
     (match_case
       case: (bool_literal)
       body: (call
-        name: (identifier)
+        name: (symbol)
         argument: (str_literal))))
   (match
-    expr: (identifier)
+    expr: (symbol)
     (match_case
       case: (call
-        name: (identifier))
+        name: (symbol))
       body: (integer_literal))
     (match_case
       case: (call
-        name: (identifier))
+        name: (symbol))
       body: (integer_literal))
     (match_case
-      case: (identifier)
+      case: (symbol)
       body: (integer_literal))))

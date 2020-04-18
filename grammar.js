@@ -63,54 +63,55 @@ module.exports = grammar({
 
   conflicts: $ => [],
 
+  word: $ => $.symbol,
+
   rules: {
-    source_file: $ => repeat($._anything),
+    source_file: $ => repeat($._expr),
 
     line_comment: $ => token(seq(';', /.*/)),
 
     hidden: $ => token(seq('(', 'hidden', /.+/, ')')),
 
-    _s_expr: $ => seq(
-      '(',
-      $._anything,
-      ')',
-    ),
-
     _expr: $ => choice(
+      $._special_forms,
       $._literals,
-      $._s_expr,
-      $._short_helper,
+      $._shorthand,
       $._identifier,
-      $.quote_expression,
-      $.signature,
-      $.doc,
-      // $.upper_identifier,
-      $.symbol,
-      $._s_forms,
-      $._defs,
-      // $.call,
-    ),
-
-    _anything: $ => choice(
-      // Core thing
-      $._s_expr,
-      // $.upper_identifier,
-      $._identifier,
-      $.symbol,
+      // $._defs,
+      $._specials,
       $.call,
-      $._short_helper,
-      $._s_forms,
-      $._defs,
-      $.signature,
-      $.doc,
-      // literals
-      $._literals,
+      $.array,
+      $.map,
     ),
 
-    _s_forms: $ => choice(
+    call: $ => seq(
+      '(',
+      field('name', $._identifier),
+      optional(repeat(field('argument', $._expr))),
+      ')'
+    ),
+
+    _call_name: $ => choice($._identifier, $.short_fn_ref),
+
+    array: $ => seq(
+      '[',
+      optional(repeat(field('item', $._expr))),
+      ']',
+    ),
+
+    map: $ => seq(
+      '{',
+      optional(repeat(
+        seq(
+          field('key', $._expr),
+          field('value',  $._expr),
+        )
+      )),
+      '}',
+    ),
+
+    _special_forms: $ => choice(
       $.fn,
-      $.def,
-      $.defn,
       $.let,
       $.do,
       $.if,
@@ -122,21 +123,207 @@ module.exports = grammar({
       $.set,
       $.the,
       $.match,
-      $.register,
     ),
 
-    _defs: $ => choice(
-      $.definterface,
-      $.defmacro,
-      $.defndynamic,
-      $.defmodule,
-      $.deftype,
+    fn: $ => seq(
+      '(',
+      'fn',
+      field('parameters', $._parameters),
+      optional(field('body', $._expr)),
+      ')',
     ),
 
+    _parameters: $ => choice(
+      $._identifier,
+      $.parameters,
+      $.quote,
+      $.short_quote,
+    ),
+
+    parameters: $ => seq(
+      '[',
+      optional(repeat(field('parameter', $._identifier))),
+      ']'
+    ),
+
+    let: $ => seq(
+      '(',
+      'let',
+      field('pairs', $._let_pairs),
+      optional(field('body', $._expr)),
+      ')',
+    ),
+
+    _let_pairs: $ => choice(
+      $._identifier, $.call, $.pairs, $.quote, $.short_quote,
+    ),
+
+    pairs: $ => seq(
+      '[',
+      repeat(seq(
+        field('var', $._expr),
+        field('value', $._expr),
+      )),
+      ']'
+    ),
+
+    do: $ => seq(
+      '(',
+      'do',
+      repeat(field('expr', $._expr)),
+      ')',
+    ),
+
+    if: $ => seq(
+      '(',
+      'if',
+      field('condition', $._expr),
+      field('then', $._expr),
+      field('else', $._expr),
+      ')',
+    ),
+
+    while: $ => seq(
+      '(',
+      'while',
+      field('condition', $._expr),
+      optional(field('body', $._expr)),
+      ')',
+    ),
+
+    use: $ => seq(
+      '(',
+      'use',
+      field('module', $._use_module),
+      ')',
+    ),
+
+    with: $ => seq(
+      '(',
+      'with',
+      field('module', $._use_module),
+      repeat(field('expr', $._expr)),
+      ')',
+    ),
+
+    _use_module: $ => choice(
+      alias($.symbol, $.module_symbol),
+      $.quote,
+      $.short_quote,
+      $.call,
+    ),
+
+    ref: $ => seq(
+      '(',
+      'ref',
+      optional($._expr),
+      ')',
+    ),
+
+    address: $ => seq(
+      '(',
+      'address',
+      $._expr,
+      ')',
+    ),
+
+    set: $ => seq(
+      '(',
+      'set!',
+      field('variable', $._expr),
+      field('value', $._expr),
+      ')',
+    ),
+
+    the: $ => seq(
+      '(',
+      'the',
+      field('type', $.type),
+      field('expr', $._expr),
+      ')',
+    ),
+
+    match: $ => seq(
+      '(',
+      'match',
+      field('expr', $._expr),
+      optional(repeat($.match_case)),
+      ')',
+    ),
+
+    match_case: $ => seq(
+      field('case', $._expr),
+      field('body', $._expr),
+    ),
+
+    // Specials
+    _specials: $ => choice(
+      $.quote,
+    ),
+
+    quote: $ => seq(
+      '(',
+      'quote',
+      $._expr,
+      ')'
+    ),
+
+    _shorthand: $ => choice(
+      $.short_ref,
+      $.short_copy,
+      $.short_fn_ref,
+      $.short_quote,
+    ),
+
+    short_ref: $ => seq('&', $._expr),
+
+    short_copy: $ => seq('@', $._expr),
+
+    short_fn_ref: $ => seq('~', $._expr),
+
+    short_quote: $ => seq('\'', $._expr),
+
+    // Extras
+    type: $ => choice(
+      alias(choice(...core_types), $.core_types),
+      $.complex_type,
+      $.symbol,
+    ),
+
+    complex_type: $ => seq(
+      '(',
+      repeat(choice(
+        alias(choice(...core_types), $.core_types),
+        $.complex_type,
+        $.symbol,
+        $.interface_fn,
+      )),
+      ')',
+    ),
+
+    interface_fn: $ => seq(
+      choice('Fn', 'λ'),
+      field('type_parameters', choice($._type_parameters)),
+      field('return_type', choice($._shorthand, $.type)),
+    ),
+
+    _type_parameters: $ => choice(
+      alias($.symbol, $.type_symbol),
+      $.call,
+      $.type_parameters,
+      $.quote,
+      $.short_quote,
+    ),
+
+    type_parameters: $ => seq(
+      '[',
+      repeat(choice($.type, $._shorthand)),
+      ']',
+    ),
+
+    // Literals
     _literals: $ => choice(
       $.unit,
-      $.array_expression,
-      $.map_expression,
       $.str_literal,
       $.char_literal,
       $.pattern_literal,
@@ -145,365 +332,26 @@ module.exports = grammar({
       $.float_literal,
     ),
 
-    _short_helper: $ => choice(
-      $.short_ref,
-      $.short_copy,
-      $.short_fn_ref,
-    ),
-
-    quote_expression: $ => seq(
-      '\'',
-      $._expr,
-    ),
-
-    call: $ => prec.left(PREC.call, seq(
-      field('call_name', $._call_name),
-      optional(field('argument', repeat(seq($._expr)))),
-    )),
-
-    _call_name: $ => prec(PREC.call, choice(
-      field('name', $._identifier),
-      $.short_fn_ref,
-    )),
-
-    // call_no_module: $ =>  prec(PREC.call, field('name',choice($.upper_identifier, $.identifier))),
-    //
-    // call_with_module: $ => prec(PREC.call_module, seq(
-    //   repeat(seq(
-    //     field('module', $.upper_identifier),
-    //     '.',
-    //   )),
-    //   field('name', choice($.upper_identifier, $.identifier)),
-    // )),
-
-    signature: $ => prec.left(PREC.special, seq(
-      'sig',
-      field('path', $._identifier),
-      '(',
-      field('signature', $.interface_fn),
-      ')',
-    )),
-
-    doc: $ => prec.left(PREC.special, seq(
-      '(',
-      'doc',
-      field('path', $._identifier),
-      field('text', $.str_literal),
-      ')',
-    )),
-
-    // Special Expressions
-    def: $ => prec.left(PREC.special, seq(
-      'def',
-      field('name', choice($.identifier, $.quote_expression)),
-      field('value', $._expr),
-    )),
-
-    fn: $ => prec.left(PREC.special, seq(
-      'fn',
-      field('parameters', choice($.parameter_ident, $.parameter_array, $.parameters)),
-      optional(field('body', repeat($._expr))),
-    )),
-
-    defn: $ => prec.left(PREC.special, seq(
-      'defn',
-      field('name', choice($.identifier, $.quote_expression)),
-      field('parameters', choice($.parameter_ident, $.parameter_array, $.parameters)),
-      optional(field('body', repeat($._expr))),
-    )),
-
-    let: $ => prec.left(PREC.special, seq(
-      'let',
-      field('pairs', choice($.let_array, $.let_pairs, $.let_ident, $.quote_expression)),
-      optional(field('body', repeat($._expr))),
-    )),
-
-    let_ident: $ => $.identifier,
-
-    let_array: $ => seq(
-      '(',
-      'array',
-      optional(repeat(seq(
-        field('var', $._expr),
-        field('expr', $._expr),
-      ))),
-      ')',
-    ),
-
-    let_pairs: $ => seq(
-      '[',
-      repeat(seq(
-        field('var', $._expr),
-        field('expr', $._expr),
-      )),
-      ']'
-    ),
-
-    do: $ => prec.left(PREC.special, seq(
-      'do',
-      repeat(field('expr', $._expr)),
-    )),
-
-    if: $ => prec.left(PREC.special, seq(
-      'if',
-      field('condition', $._expr),
-      field('then', $._expr),
-      field('else', $._expr),
-    )),
-
-    while: $ => prec.left(PREC.special, seq(
-      'while',
-      field('condition', $._expr),
-      optional(field('body', repeat($._expr))),
-    )),
-
-    use: $ => prec.left(PREC.special, seq(
-      'use',
-      field('module', choice(prec(PREC.literal+1, alias($.identifier, $.module_identifier)), $._expr)),
-    )),
-
-    with: $ => prec.left(PREC.special, seq(
-      'with',
-      field('module', alias($.identifier, $.module_identifier)),
-      repeat(field('expr', $._expr)),
-    )),
-
-    ref: $ => prec.left(PREC.special, seq(
-      choice('ref'),
-      optional(field('expr', $._expr)),
-    )),
-
-    address: $ => prec.left(PREC.special, seq(
-      'address',
-      field('expr', $._expr),
-    )),
-
-    set: $ => prec.left(PREC.special, seq(
-      'set!',
-      field('variable', $._expr),
-      field('expr', $._expr),
-    )),
-
-    the: $ => prec.left(PREC.special, seq(
-      'the',
-      field('type', $.type),
-      field('expr', $._expr),
-    )),
-
-    match: $ => prec.left(PREC.special, seq(
-      'match',
-      field('expr', $._expr),
-      optional(repeat($.match_case)),
-    )),
-
-    match_case: $ => seq(
-      field('case', $._expr),
-      field('body', $._expr),
-    ),
-
-    register: $ => prec.left(PREC.special, seq(
-      'register',
-      field('name', choice($.identifier, $.quote_expression)),
-      choice(
-        seq(
-          field('type', choice($.type, $._short_helper)),
-          optional(field('value_name', $._expr)),
-        ),
-        seq(
-          '(',
-          field('fn', $.interface_fn),
-          ')',
-          optional(field('value_name', $._expr)),
-        ),
-      ),
-    )),
-
-    // Defines
-    definterface: $ => prec.left(PREC.defines, seq(
-      'definterface',
-      field('name', choice($.identifier, $.quote_expression)),
-      choice(
-        field('value', $.identifier),
-        seq(
-          '(',
-          field('fn', $.interface_fn),
-          ')',
-        ),
-      ),
-    )),
-
-    defmacro: $ => prec.left(PREC.defines, seq(
-      'defmacro',
-      field('name', $.identifier),
-      field('parameters', choice($.parameter_ident, $.parameter_array, $.parameters)),
-      optional(field('body', $._expr)),
-    )),
-
-    defndynamic: $ => prec.left(PREC.defines, seq(
-      'defndynamic',
-      field('name', $.identifier),
-      field('parameters', choice($.parameter_ident, $.parameter_array, $.parameters)),
-      optional(field('body', $._expr)),
-    )),
-
-    defmodule: $ => prec.left(PREC.defines, seq(
-      'defmodule',
-      field('name', alias($.identifier, $.module_identifier)),
-      repeat(field('item', $._expr)),
-    )),
-
-
-    deftype: $ => prec.left(PREC.defines, seq(
-      'deftype',
-      choice(
-        $._deftype1,
-        $._deftype2,
-        $._deftype3,
-      ),
-    )),
-
-    _deftype1: $ => prec.left(seq(
-      $._name_deftypes,
-      field('fields', choice($.field_ident, $.field_array, $.fields)),
-    )),
-
-    _deftype2: $ => prec.left(seq(
-      $._name_deftypes,
-      repeat(seq(
-        '(',
-        field('variant', alias($.identifier, $.variant_identifier)),
-        field('fields', choice($.field_ident, $.field_array, $.fields)),
-        ')',
-      )),
-    )),
-
-    _deftype3: $ => prec.left(PREC.call, seq(
-      field('name', alias($.identifier, $.type_identifier)),
-      repeat(field('variant', alias($.identifier, $.variant_identifier)))
-    )),
-
-    _name_deftypes: $ => choice(
-      field('name', alias($.identifier, $.type_identifier)),
-      seq(
-        '(',
-        field('name', $.identifier),
-        optional(field('generic_type', repeat($.identifier))),
-        ')',
-      ),
-    ),
-
-    _tagged_union: $ => seq(
-      '(',
-      field('variant', $.identifier),
-      field('fields', choice($.field_ident, $.fields)),
-      ')',
-    ),
-
-    // Helpers
-
-    interface_fn: $ => seq(
-      choice('Fn', 'λ'),
-      field('typed_params', choice($.typed_parameter_ident, $.typed_parameter_array, $.typed_parameters)),
-      field('return_type', choice($._short_helper, $.type)),
-    ),
-
-    type: $ => choice(
-      alias(choice(...core_types), $.identifier),
-      $.complex_type,
-      $.identifier,
-    ),
-
-    complex_type: $ => seq(
-      '(',
-      repeat(choice(
-        alias(choice(...core_types), $.identifier),
-        $.complex_type,
-        $.identifier,
-        $.interface_fn,
-      )),
-      ')',
-    ),
-
-    parameters: $ => seq(
-      '[',
-      repeat(choice($._identifier, $.symbol)),
-      ']',
-    ),
-
-    parameter_array: $ => seq(
-      '(',
-      'array',
-      optional(repeat(choice($._identifier, $.symbol))),
-      ')',
-    ),
-
-    parameter_ident: $ => $.identifier,
-
-    typed_parameters: $ => seq(
-      '[',
-      repeat(choice($.type, $._short_helper)),
-      ']',
-    ),
-
-    typed_parameter_array: $ => seq(
-      '(',
-      'array',
-      optional(repeat(choice($.type, $._short_helper))),
-      ')',
-    ),
-
-    typed_parameter_ident: $ => $.identifier,
-
-    fields: $ => seq(
-      '[',
-      repeat(seq(choice(
-        $.identifier,
-        $.complex_type,
-        alias(choice(...core_types), $.type)
-      ))),
-      ']',
-    ),
-
-    field_array: $ => seq(
-      '(',
-      'array',
-      optional(repeat(seq(choice(
-        $.identifier,
-        $.complex_type,
-        alias(choice(...core_types), $.type)
-      )))),
-      ')',
-    ),
-
-    field_ident: $ => $.identifier,
-
-    short_ref: $ => seq('&', $._expr),
-
-    short_copy: $ => seq('@', $._expr),
-
-    short_fn_ref: $ => seq('~', $._expr),
-
-    // Literals
-    integer_literal: $ => prec(PREC.literal, token(seq(
+    integer_literal: $ => token(seq(
       optional('-'),
       choice(
         /[0-9][0-9]*/,
         /[0-9][0-9]*l/,
         /[0-9][0-9]*b/,
       ),
-    ))),
+    )),
 
-    float_literal: $ => prec(PREC.literal, token(seq(
+    float_literal: $ => token(seq(
       optional('-'),
       choice(
         /[0-9][0-9]*f/,
         /[0-9][0-9]*\.[0-9][0-9]*f?/,
       ),
-    ))),
+    )),
 
-    bool_literal: $ => prec(PREC.literal, choice('true', 'false')),
+    bool_literal: $ => choice('true', 'false'),
 
-    str_literal: $ => prec(PREC.literal, seq(
+    str_literal: $ => seq(
       '"',
       repeat(choice(
         /[^"\\]+/,
@@ -513,18 +361,18 @@ module.exports = grammar({
         // /./,
       )),
       token.immediate('"'),
-    )),
+    ),
 
-    char_literal: $ => prec(PREC.literal, seq(
+    char_literal: $ => seq(
       '\\',
       choice(
         $.escape_sequence,
         /\s/,
         /./,
       )
-    )),
+    ),
 
-    pattern_literal: $ => prec(PREC.literal, seq(
+    pattern_literal: $ => seq(
       '#"',
       repeat(choice(
         token.immediate(/[^"]+/),
@@ -534,68 +382,33 @@ module.exports = grammar({
         // /./,
       )),
       '"',
-    )),
+    ),
 
     escape_sequence: $ => token.immediate(
-      seq('\\',
-        choice(
-          /[^xu]/,
-          /u[0-9a-fA-F]{4}/,
-          /u{[0-9a-fA-F]+}/,
-          /x[0-9a-fA-F]{2}/
-        )
+      choice(
+        /\\[^xu]/,
+        /\\u[0-9a-fA-F]{4}/,
+        /\\u{[0-9a-fA-F]+}/,
+        /\\x[0-9a-fA-F]{2}/
       )
     ),
 
-    unit: $ => prec(PREC.literal, '()'),
+    unit: $ => '()',
 
-    array_expression: $ => seq(
-      '[',
-      repeat($._expr),
-      ']',
-    ),
-
-    map_expression: $ => seq(
-      '{',
-      repeat(
-        seq(
-          field('key', $._expr),
-          field('value',  $._expr),
-        )
-      ),
-      '}',
-    ),
-
-    symbol: $ => seq(
-      ':',
-      $.identifier,
-    ),
-
-    _identifier: $ => prec(PREC.literal, choice(
-      $.scoped_identifier,
-      $.identifier,
-    )),
-
-    // modular_identifier: $ => prec(PREC.literal, seq(
-    //   repeat(seq(
-    //     field('module', choice($.upper_identifier, $.all_upper)),
-    //     '.',
-    //   )),
-    //   choice($.all_upper, $.identifier),
-    // )),
+    _identifier: $ => choice($.keyword, $.symbol, $.scoped_identifier),
 
     scoped_identifier: $ => prec(PREC.literal, seq(
-      field('path', choice($.scoped_identifier, alias($.identifier, $.module_identifier))),
+      field('path', choice(
+        $.scoped_identifier,
+        alias($.symbol, $.module_symbol),
+        alias($.keyword, $.module_keyword)
+      )),
       '.',
-      $.identifier
+      $._identifier
     )),
 
-    _ignore: $ => choice(...ignore_str),
-    other_str: $ => choice(...important_str),
-    operators: $ => choice(...op),
-    // all_upper: $ => /[A-ZΑ-Ω][A-ZΑ-Ω][A-ZΑ-Ω0-9_]+/,
-    // upper_identifier: $ => /[A-ZΑ-Ω][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\+\-\*\/\|\!\?]*/,
-    identifier: $ => prec(PREC.literal, /[a-zA-Zα-ωΑ-Ωµ_<%=>\+\-\*\/\|\!\?][a-zA-Zα-ωΑ-Ω0-9µ_<%=>\+\-\*\/\|\!\?]*/),
+    keyword: $ => /:[^({\[\]})"'@&|`;,~#\s\\]/,
+    symbol: $ => /[^({\[\]})"'@&|`;.,~#\s\\:][^({\[\]})"'@&|`;,~#\s\\]*/,
   }
 });
 

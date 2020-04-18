@@ -140,6 +140,53 @@ Def with Map
       value: (float_literal))))
 
 ============================================
+Defn
+============================================
+
+(defn void [])
+
+(defn double [x] (* x 2))
+
+(defn func [a]
+  (do (this a))
+  (do (that a)))
+
+; inside macros
+(defn name arguments)
+
+---
+
+(source_file
+  (defn
+    name: (identifier)
+    parameters: (parameters))
+  (defn
+    name: (identifier)
+    parameters: (parameters
+      (identifier))
+    body: (call
+      name: (identifier)
+      argument: (identifier)
+      argument: (integer_literal)))
+  (defn
+    name: (identifier)
+    parameters: (parameters
+      (identifier))
+    body: (do
+      expr: (call
+        name: (identifier)
+        argument: (identifier)))
+    body: (do
+      expr: (call
+        name: (identifier)
+        argument: (identifier))))
+  (line_comment)
+  (defn
+    name: (identifier)
+    parameters: (parameter_ident
+      (identifier))))
+
+============================================
 Definterface
 ============================================
 
