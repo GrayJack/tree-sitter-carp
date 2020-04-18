@@ -227,7 +227,7 @@ Doc expressions
     doc_str: (str_literal)))
 
 ============================================
-hidden expressions
+Hidden expressions
 ============================================
 
 (hidden func)
@@ -239,6 +239,23 @@ hidden expressions
   (hidden
     path: (symbol))
   (hidden
+    path: (scoped_identifier
+      path: (module_symbol)
+      (symbol))))
+
+============================================
+Private expressions
+============================================
+
+(private func)
+(private path.func)
+
+---
+
+(source_file
+  (private
+    path: (symbol))
+  (private
     path: (scoped_identifier
       path: (module_symbol)
       (symbol))))

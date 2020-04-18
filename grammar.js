@@ -84,6 +84,7 @@ module.exports = grammar({
       $.hidden,
       $.doc,
       $.signature,
+      $.private,
     ),
 
 
@@ -135,6 +136,13 @@ module.exports = grammar({
       '(',
       field('signature', $.interface_fn),
       ')',
+      ')',
+    ),
+
+    private: $ => seq(
+      '(',
+      'private',
+      field('path', $._identifier),
       ')',
     ),
 

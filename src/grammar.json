@@ -79,6 +79,10 @@
         {
           "type": "SYMBOL",
           "name": "signature"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "private"
         }
       ]
     },
@@ -304,6 +308,31 @@
         {
           "type": "STRING",
           "value": ")"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "private": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "STRING",
+          "value": "private"
+        },
+        {
+          "type": "FIELD",
+          "name": "path",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_identifier"
+          }
         },
         {
           "type": "STRING",
