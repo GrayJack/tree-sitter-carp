@@ -2,4 +2,6 @@ corpus
 build
 script
 examples
-
+.mypy_cache
+test.carp
+tested.carp
