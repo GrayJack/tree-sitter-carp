@@ -1,34 +1,3 @@
-const PREC = {
-  literal: 11,
-  special: 10,
-  defines: 9,
-  call: 7,
-  call_module: 6,
-  ident1: 2,
-  ident: 1,
-}
-
-const op = [
-  '+', '-', '/', '*', '%', '<', '>',
-  '=', '<=', '>=', '/=', 'and', 'or', 'not', 'and*', 'or*'
-]
-
-const important_str = [
-  'let-do', 'while-do', 'defn-do', 'break', 'for', 'when',
-  'cond', 'unless', 'case', 'foreach', 'defdynamic', 'load',
-]
-
-// Strings to be ignored inside string and pattern literal
-const ignore_str = [
-  'fn', 'def', 'defn', 'let', 'do', 'if', 'while', 'use',
-  'with', 'ref', 'address', 'set', 'the', 'match', 'register',
-  'definterface', 'defmacro', 'defndynamic', 'defmodule',
-  'deftype',
-  'let-do', 'while-do', 'defn-do', 'break', 'for', 'when',
-  'cond', 'unless', 'case', 'foreach', 'defdynamic', 'load',
-  '(', ')', '[', ']', '{', '}', ';', '.', '\'', ';',
-]
-
 const core_types = [
   'Bool',
   'Byte',
@@ -571,7 +540,7 @@ module.exports = grammar({
 
     _identifier: $ => choice($.keyword, $.symbol, $.scoped_identifier),
 
-    scoped_identifier: $ => prec(PREC.literal, seq(
+    scoped_identifier: $ => prec(1, seq(
       field('path', choice(
         $.scoped_identifier,
         alias($.symbol, $.module_symbol),

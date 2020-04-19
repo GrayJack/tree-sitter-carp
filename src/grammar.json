@@ -2298,7 +2298,7 @@
     },
     "scoped_identifier": {
       "type": "PREC",
-      "value": 11,
+      "value": 1,
       "content": {
         "type": "SEQ",
         "members": [
