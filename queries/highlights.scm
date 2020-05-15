@@ -1,14 +1,18 @@
 ; Assume all-caps names are constants
 ((symbol) @constant
- (match? @constant "^[A-Z][A-Z\\d_]+$'"))
+ (#match? @constant "^[A-Z][A-Z\\d_]+$'"))
 
 ((line_comment) @comment)
 
 (call
-  name: (symbol) @function.call)
-  ; (match? @constructor.enum "^[A-Z\\d_]{1,}.+$")
-  ; (match? @operator "(<|<=|%|=|>|>=|\\+|\\-|\\*|\\/|and|and\\*|or|or\\*|not|/=)")
-  ; (match? @keyword.other "^(for|break|defdynamic|let\\-do|while\\-do|defn\\-do|load|system\\-include|local\\-include|register\\-type)"))
+  name: (symbol) @constructor.enum
+  (#match? @constructor.enum "^[A-Z\\d_]{1,}.+$"))
+; (call
+;   name: (symbol) @operator
+;   (#match? @operator "^<|<=|%|=|>|>=|\+|\-|\*|\/|and|and\*|or|or\*|not|\/="))
+(call
+  name: (symbol) @keyword.other
+  (#match? @keyword.other "^for|break|defdynamic|let\-do|while\-do|defn\-do|load|system\-include|local\-include|register\-type"))
 (short_fn_ref (symbol) @function.call)
 
 ((variant_symbol) @constructor.enum)
