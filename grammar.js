@@ -517,9 +517,10 @@ module.exports = grammar({
     str_literal: $ => seq(
       '"',
       repeat(choice(
-        /[^"\\]+/,
+        /[^"\\$]+/,
         // $._ignore,
         $.escape_sequence,
+        $.meta_symbol,
         // /\s/,
         // /./,
       )),
@@ -546,6 +547,8 @@ module.exports = grammar({
       )),
       '"',
     ),
+
+    meta_symbol: $ => token.immediate(/\$[^({\[\]})"'@&|`;.,~#\s\\:][^({\[\]})"'@&|`;.,~#\s\\]*/),
 
     escape_sequence: $ => token.immediate(
       choice(

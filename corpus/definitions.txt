@@ -448,8 +448,12 @@ Deftemplate
                 (symbol))))
           return_type: (type
             (core_types)))))
-    declaration: (str_literal)
-    definition: (str_literal))
+    declaration: (str_literal
+      (meta_symbol)
+      (meta_symbol)
+      (meta_symbol))
+    definition: (str_literal
+      (meta_symbol)))
   (deftemplate
     name: (symbol)
     type: (type
@@ -464,8 +468,12 @@ Deftemplate
             (complex_type
               (symbol)
               (symbol))))))
-    declaration: (str_literal)
-    definition: (str_literal))
+    declaration: (str_literal
+      (meta_symbol)
+      (meta_symbol)
+      (meta_symbol))
+    definition: (str_literal
+      (meta_symbol)))
   (deftemplate
     name: (symbol)
     type: (type
@@ -476,5 +484,8 @@ Deftemplate
               (core_types)))
           return_type: (type
             (symbol)))))
-    declaration: (str_literal)
-    definition: (str_literal)))
+    declaration: (str_literal
+      (meta_symbol)
+      (meta_symbol))
+    definition: (str_literal
+      (meta_symbol))))

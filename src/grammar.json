@@ -2273,11 +2273,15 @@
             "members": [
               {
                 "type": "PATTERN",
-                "value": "[^\"\\\\]+"
+                "value": "[^\"\\\\$]+"
               },
               {
                 "type": "SYMBOL",
                 "name": "escape_sequence"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "meta_symbol"
               }
             ]
           }
@@ -2344,6 +2348,13 @@
           "value": "\""
         }
       ]
+    },
+    "meta_symbol": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "\\$[^({\\[\\]})\"'@&|`;.,~#\\s\\\\:][^({\\[\\]})\"'@&|`;.,~#\\s\\\\]*"
+      }
     },
     "escape_sequence": {
       "type": "IMMEDIATE_TOKEN",

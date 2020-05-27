@@ -3402,6 +3402,10 @@
         {
           "type": "escape_sequence",
           "named": true
+        },
+        {
+          "type": "meta_symbol",
+          "named": true
         }
       ]
     }
@@ -3957,6 +3961,10 @@
   {
     "type": "match",
     "named": false
+  },
+  {
+    "type": "meta_symbol",
+    "named": true
   },
   {
     "type": "module_keyword",
