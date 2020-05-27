@@ -478,6 +478,11 @@ module.exports = grammar({
     integer_literal: $ => token(seq(
       optional('-'),
       choice(
+        /0x[0-9a-fA-F]+/,
+        /0x[0-9a-fA-F]+l/,
+        /0b[01]+/,
+        /0b[01]+l/,
+        /0b[01]+b/,
         /[0-9][0-9]*/,
         /[0-9][0-9]*l/,
         /[0-9][0-9]*b/,

@@ -29,10 +29,20 @@ Integer literal
 100
 1500l
 1b
+0x001ABC
+0x001ABCl
+0b01001
+0b01001b
+0b01001l
 
 ---
 
 (source_file
+  (integer_literal)
+  (integer_literal)
+  (integer_literal)
+  (integer_literal)
+  (integer_literal)
   (integer_literal)
   (integer_literal)
   (integer_literal))
