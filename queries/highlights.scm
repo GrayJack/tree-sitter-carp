@@ -57,6 +57,7 @@
 "defmodule" @keyword
 "defndynamic" @keyword
 "definterface" @keyword
+"deftemplate" @keyword
 
 (short_copy "@" @support.copy)
 (short_ref "&" @support.reference)

@@ -284,6 +284,7 @@ module.exports = grammar({
       $.defndynamic,
       $.defmodule,
       $.deftype,
+      $.deftemplate,
     ),
 
     def: $ => seq(
@@ -393,6 +394,20 @@ module.exports = grammar({
 
     _field: $ => choice(
       alias($.symbol, $.field_symbol), $.call, $.quote, $.short_quote,
+    ),
+
+    deftemplate: $ => seq(
+      '(',
+      'deftemplate',
+      field('name', $._defs_name),
+      field('type', $.type),
+      field('declaration', $._deftemplate_str),
+      field('definition', $._deftemplate_str ),
+      ')',
+    ),
+
+    _deftemplate_str: $ => choice(
+      $.str_literal, $.pattern_literal, $.quote, $.short_quote,
     ),
 
     _defs_name: $ => choice(

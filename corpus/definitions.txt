@@ -420,3 +420,61 @@ Deftype
     (variant_symbol)
     (variant_symbol)
     (variant_symbol)))
+
+============================================
+Deftemplate
+============================================
+
+(deftemplate eq (Fn [(Ptr p) (Ptr p)] Bool) "bool $NAME($p *p1, $p *p2)" " $DECL { return p1 == p2; }")
+(deftemplate to-ref (Fn [(Ptr p)] (Ref p)) "$p* $NAME($p* p)" " $DECL { return p; }")
+(deftemplate exit (Fn [Int] a) "$a $NAME(int code)" "$DECL { exit(code); }")
+
+---
+
+(source_file
+  (deftemplate
+    name: (symbol)
+    type: (type
+      (complex_type
+        (interface_fn
+          type_parameters: (type_parameters
+            (type
+              (complex_type
+                (core_types)
+                (symbol)))
+            (type
+              (complex_type
+                (core_types)
+                (symbol))))
+          return_type: (type
+            (core_types)))))
+    declaration: (str_literal)
+    definition: (str_literal))
+  (deftemplate
+    name: (symbol)
+    type: (type
+      (complex_type
+        (interface_fn
+          type_parameters: (type_parameters
+            (type
+              (complex_type
+                (core_types)
+                (symbol))))
+          return_type: (type
+            (complex_type
+              (symbol)
+              (symbol))))))
+    declaration: (str_literal)
+    definition: (str_literal))
+  (deftemplate
+    name: (symbol)
+    type: (type
+      (complex_type
+        (interface_fn
+          type_parameters: (type_parameters
+            (type
+              (core_types)))
+          return_type: (type
+            (symbol)))))
+    declaration: (str_literal)
+    definition: (str_literal)))

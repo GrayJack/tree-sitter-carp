@@ -1066,6 +1066,10 @@
         {
           "type": "SYMBOL",
           "name": "deftype"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "deftemplate"
         }
       ]
     },
@@ -1601,6 +1605,76 @@
         {
           "type": "SYMBOL",
           "name": "call"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "quote"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "short_quote"
+        }
+      ]
+    },
+    "deftemplate": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "STRING",
+          "value": "deftemplate"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_defs_name"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "type",
+          "content": {
+            "type": "SYMBOL",
+            "name": "type"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "declaration",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_deftemplate_str"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "definition",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_deftemplate_str"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "_deftemplate_str": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "str_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "pattern_literal"
         },
         {
           "type": "SYMBOL",

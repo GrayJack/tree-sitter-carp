@@ -28,6 +28,10 @@
         "named": true
       },
       {
+        "type": "deftemplate",
+        "named": true
+      },
+      {
         "type": "deftype",
         "named": true
       }
@@ -1101,6 +1105,92 @@
           },
           {
             "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "deftemplate",
+    "named": true,
+    "fields": {
+      "declaration": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "pattern_literal",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          },
+          {
+            "type": "str_literal",
+            "named": true
+          }
+        ]
+      },
+      "definition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "pattern_literal",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          },
+          {
+            "type": "str_literal",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "scoped_identifier",
+            "named": true
+          },
+          {
+            "type": "short_quote",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type",
             "named": true
           }
         ]
@@ -3802,6 +3892,10 @@
   },
   {
     "type": "defndynamic",
+    "named": false
+  },
+  {
+    "type": "deftemplate",
     "named": false
   },
   {
