@@ -455,6 +455,7 @@ module.exports = grammar({
         $.complex_type,
         $.symbol,
         $.interface_fn,
+        $.static_lifetime,
       )),
       ')',
     ),
@@ -472,6 +473,8 @@ module.exports = grammar({
       $.quote,
       $.short_quote,
     ),
+
+    static_lifetime: $ => 'StaticLifetime',
 
     type_parameters: $ => seq(
       '[',

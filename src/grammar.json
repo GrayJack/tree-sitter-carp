@@ -2006,6 +2006,10 @@
               {
                 "type": "SYMBOL",
                 "name": "interface_fn"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "static_lifetime"
               }
             ]
           }
@@ -2093,6 +2097,10 @@
           "name": "short_quote"
         }
       ]
+    },
+    "static_lifetime": {
+      "type": "STRING",
+      "value": "StaticLifetime"
     },
     "type_parameters": {
       "type": "SEQ",

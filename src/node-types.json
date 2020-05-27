@@ -437,6 +437,10 @@
           "named": true
         },
         {
+          "type": "static_lifetime",
+          "named": true
+        },
+        {
           "type": "symbol",
           "named": true
         }
@@ -3997,6 +4001,10 @@
   {
     "type": "sig",
     "named": false
+  },
+  {
+    "type": "static_lifetime",
+    "named": true
   },
   {
     "type": "symbol",
